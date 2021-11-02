@@ -1,6 +1,9 @@
 import { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 
 const EstimationForm = () => {
+  const history = useHistory()
+
   const [title, setTitle] = useState('')
   const [formFields, setFormFields] = useState([
     { index: 0, name: '', quantity: 0, price: 0 },
@@ -12,7 +15,7 @@ const EstimationForm = () => {
       <label>Title</label>
       <input
         type="text"
-        placeholder="Fruit Gift"
+        placeholder="Estimation Title"
         onChange={e => setTitle(e.target.value)}
       />
       <table>
@@ -36,6 +39,7 @@ const EstimationForm = () => {
               <td>
                 <input
                   type={'number'}
+                  min={0}
                   defaultValue={field.quantity}
                   onChange={e => (field.quantity = e.target.value)}
                 />
@@ -43,6 +47,7 @@ const EstimationForm = () => {
               <td>
                 <input
                   type={'number'}
+                  min={0}
                   defaultValue={field.price}
                   onChange={e => (field.price = e.target.value)}
                 />
@@ -74,11 +79,15 @@ const EstimationForm = () => {
             },
           ])
         }>
-        Add Field
+        + Add Field
       </button>
       <button
         onClick={() => {
-          console.log({ title, fields: formFields })
+          title &&
+            formFields.filter(field => field.name == '').length == 0 &&
+            history.push('/result', {
+              formValues: { title, fields: formFields },
+            })
         }}>
         Submit
       </button>

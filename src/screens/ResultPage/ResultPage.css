@@ -1,0 +1,35 @@
+.result-page-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+}
+.result-page-wrapper table {
+  border-collapse: collapse;
+  width: 50%;
+}
+
+.result-page-wrapper table th {
+  padding: 0.5rem 1.5rem;
+  background-color: #cedde2;
+}
+
+.result-page-wrapper table tbody td {
+  border: 0.5px #00000022 solid;
+}
+
+.result-page-wrapper table tbody td {
+  text-align: center;
+}
+
+.result-page-wrapper table tbody td:last-child {
+  font-weight: bold;
+  background-color: #cedde244;
+}
+
+.result-page-wrapper table tbody tr:last-child {
+  font-weight: bold;
+  background-color: #cedde244;
+}
