@@ -54,6 +54,14 @@ const EstimationForm = () => {
               </td>
               <td>
                 <button
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    height: '1.5rem',
+                    backgroundColor: '#d21404',
+                    color: 'white',
+                  }}
                   onClick={() =>
                     formFields.length > 1 &&
                     setFormFields(

@@ -6,6 +6,13 @@
   min-height: 100vh;
   width: 100%;
 }
+
+.result-page-wrapper button {
+  margin-top: 0.2rem;
+  width: 50%;
+  padding: 0.5rem;
+}
+
 .result-page-wrapper table {
   border-collapse: collapse;
   width: 50%;
@@ -13,23 +20,19 @@
 
 .result-page-wrapper table th {
   padding: 0.5rem 1.5rem;
-  background-color: #cedde2;
+  color: white;
+  background-color: var(--main-color);
 }
 
 .result-page-wrapper table tbody td {
-  border: 0.5px #00000022 solid;
+  border: 0.5px var(--main-color-200) solid;
 }
 
 .result-page-wrapper table tbody td {
   text-align: center;
 }
 
-.result-page-wrapper table tbody td:last-child {
-  font-weight: bold;
-  background-color: #cedde244;
-}
-
 .result-page-wrapper table tbody tr:last-child {
   font-weight: bold;
-  background-color: #cedde244;
+  background-color: var(--main-color-400);
 }
