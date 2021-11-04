@@ -1,3 +1,6 @@
+import '../../assets/fonts/Koruri-Regular-normal'
+import '../../assets/fonts/Koruri-Bold-bold'
+import '../../assets/fonts/Koruri-Semibold-bold'
 import './ResultPage.css'
 import 'jspdf-autotable'
 
@@ -15,6 +18,9 @@ const ResultPage = () => {
 
   const onExport = async () => {
     const doc = new jsPDF()
+
+    doc.setFont('Koruri-Semibold', 'bold')
+
     doc.text(location.state.formValues.title, 15, 10)
 
     const fields = location.state.formValues.fields.map(field => [
@@ -25,8 +31,16 @@ const ResultPage = () => {
     ])
     doc.autoTable({
       theme: 'grid',
-      styles: { halign: 'center' },
-      headStyles: { fillColor: '#8ab0ab' },
+      styles: {
+        font: 'Koruri-Regular',
+        fontStyle: 'normal',
+        halign: 'center',
+      },
+      headStyles: {
+        font: 'Koruri-Bold',
+        fontStyle: 'bold',
+        fillColor: '#8ab0ab',
+      },
       head: [['Name', 'Quantity', 'Price', 'Subtotal']],
       body: [
         ...fields,
@@ -37,6 +51,7 @@ const ResultPage = () => {
             rowSpan: 2,
             styles: {
               halign: 'center',
+              font: 'Koruri-Bold',
               fontStyle: 'bold',
               fillColor: '#d6e4e2',
             },
@@ -48,6 +63,7 @@ const ResultPage = () => {
             ),
             styles: {
               halign: 'center',
+              font: 'Koruri-Bold',
               fontStyle: 'bold',
               fillColor: '#d6e4e2',
             },
