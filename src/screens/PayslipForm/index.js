@@ -19,8 +19,8 @@ const PayslipForm = () => {
       transferAccount: null,
     },
     employmentStatus: {
-      workDays: null,
-      holidays: { days: null, hours: null },
+      workDays: 0,
+      holidays: { days: 0, hours: 0 },
     },
     personalSituation: {
       qualification: null,
@@ -39,6 +39,10 @@ const PayslipForm = () => {
       pension: 0,
       employmentInsurance: 0,
       total: 0,
+    },
+    breakdown: {
+      dormitoryFee: 0,
+      companyHousingExpenses: 0,
     },
   })
 
@@ -484,8 +488,8 @@ const PayslipForm = () => {
         ],
       ],
       body: [
-        ['寮費 / 社宅費', ''],
-        ['社宅費 本人', ''],
+        ['※寮費 / 社宅費', `${formValues.breakdown.dormitoryFee}`],
+        ['社宅費 本人', `${formValues.breakdown.companyHousingExpenses}`],
         [''],
         [''],
         [''],

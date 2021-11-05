@@ -1,6 +1,6 @@
 import './BreakdownForm.css'
 
-const BreakdownForm = () => {
+const BreakdownForm = ({ setFormValues }) => {
   return (
     <div className={'breakdown-wrapper'}>
       <table style={{}}>
@@ -18,10 +18,21 @@ const BreakdownForm = () => {
           </tr>
           <tr>
             <td>
-              <label>寮費 / 社宅費</label>
+              <label>※寮費 / 社宅費</label>
             </td>
             <td style={{ float: 'right' }}>
-              <input type={'number'} placeholder={0} min={0} />
+              <input
+                type={'number'}
+                placeholder={0}
+                min={0}
+                onChange={e =>
+                  setFormValues(prevState => {
+                    const formValues = { ...prevState }
+                    formValues.breakdown.dormitoryFee = e.target.value
+                    return formValues
+                  })
+                }
+              />
             </td>
           </tr>
           <tr>
@@ -29,7 +40,18 @@ const BreakdownForm = () => {
               <label>社宅費 本人</label>
             </td>
             <td style={{ float: 'right' }}>
-              <input type={'number'} placeholder={0} min={0} />
+              <input
+                type={'number'}
+                placeholder={0}
+                min={0}
+                onChange={e =>
+                  setFormValues(prevState => {
+                    const formValues = { ...prevState }
+                    formValues.breakdown.companyHousingExpenses = e.target.value
+                    return formValues
+                  })
+                }
+              />
             </td>
           </tr>
           <tr style={{ height: '1.2rem' }}>
@@ -44,6 +66,11 @@ const BreakdownForm = () => {
       </table>
     </div>
   )
+}
+
+BreakdownForm.propTypes = {
+  formValues: Object,
+  setFormValues: Function,
 }
 
 export default BreakdownForm

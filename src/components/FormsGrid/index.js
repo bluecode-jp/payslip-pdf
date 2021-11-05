@@ -21,7 +21,7 @@ const FormsGrid = ({ formValues, setFormValues }) => {
         <DeductionItemsForm {...{ formValues, setFormValues }} />
       </div>
       <div className="section section4">
-        <BreakdownForm />
+        <BreakdownForm {...{ formValues, setFormValues }} />
       </div>
       <div className="section section5">
         <CommuteForm />
