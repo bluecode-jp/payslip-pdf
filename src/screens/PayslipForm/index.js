@@ -1,9 +1,11 @@
 import '../../assets/fonts/Koruri-Regular-normal'
 import '../../assets/fonts/Koruri-Bold-bold'
 import '../../assets/fonts/Koruri-Semibold-bold'
+import './PayslipForm.css'
 import 'jspdf-autotable'
 
 import { jsPDF } from 'jspdf'
+import GridTest from '../FormsGrid'
 
 const PayslipForm = () => {
   const onExport = async () => {
@@ -570,9 +572,50 @@ const PayslipForm = () => {
     // doc.output('dataurlnewwindow')
     // doc.save(Date.now() + '.pdf')
   }
+
   return (
     <div className={'payslip-form-wrapper'}>
       <button onClick={onExport}>Export PDF</button>
+      <div className={'header-wrapper'}>
+        <h2>給料明細</h2>
+        <div>
+          <input
+            type="number"
+            style={{ width: '4rem' }}
+            min={1993}
+            placeholder="2021"
+          />
+          <label>年</label>
+          <input
+            type="number"
+            style={{ width: '3rem' }}
+            min={1}
+            max={12}
+            placeholder="09"
+          />
+          <label>月度</label>
+        </div>
+        <div>
+          <input type="text" placeholder="ACME" />
+          <label>株式会社</label>
+        </div>
+        <div>
+          <label>所属</label>
+          <input type="text" placeholder="ACME" />
+        </div>
+        <div>
+          <label>従業員番号</label>
+          <input type="text" placeholder="02494681733942" />
+          <label>氏名</label>
+          <input type="text" placeholder="John Doe" />
+          <label>様</label>
+        </div>
+        <div>
+          <label>振込口座</label>
+          <input type="text" placeholder="02494681733942" />
+        </div>
+      </div>
+      <GridTest />
     </div>
   )
 }

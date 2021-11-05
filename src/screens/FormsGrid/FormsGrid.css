@@ -1,0 +1,32 @@
+.grid-wrapper {
+  display: grid;
+  width: 100%;
+  min-height: 100vh;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, minmax(200px, auto));
+  grid-auto-flow: dense;
+  grid-auto-rows: max-content;
+}
+
+.section4 {
+  grid-column: span 2;
+}
+
+.section6 {
+  grid-column: span 3;
+}
+
+@media (max-width: 768px) {
+  .grid-wrapper {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+  .section4 {
+    grid-column: span 1;
+  }
+
+  .section6 {
+    grid-column: span 1;
+  }
+}
