@@ -1,10 +1,11 @@
+import './FormsGrid.css'
+import NoteForm from '../../screens/PayslipForm/forms/NoteForm'
+import CommuteForm from '../../screens/PayslipForm/forms/CommuteForm'
 import PayItemsForm from '../../screens/PayslipForm/forms/PayItemsForm'
+import BreakdownForm from '../../screens/PayslipForm/forms/BreakdownForm'
 import DeductionItemsForm from '../../screens/PayslipForm/forms/DeductionItemsForm'
 import EmploymentStatusForm from '../../screens/PayslipForm/forms/EmploymentStatusForm'
 import PersonalSituationForm from '../../screens/PayslipForm/forms/PersonalSituationForm'
-import './FormsGrid.css'
-import BreakdownForm from '../../screens/PayslipForm/forms/BreakdownForm'
-import CommuteForm from '../../screens/PayslipForm/forms/CommuteForm'
 
 const FormsGrid = () => {
   return (
@@ -26,7 +27,7 @@ const FormsGrid = () => {
         <CommuteForm />
       </div>
       <div className="section section6">
-        <EmploymentStatusForm />
+        <NoteForm />
       </div>
     </div>
   )

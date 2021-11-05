@@ -1,0 +1,13 @@
+.note-wrapper table {
+  width: 100%;
+}
+
+.note-wrapper table td {
+  display: flex;
+  justify-content: center;
+}
+
+.note-wrapper textarea {
+  width: 99%;
+  resize: none;
+}
