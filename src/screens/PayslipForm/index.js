@@ -48,6 +48,7 @@ const PayslipForm = () => {
       monthlyFee: 0,
       monthlyTaxableFee: 0,
     },
+    oshirase: '',
   })
 
   const onExport = async () => {
@@ -616,10 +617,10 @@ const PayslipForm = () => {
       body: [
         [
           {
-            content: '',
+            content: `${formValues.oshirase}`,
             // Dynamic height of nested tables are not supported right now
             // so we need to define height of the parent cell
-            styles: { minCellHeight: 45 },
+            styles: { valign: 'top', minCellHeight: 45 },
           },
         ],
       ],

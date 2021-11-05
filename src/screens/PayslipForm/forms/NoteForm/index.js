@@ -1,6 +1,6 @@
 import './NoteForm.css'
 
-const NoteForm = () => {
+const NoteForm = ({ setFormValues }) => {
   return (
     <div className={'note-wrapper'}>
       <table style={{}}>
@@ -22,6 +22,13 @@ const NoteForm = () => {
                   'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a felis malesuada, ultrices odio vitae, porta justo. '
                 }
                 rows={6}
+                onChange={e =>
+                  setFormValues(prevState => {
+                    const formValues = { ...prevState }
+                    formValues.oshirase = e.target.value
+                    return formValues
+                  })
+                }
               />
             </td>
           </tr>
@@ -29,6 +36,11 @@ const NoteForm = () => {
       </table>
     </div>
   )
+}
+
+NoteForm.propTypes = {
+  formValues: Object,
+  setFormValues: Function,
 }
 
 export default NoteForm
