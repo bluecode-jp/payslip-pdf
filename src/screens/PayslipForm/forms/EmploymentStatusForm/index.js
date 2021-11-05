@@ -1,6 +1,6 @@
 import './EmploymentStatusForm.css'
 
-const EmploymentStatusForm = () => {
+const EmploymentStatusForm = ({ setFormValues }) => {
   return (
     <div className={'employment-status-wrapper'}>
       <table style={{}}>
@@ -21,7 +21,18 @@ const EmploymentStatusForm = () => {
               <label>出勤日数 (日)</label>
             </td>
             <td style={{ float: 'right' }}>
-              <input type={'number'} placeholder={0} min={0} />
+              <input
+                type={'number'}
+                placeholder={0}
+                min={0}
+                onChange={e =>
+                  setFormValues(prevState => {
+                    const formValues = { ...prevState }
+                    formValues.employmentStatus.workDays = e.target.value
+                    return formValues
+                  })
+                }
+              />
             </td>
           </tr>
           <tr>
@@ -29,7 +40,18 @@ const EmploymentStatusForm = () => {
               <label>計画休日(日)</label>
             </td>
             <td style={{ float: 'right' }}>
-              <input type={'number'} placeholder={0} min={0} />
+              <input
+                type={'number'}
+                placeholder={0}
+                min={0}
+                onChange={e =>
+                  setFormValues(prevState => {
+                    const formValues = { ...prevState }
+                    formValues.employmentStatus.holidays.days = e.target.value
+                    return formValues
+                  })
+                }
+              />
             </td>
           </tr>
           <tr>
@@ -37,7 +59,18 @@ const EmploymentStatusForm = () => {
               <label>計画休日(時)</label>
             </td>
             <td style={{ float: 'right' }}>
-              <input type={'number'} placeholder={0} min={0} />
+              <input
+                type={'number'}
+                placeholder={0}
+                min={0}
+                onChange={e =>
+                  setFormValues(prevState => {
+                    const formValues = { ...prevState }
+                    formValues.employmentStatus.holidays.hours = e.target.value
+                    return formValues
+                  })
+                }
+              />
             </td>
           </tr>
           <tr style={{ height: '1.2rem' }}>
@@ -52,6 +85,11 @@ const EmploymentStatusForm = () => {
       </table>
     </div>
   )
+}
+
+EmploymentStatusForm.propTypes = {
+  formValues: Object,
+  setFormValues: Function,
 }
 
 export default EmploymentStatusForm

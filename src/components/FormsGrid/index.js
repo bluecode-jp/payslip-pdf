@@ -7,11 +7,11 @@ import DeductionItemsForm from '../../screens/PayslipForm/forms/DeductionItemsFo
 import EmploymentStatusForm from '../../screens/PayslipForm/forms/EmploymentStatusForm'
 import PersonalSituationForm from '../../screens/PayslipForm/forms/PersonalSituationForm'
 
-const FormsGrid = () => {
+const FormsGrid = ({ formValues, setFormValues }) => {
   return (
     <div className={'grid-wrapper'}>
       <div className="section section1">
-        <EmploymentStatusForm />
+        <EmploymentStatusForm {...{ formValues, setFormValues }} />
         <PersonalSituationForm />
       </div>
       <div className="section section2">
@@ -31,6 +31,11 @@ const FormsGrid = () => {
       </div>
     </div>
   )
+}
+
+FormsGrid.propTypes = {
+  formValues: Object,
+  setFormValues: Function,
 }
 
 export default FormsGrid
