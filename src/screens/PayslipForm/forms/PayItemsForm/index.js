@@ -1,6 +1,6 @@
 import './PayItemsForm.css'
 
-const PayItemsForm = () => {
+const PayItemsForm = ({ formValues, setFormValues }) => {
   return (
     <div className={'pay-items-wrapper'}>
       <table style={{}}>
@@ -21,7 +21,23 @@ const PayItemsForm = () => {
               <label>基本給</label>
             </td>
             <td style={{ float: 'right' }}>
-              <input type={'number'} placeholder={0} min={0} />
+              <input
+                type={'number'}
+                placeholder={0}
+                min={0}
+                onChange={e =>
+                  setFormValues(prevState => {
+                    const formValues = { ...prevState }
+                    formValues.toBePaid.baseSalary = e.target.value
+                    formValues.toBePaid.total =
+                      +formValues.toBePaid.baseSalary +
+                      +formValues.toBePaid.qualificationSalary +
+                      +formValues.toBePaid.roleSalary +
+                      +formValues.toBePaid.evaluationSalary
+                    return formValues
+                  })
+                }
+              />
             </td>
           </tr>
           <tr>
@@ -29,7 +45,23 @@ const PayItemsForm = () => {
               <label>資格給</label>
             </td>
             <td style={{ float: 'right' }}>
-              <input type={'number'} placeholder={0} min={0} />
+              <input
+                type={'number'}
+                placeholder={0}
+                min={0}
+                onChange={e =>
+                  setFormValues(prevState => {
+                    const formValues = { ...prevState }
+                    formValues.toBePaid.qualificationSalary = e.target.value
+                    formValues.toBePaid.total =
+                      +formValues.toBePaid.baseSalary +
+                      +formValues.toBePaid.qualificationSalary +
+                      +formValues.toBePaid.roleSalary +
+                      +formValues.toBePaid.evaluationSalary
+                    return formValues
+                  })
+                }
+              />
             </td>
           </tr>
           <tr>
@@ -37,7 +69,23 @@ const PayItemsForm = () => {
               <label>役割給</label>
             </td>
             <td style={{ float: 'right' }}>
-              <input type={'number'} placeholder={0} min={0} />
+              <input
+                type={'number'}
+                placeholder={0}
+                min={0}
+                onChange={e =>
+                  setFormValues(prevState => {
+                    const formValues = { ...prevState }
+                    formValues.toBePaid.roleSalary = e.target.value
+                    formValues.toBePaid.total =
+                      +formValues.toBePaid.baseSalary +
+                      +formValues.toBePaid.qualificationSalary +
+                      +formValues.toBePaid.roleSalary +
+                      +formValues.toBePaid.evaluationSalary
+                    return formValues
+                  })
+                }
+              />
             </td>
           </tr>
           <tr>
@@ -45,7 +93,23 @@ const PayItemsForm = () => {
               <label>評価給</label>
             </td>
             <td style={{ float: 'right' }}>
-              <input type={'number'} placeholder={0} min={0} />
+              <input
+                type={'number'}
+                placeholder={0}
+                min={0}
+                onChange={e =>
+                  setFormValues(prevState => {
+                    const formValues = { ...prevState }
+                    formValues.toBePaid.evaluationSalary = e.target.value
+                    formValues.toBePaid.total =
+                      +formValues.toBePaid.baseSalary +
+                      +formValues.toBePaid.qualificationSalary +
+                      +formValues.toBePaid.roleSalary +
+                      +formValues.toBePaid.evaluationSalary
+                    return formValues
+                  })
+                }
+              />
             </td>
           </tr>
           <tr style={{ height: '1.2rem' }}>
@@ -65,13 +129,18 @@ const PayItemsForm = () => {
               <label>支給合計</label>
             </td>
             <td>
-              <label>{0}</label>
+              <label>{formValues.toBePaid.total}</label>
             </td>
           </tr>
         </tbody>
       </table>
     </div>
   )
+}
+
+PayItemsForm.propTypes = {
+  formValues: Object,
+  setFormValues: Function,
 }
 
 export default PayItemsForm

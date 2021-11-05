@@ -26,6 +26,13 @@ const PayslipForm = () => {
       qualification: null,
       contractClassification: null,
     },
+    toBePaid: {
+      baseSalary: 0,
+      qualificationSalary: 0,
+      roleSalary: 0,
+      evaluationSalary: 0,
+      total: 0,
+    },
   })
 
   const onExport = async () => {
@@ -151,10 +158,10 @@ const PayslipForm = () => {
         ],
       ],
       body: [
-        ['基本給', ''],
-        ['資格給', ''],
-        ['役割給', ''],
-        ['評価給', ''],
+        ['基本給', `${formValues.toBePaid.baseSalary}`],
+        ['資格給', `${formValues.toBePaid.qualificationSalary}`],
+        ['役割給', `${formValues.toBePaid.roleSalary}`],
+        ['評価給', `${formValues.toBePaid.evaluationSalary}`],
         [''],
         [''],
         [''],
