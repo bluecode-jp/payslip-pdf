@@ -18,7 +18,7 @@ const FormsGrid = ({ formValues, setFormValues }) => {
         <PayItemsForm {...{ formValues, setFormValues }} />
       </div>
       <div className="section section3">
-        <DeductionItemsForm />
+        <DeductionItemsForm {...{ formValues, setFormValues }} />
       </div>
       <div className="section section4">
         <BreakdownForm />

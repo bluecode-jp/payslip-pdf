@@ -1,6 +1,6 @@
 import './DeductionItemsForm.css'
 
-const DeductionItemsForm = () => {
+const DeductionItemsForm = ({ formValues, setFormValues }) => {
   return (
     <div className={'deduction-items-wrapper'}>
       <table style={{}}>
@@ -21,7 +21,23 @@ const DeductionItemsForm = () => {
               <label>基本給</label>
             </td>
             <td style={{ float: 'right' }}>
-              <input type={'number'} placeholder={0} min={0} />
+              <input
+                type={'number'}
+                placeholder={0}
+                min={0}
+                onChange={e =>
+                  setFormValues(prevState => {
+                    const formValues = { ...prevState }
+                    formValues.toBeDeducted.healthInsurance = e.target.value
+                    formValues.toBeDeducted.total =
+                      +formValues.toBeDeducted.healthInsurance +
+                      +formValues.toBeDeducted.longTermCare +
+                      +formValues.toBeDeducted.pension +
+                      +formValues.toBeDeducted.employmentInsurance
+                    return formValues
+                  })
+                }
+              />
             </td>
           </tr>
           <tr>
@@ -29,7 +45,23 @@ const DeductionItemsForm = () => {
               <label>資格給</label>
             </td>
             <td style={{ float: 'right' }}>
-              <input type={'number'} placeholder={0} min={0} />
+              <input
+                type={'number'}
+                placeholder={0}
+                min={0}
+                onChange={e =>
+                  setFormValues(prevState => {
+                    const formValues = { ...prevState }
+                    formValues.toBeDeducted.longTermCare = e.target.value
+                    formValues.toBeDeducted.total =
+                      +formValues.toBeDeducted.healthInsurance +
+                      +formValues.toBeDeducted.longTermCare +
+                      +formValues.toBeDeducted.pension +
+                      +formValues.toBeDeducted.employmentInsurance
+                    return formValues
+                  })
+                }
+              />
             </td>
           </tr>
           <tr>
@@ -37,7 +69,23 @@ const DeductionItemsForm = () => {
               <label>役割給</label>
             </td>
             <td style={{ float: 'right' }}>
-              <input type={'number'} placeholder={0} min={0} />
+              <input
+                type={'number'}
+                placeholder={0}
+                min={0}
+                onChange={e =>
+                  setFormValues(prevState => {
+                    const formValues = { ...prevState }
+                    formValues.toBeDeducted.pension = e.target.value
+                    formValues.toBeDeducted.total =
+                      +formValues.toBeDeducted.healthInsurance +
+                      +formValues.toBeDeducted.longTermCare +
+                      +formValues.toBeDeducted.pension +
+                      +formValues.toBeDeducted.employmentInsurance
+                    return formValues
+                  })
+                }
+              />
             </td>
           </tr>
           <tr>
@@ -45,7 +93,23 @@ const DeductionItemsForm = () => {
               <label>評価給</label>
             </td>
             <td style={{ float: 'right' }}>
-              <input type={'number'} placeholder={0} min={0} />
+              <input
+                type={'number'}
+                placeholder={0}
+                min={0}
+                onChange={e =>
+                  setFormValues(prevState => {
+                    const formValues = { ...prevState }
+                    formValues.toBeDeducted.employmentInsurance = e.target.value
+                    formValues.toBeDeducted.total =
+                      +formValues.toBeDeducted.healthInsurance +
+                      +formValues.toBeDeducted.longTermCare +
+                      +formValues.toBeDeducted.pension +
+                      +formValues.toBeDeducted.employmentInsurance
+                    return formValues
+                  })
+                }
+              />
             </td>
           </tr>
           <tr style={{ height: '1.2rem' }}>
@@ -65,7 +129,7 @@ const DeductionItemsForm = () => {
               <label>控除合計</label>
             </td>
             <td>
-              <label>{0}</label>
+              <label>{formValues.toBeDeducted.total}</label>
             </td>
           </tr>
         </tbody>
@@ -77,13 +141,20 @@ const DeductionItemsForm = () => {
               <label>差引支給額</label>
             </td>
             <td>
-              <label>{0}</label>
+              <label>
+                {formValues.toBePaid.total - formValues.toBeDeducted.total}
+              </label>
             </td>
           </tr>
         </tbody>
       </table>
     </div>
   )
+}
+
+DeductionItemsForm.propTypes = {
+  formValues: Object,
+  setFormValues: Function,
 }
 
 export default DeductionItemsForm

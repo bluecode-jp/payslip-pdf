@@ -33,6 +33,13 @@ const PayslipForm = () => {
       evaluationSalary: 0,
       total: 0,
     },
+    toBeDeducted: {
+      healthInsurance: 0,
+      longTermCare: 0,
+      pension: 0,
+      employmentInsurance: 0,
+      total: 0,
+    },
   })
 
   const onExport = async () => {
@@ -236,10 +243,10 @@ const PayslipForm = () => {
         ],
       ],
       body: [
-        ['健康保険料', ''],
-        ['介護保険料', ''],
-        ['厚生年金保険料', ''],
-        ['雇用保険料', ''],
+        ['健康保険料', `${formValues.toBeDeducted.healthInsurance}`],
+        ['介護保険料', `${formValues.toBeDeducted.longTermCare}`],
+        ['厚生年金保険料', `${formValues.toBeDeducted.pension}`],
+        ['雇用保険料', `${formValues.toBeDeducted.employmentInsurance}`],
         [''],
         [''],
         [''],
@@ -371,7 +378,7 @@ const PayslipForm = () => {
           },
         ],
       ],
-      body: [['支給合計', '0']],
+      body: [['支給合計', `${formValues.toBePaid.total}`]],
     })
     // ------------------- Table 6 (second row, to the right) -------------------
     doc.autoTable({
@@ -402,7 +409,7 @@ const PayslipForm = () => {
           },
         ],
       ],
-      body: [['控除合計 ', '0']],
+      body: [['控除合計 ', `${formValues.toBeDeducted.total}`]],
     })
     // ------------------- Table 7 (bottom of table 6) -------------------
     doc.autoTable({
@@ -433,7 +440,12 @@ const PayslipForm = () => {
           },
         ],
       ],
-      body: [['差引支給額', '0']],
+      body: [
+        [
+          '差引支給額',
+          `${formValues.toBePaid.total - formValues.toBeDeducted.total}`,
+        ],
+      ],
     })
 
     // ------------------- Table 8 (third row) -------------------
