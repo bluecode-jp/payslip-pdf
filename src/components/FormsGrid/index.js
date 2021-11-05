@@ -12,7 +12,7 @@ const FormsGrid = ({ formValues, setFormValues }) => {
     <div className={'grid-wrapper'}>
       <div className="section section1">
         <EmploymentStatusForm {...{ formValues, setFormValues }} />
-        <PersonalSituationForm />
+        <PersonalSituationForm {...{ formValues, setFormValues }} />
       </div>
       <div className="section section2">
         <PayItemsForm />

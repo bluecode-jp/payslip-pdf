@@ -22,6 +22,10 @@ const PayslipForm = () => {
       workDays: null,
       holidays: { days: null, hours: null },
     },
+    personalSituation: {
+      qualification: null,
+      contractClassification: null,
+    },
   })
 
   const onExport = async () => {
@@ -302,8 +306,11 @@ const PayslipForm = () => {
         ],
       ],
       body: [
-        ['資格 / 等級', ''],
-        ['契約区分', ''],
+        ['資格 / 等級', `${formValues.personalSituation.qualification || ''}`],
+        [
+          '契約区分',
+          `${formValues.personalSituation.contractClassification || ''}`,
+        ],
         [''],
         [''],
         [''],

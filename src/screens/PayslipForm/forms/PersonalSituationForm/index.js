@@ -1,6 +1,6 @@
 import './PersonalSituationForm.css'
 
-const PersonalSituationForm = () => {
+const PersonalSituationForm = ({ setFormValues }) => {
   return (
     <div className={'personal-situation-wrapper'}>
       <table style={{}}>
@@ -21,7 +21,17 @@ const PersonalSituationForm = () => {
               <label>資格 / 等級</label>
             </td>
             <td style={{ float: 'right' }}>
-              <input type={'number'} placeholder={0} min={0} />
+              <input
+                type={'text'}
+                placeholder={'G1'}
+                onChange={e =>
+                  setFormValues(prevState => {
+                    const formValues = { ...prevState }
+                    formValues.personalSituation.qualification = e.target.value
+                    return formValues
+                  })
+                }
+              />
             </td>
           </tr>
           <tr>
@@ -29,7 +39,18 @@ const PersonalSituationForm = () => {
               <label>契約区分</label>
             </td>
             <td style={{ float: 'right' }}>
-              <input type={'number'} placeholder={0} min={0} />
+              <input
+                type={'text'}
+                placeholder={'社員'}
+                onChange={e =>
+                  setFormValues(prevState => {
+                    const formValues = { ...prevState }
+                    formValues.personalSituation.contractClassification =
+                      e.target.value
+                    return formValues
+                  })
+                }
+              />
             </td>
           </tr>
           <tr style={{ height: '1.2rem' }}>
@@ -44,6 +65,11 @@ const PersonalSituationForm = () => {
       </table>
     </div>
   )
+}
+
+PersonalSituationForm.propTypes = {
+  formValues: Object,
+  setFormValues: Function,
 }
 
 export default PersonalSituationForm
