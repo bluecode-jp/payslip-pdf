@@ -44,6 +44,10 @@ const PayslipForm = () => {
       dormitoryFee: 0,
       companyHousingExpenses: 0,
     },
+    commute: {
+      monthlyFee: 0,
+      monthlyTaxableFee: 0,
+    },
   })
 
   const onExport = async () => {
@@ -550,8 +554,8 @@ const PayslipForm = () => {
         ],
       ],
       body: [
-        ['今月度通勤費非課税額', ''],
-        ['今月度通勤費課税額', ''],
+        ['今月度通勤費非課税額', `${formValues.commute.monthlyFee}`],
+        ['今月度通勤費課税額', `${formValues.commute.monthlyTaxableFee}`],
         [''],
         [''],
         [''],

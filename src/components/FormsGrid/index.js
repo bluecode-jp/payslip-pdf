@@ -24,7 +24,7 @@ const FormsGrid = ({ formValues, setFormValues }) => {
         <BreakdownForm {...{ formValues, setFormValues }} />
       </div>
       <div className="section section5">
-        <CommuteForm />
+        <CommuteForm {...{ formValues, setFormValues }} />
       </div>
       <div className="section section6">
         <NoteForm />

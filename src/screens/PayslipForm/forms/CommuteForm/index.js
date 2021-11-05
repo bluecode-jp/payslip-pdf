@@ -1,6 +1,6 @@
 import './CommuteForm.css'
 
-const CommuteForm = () => {
+const CommuteForm = ({ setFormValues }) => {
   return (
     <div className={'commute-wrapper'}>
       <table style={{}}>
@@ -21,7 +21,18 @@ const CommuteForm = () => {
               <label>今月度通勤費非課税額</label>
             </td>
             <td style={{ float: 'right' }}>
-              <input type={'number'} placeholder={0} min={0} />
+              <input
+                type={'number'}
+                placeholder={0}
+                min={0}
+                onChange={e =>
+                  setFormValues(prevState => {
+                    const formValues = { ...prevState }
+                    formValues.commute.monthlyFee = e.target.value
+                    return formValues
+                  })
+                }
+              />
             </td>
           </tr>
           <tr>
@@ -29,7 +40,18 @@ const CommuteForm = () => {
               <label>今月度通勤費課税額</label>
             </td>
             <td style={{ float: 'right' }}>
-              <input type={'number'} placeholder={0} min={0} />
+              <input
+                type={'number'}
+                placeholder={0}
+                min={0}
+                onChange={e =>
+                  setFormValues(prevState => {
+                    const formValues = { ...prevState }
+                    formValues.commute.monthlyTaxableFee = e.target.value
+                    return formValues
+                  })
+                }
+              />
             </td>
           </tr>
           <tr style={{ height: '1.2rem' }}>
@@ -44,6 +66,11 @@ const CommuteForm = () => {
       </table>
     </div>
   )
+}
+
+CommuteForm.propTypes = {
+  formValues: Object,
+  setFormValues: Function,
 }
 
 export default CommuteForm
