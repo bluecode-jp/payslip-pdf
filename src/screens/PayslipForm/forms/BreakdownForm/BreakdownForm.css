@@ -1,0 +1,11 @@
+.breakdown-wrapper table {
+  width: 100%;
+}
+
+.breakdown-wrapper table tr {
+  border: 0;
+}
+
+.breakdown-wrapper table tr:nth-child(even) {
+  background-color: #e5f3fe;
+}
