@@ -2,7 +2,7 @@ import './PersonalSituationForm.css'
 
 const PersonalSituationForm = () => {
   return (
-    <div className={'employment-status-wrapper'}>
+    <div className={'personal-situation-wrapper'}>
       <table style={{}}>
         <tbody>
           <tr>

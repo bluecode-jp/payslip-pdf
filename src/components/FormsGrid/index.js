@@ -1,4 +1,5 @@
 import EmploymentStatusForm from '../../screens/PayslipForm/forms/EmploymentStatusForm'
+import PayItemsForm from '../../screens/PayslipForm/forms/PayItemsForm'
 import PersonalSituationForm from '../../screens/PayslipForm/forms/PersonalSituationForm'
 import './FormsGrid.css'
 
@@ -10,7 +11,7 @@ const FormsGrid = () => {
         <PersonalSituationForm />
       </div>
       <div className="section section2">
-        <EmploymentStatusForm />
+        <PayItemsForm />
       </div>
       <div className="section section3">
         <EmploymentStatusForm />
