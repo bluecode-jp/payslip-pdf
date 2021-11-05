@@ -635,7 +635,6 @@ const PayslipForm = () => {
 
   return (
     <div className={'payslip-form-wrapper'}>
-      <button onClick={onExport}>Export PDF</button>
       <div className={'header-wrapper'}>
         <h2>給料明細</h2>
         <div>
@@ -740,6 +739,7 @@ const PayslipForm = () => {
         </div>
       </div>
       <FormsGrid {...{ formValues, setFormValues }} />
+      <button onClick={onExport}>PDF生成</button>
     </div>
   )
 }
