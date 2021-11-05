@@ -1,0 +1,11 @@
+.commute-wrapper table {
+  width: 100%;
+}
+
+.commute-wrapper table tr {
+  border: 0;
+}
+
+.commute-wrapper table tr:nth-child(even) {
+  background-color: #e5f3fe;
+}
