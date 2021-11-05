@@ -1,0 +1,14 @@
+.personal-situation-wrapper {
+}
+
+.personal-situation-wrapper table {
+  width: 100%;
+}
+
+.personal-situation-wrapper table tr {
+  border: 0;
+}
+
+.personal-situation-wrapper table tr:nth-child(even) {
+  background-color: #e5f3fe;
+}

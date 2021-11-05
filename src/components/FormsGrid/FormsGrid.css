@@ -8,6 +8,10 @@
   grid-auto-rows: max-content;
 }
 
+.section1 {
+  border: 0.5px solid #cccc;
+}
+
 .section4 {
   grid-column: span 2;
 }

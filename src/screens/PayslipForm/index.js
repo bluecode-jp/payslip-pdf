@@ -5,7 +5,7 @@ import './PayslipForm.css'
 import 'jspdf-autotable'
 
 import { jsPDF } from 'jspdf'
-import GridTest from '../FormsGrid'
+import FormsGrid from '../../components/FormsGrid'
 
 const PayslipForm = () => {
   const onExport = async () => {
@@ -615,7 +615,7 @@ const PayslipForm = () => {
           <input type="text" placeholder="02494681733942" />
         </div>
       </div>
-      <GridTest />
+      <FormsGrid />
     </div>
   )
 }

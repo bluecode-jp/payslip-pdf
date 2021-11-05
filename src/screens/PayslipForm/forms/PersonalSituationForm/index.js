@@ -1,6 +1,6 @@
-import './EmploymentStatusForm.css'
+import './PersonalSituationForm.css'
 
-const EmploymentStatusForm = () => {
+const PersonalSituationForm = () => {
   return (
     <div className={'employment-status-wrapper'}>
       <table style={{}}>
@@ -13,12 +13,12 @@ const EmploymentStatusForm = () => {
                 color: 'white',
               }}
               colSpan={2}>
-              雇用状況
+              本人状況
             </td>
           </tr>
           <tr>
             <td>
-              <label>出勤日数 (日)</label>
+              <label>資格 / 等級</label>
             </td>
             <td style={{ float: 'right' }}>
               <input type={'number'} placeholder={0} min={0} />
@@ -26,15 +26,7 @@ const EmploymentStatusForm = () => {
           </tr>
           <tr>
             <td>
-              <label>計画休日(日)</label>
-            </td>
-            <td style={{ float: 'right' }}>
-              <input type={'number'} placeholder={0} min={0} />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <label>計画休日(時)</label>
+              <label>契約区分</label>
             </td>
             <td style={{ float: 'right' }}>
               <input type={'number'} placeholder={0} min={0} />
@@ -54,4 +46,4 @@ const EmploymentStatusForm = () => {
   )
 }
 
-export default EmploymentStatusForm
+export default PersonalSituationForm

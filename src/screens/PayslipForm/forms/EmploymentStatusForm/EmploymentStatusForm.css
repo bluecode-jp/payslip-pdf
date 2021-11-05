@@ -1,0 +1,14 @@
+.employment-status-wrapper {
+}
+
+.employment-status-wrapper table {
+  width: 100%;
+}
+
+.employment-status-wrapper table tr {
+  border: 0;
+}
+
+.employment-status-wrapper table tr:nth-child(even) {
+  background-color: #e5f3fe;
+}
