@@ -13,7 +13,7 @@ const DeductionItemsForm = () => {
                 color: 'white',
               }}
               colSpan={2}>
-              支給項目
+              控除項目
             </td>
           </tr>
           <tr>
