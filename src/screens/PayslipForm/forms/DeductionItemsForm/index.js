@@ -18,7 +18,7 @@ const DeductionItemsForm = ({ formValues, setFormValues }) => {
           </tr>
           <tr>
             <td>
-              <label>基本給</label>
+              <label>健康保険料</label>
             </td>
             <td style={{ float: 'right' }}>
               <input
@@ -42,7 +42,7 @@ const DeductionItemsForm = ({ formValues, setFormValues }) => {
           </tr>
           <tr>
             <td>
-              <label>資格給</label>
+              <label>介護保険料</label>
             </td>
             <td style={{ float: 'right' }}>
               <input
@@ -66,7 +66,7 @@ const DeductionItemsForm = ({ formValues, setFormValues }) => {
           </tr>
           <tr>
             <td>
-              <label>役割給</label>
+              <label>厚生年金保険料</label>
             </td>
             <td style={{ float: 'right' }}>
               <input
@@ -90,7 +90,7 @@ const DeductionItemsForm = ({ formValues, setFormValues }) => {
           </tr>
           <tr>
             <td>
-              <label>評価給</label>
+              <label>雇用保険料</label>
             </td>
             <td style={{ float: 'right' }}>
               <input
