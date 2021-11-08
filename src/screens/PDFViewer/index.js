@@ -39,7 +39,7 @@ const PDFViewer = () => {
               justifyContent: 'flex-end',
               backgroundColor: '#eeeeee',
               borderBottom: '1px solid rgba(0, 0, 0, 0.1)',
-              padding: '4px',
+              padding: '4px 4rem',
             }}>
             <PrintButton />
             <DownloadButton />
