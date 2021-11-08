@@ -1,6 +1,7 @@
 import './EmploymentStatusForm.css'
+import { addCommas, removeNonNumeric } from '../../../../utils/utils'
 
-const EmploymentStatusForm = ({ setFormValues }) => {
+const EmploymentStatusForm = ({ formValues, setFormValues }) => {
   return (
     <div className={'employment-status-wrapper'}>
       <table style={{}}>
@@ -22,13 +23,15 @@ const EmploymentStatusForm = ({ setFormValues }) => {
             </td>
             <td style={{ float: 'right' }}>
               <input
-                type={'number'}
+                type={'text'}
                 placeholder={0}
-                min={0}
+                value={formValues.employmentStatus.workDays}
                 onChange={e =>
                   setFormValues(prevState => {
                     const formValues = { ...prevState }
-                    formValues.employmentStatus.workDays = e.target.value
+                    formValues.employmentStatus.workDays = addCommas(
+                      removeNonNumeric(e.target.value),
+                    )
                     return formValues
                   })
                 }
@@ -41,13 +44,15 @@ const EmploymentStatusForm = ({ setFormValues }) => {
             </td>
             <td style={{ float: 'right' }}>
               <input
-                type={'number'}
+                type={'text'}
                 placeholder={0}
-                min={0}
+                value={formValues.employmentStatus.holidays.days}
                 onChange={e =>
                   setFormValues(prevState => {
                     const formValues = { ...prevState }
-                    formValues.employmentStatus.holidays.days = e.target.value
+                    formValues.employmentStatus.holidays.days = addCommas(
+                      removeNonNumeric(e.target.value),
+                    )
                     return formValues
                   })
                 }
@@ -60,13 +65,15 @@ const EmploymentStatusForm = ({ setFormValues }) => {
             </td>
             <td style={{ float: 'right' }}>
               <input
-                type={'number'}
+                type={'text'}
                 placeholder={0}
-                min={0}
+                value={formValues.employmentStatus.holidays.hours}
                 onChange={e =>
                   setFormValues(prevState => {
                     const formValues = { ...prevState }
-                    formValues.employmentStatus.holidays.hours = e.target.value
+                    formValues.employmentStatus.holidays.hours = addCommas(
+                      removeNonNumeric(e.target.value),
+                    )
                     return formValues
                   })
                 }
