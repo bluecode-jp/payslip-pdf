@@ -1,4 +1,9 @@
 import './DeductionItemsForm.css'
+import {
+  addCommas,
+  removeNonNumeric,
+  removeCommas,
+} from '../../../../utils/utils'
 
 const DeductionItemsForm = ({ formValues, setFormValues }) => {
   return (
@@ -22,18 +27,20 @@ const DeductionItemsForm = ({ formValues, setFormValues }) => {
             </td>
             <td style={{ float: 'right' }}>
               <input
-                type={'number'}
+                type={'text'}
                 placeholder={0}
-                min={0}
+                value={addCommas(
+                  removeNonNumeric(formValues.toBeDeducted.healthInsurance),
+                )}
                 onChange={e =>
                   setFormValues(prevState => {
                     const formValues = { ...prevState }
                     formValues.toBeDeducted.healthInsurance = e.target.value
                     formValues.toBeDeducted.total =
-                      +formValues.toBeDeducted.healthInsurance +
-                      +formValues.toBeDeducted.longTermCare +
-                      +formValues.toBeDeducted.pension +
-                      +formValues.toBeDeducted.employmentInsurance
+                      +removeCommas(formValues.toBeDeducted.healthInsurance) +
+                      +removeCommas(formValues.toBeDeducted.longTermCare) +
+                      +removeCommas(formValues.toBeDeducted.pension) +
+                      +removeCommas(formValues.toBeDeducted.employmentInsurance)
                     return formValues
                   })
                 }
@@ -46,18 +53,21 @@ const DeductionItemsForm = ({ formValues, setFormValues }) => {
             </td>
             <td style={{ float: 'right' }}>
               <input
-                type={'number'}
+                type={'text'}
                 placeholder={0}
                 min={0}
+                value={addCommas(
+                  removeNonNumeric(formValues.toBeDeducted.longTermCare),
+                )}
                 onChange={e =>
                   setFormValues(prevState => {
                     const formValues = { ...prevState }
                     formValues.toBeDeducted.longTermCare = e.target.value
                     formValues.toBeDeducted.total =
-                      +formValues.toBeDeducted.healthInsurance +
-                      +formValues.toBeDeducted.longTermCare +
-                      +formValues.toBeDeducted.pension +
-                      +formValues.toBeDeducted.employmentInsurance
+                      +removeCommas(formValues.toBeDeducted.healthInsurance) +
+                      +removeCommas(formValues.toBeDeducted.longTermCare) +
+                      +removeCommas(formValues.toBeDeducted.pension) +
+                      +removeCommas(formValues.toBeDeducted.employmentInsurance)
                     return formValues
                   })
                 }
@@ -70,18 +80,20 @@ const DeductionItemsForm = ({ formValues, setFormValues }) => {
             </td>
             <td style={{ float: 'right' }}>
               <input
-                type={'number'}
+                type={'text'}
                 placeholder={0}
-                min={0}
+                value={addCommas(
+                  removeNonNumeric(formValues.toBeDeducted.pension),
+                )}
                 onChange={e =>
                   setFormValues(prevState => {
                     const formValues = { ...prevState }
                     formValues.toBeDeducted.pension = e.target.value
                     formValues.toBeDeducted.total =
-                      +formValues.toBeDeducted.healthInsurance +
-                      +formValues.toBeDeducted.longTermCare +
-                      +formValues.toBeDeducted.pension +
-                      +formValues.toBeDeducted.employmentInsurance
+                      +removeCommas(formValues.toBeDeducted.healthInsurance) +
+                      +removeCommas(formValues.toBeDeducted.longTermCare) +
+                      +removeCommas(formValues.toBeDeducted.pension) +
+                      +removeCommas(formValues.toBeDeducted.employmentInsurance)
                     return formValues
                   })
                 }
@@ -94,18 +106,20 @@ const DeductionItemsForm = ({ formValues, setFormValues }) => {
             </td>
             <td style={{ float: 'right' }}>
               <input
-                type={'number'}
+                type={'text'}
                 placeholder={0}
-                min={0}
+                value={addCommas(
+                  removeNonNumeric(formValues.toBeDeducted.employmentInsurance),
+                )}
                 onChange={e =>
                   setFormValues(prevState => {
                     const formValues = { ...prevState }
                     formValues.toBeDeducted.employmentInsurance = e.target.value
                     formValues.toBeDeducted.total =
-                      +formValues.toBeDeducted.healthInsurance +
-                      +formValues.toBeDeducted.longTermCare +
-                      +formValues.toBeDeducted.pension +
-                      +formValues.toBeDeducted.employmentInsurance
+                      +removeCommas(formValues.toBeDeducted.healthInsurance) +
+                      +removeCommas(formValues.toBeDeducted.longTermCare) +
+                      +removeCommas(formValues.toBeDeducted.pension) +
+                      +removeCommas(formValues.toBeDeducted.employmentInsurance)
                     return formValues
                   })
                 }
@@ -129,7 +143,7 @@ const DeductionItemsForm = ({ formValues, setFormValues }) => {
               <label>控除合計</label>
             </td>
             <td>
-              <label>{formValues.toBeDeducted.total}</label>
+              <label>{formValues.toBeDeducted.total.toLocaleString()}</label>
             </td>
           </tr>
         </tbody>
@@ -142,7 +156,9 @@ const DeductionItemsForm = ({ formValues, setFormValues }) => {
             </td>
             <td>
               <label>
-                {formValues.toBePaid.total - formValues.toBeDeducted.total}
+                {(
+                  formValues.toBePaid.total - formValues.toBeDeducted.total
+                ).toLocaleString()}
               </label>
             </td>
           </tr>
