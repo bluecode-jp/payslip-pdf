@@ -1,4 +1,9 @@
 import './PayItemsForm.css'
+import {
+  addCommas,
+  removeNonNumeric,
+  removeCommas,
+} from '../../../../utils/utils'
 
 const PayItemsForm = ({ formValues, setFormValues }) => {
   return (
@@ -22,18 +27,20 @@ const PayItemsForm = ({ formValues, setFormValues }) => {
             </td>
             <td style={{ float: 'right' }}>
               <input
-                type={'number'}
+                type={'text'}
                 placeholder={0}
-                min={0}
+                value={addCommas(
+                  removeNonNumeric(formValues.toBePaid.baseSalary),
+                )}
                 onChange={e =>
                   setFormValues(prevState => {
                     const formValues = { ...prevState }
                     formValues.toBePaid.baseSalary = e.target.value
                     formValues.toBePaid.total =
-                      +formValues.toBePaid.baseSalary +
-                      +formValues.toBePaid.qualificationSalary +
-                      +formValues.toBePaid.roleSalary +
-                      +formValues.toBePaid.evaluationSalary
+                      +removeCommas(formValues.toBePaid.baseSalary) +
+                      +removeCommas(formValues.toBePaid.qualificationSalary) +
+                      +removeCommas(formValues.toBePaid.roleSalary) +
+                      +removeCommas(formValues.toBePaid.evaluationSalary)
                     return formValues
                   })
                 }
@@ -46,18 +53,20 @@ const PayItemsForm = ({ formValues, setFormValues }) => {
             </td>
             <td style={{ float: 'right' }}>
               <input
-                type={'number'}
+                type={'text'}
                 placeholder={0}
-                min={0}
+                value={addCommas(
+                  removeNonNumeric(formValues.toBePaid.qualificationSalary),
+                )}
                 onChange={e =>
                   setFormValues(prevState => {
                     const formValues = { ...prevState }
                     formValues.toBePaid.qualificationSalary = e.target.value
                     formValues.toBePaid.total =
-                      +formValues.toBePaid.baseSalary +
-                      +formValues.toBePaid.qualificationSalary +
-                      +formValues.toBePaid.roleSalary +
-                      +formValues.toBePaid.evaluationSalary
+                      +removeCommas(formValues.toBePaid.baseSalary) +
+                      +removeCommas(formValues.toBePaid.qualificationSalary) +
+                      +removeCommas(formValues.toBePaid.roleSalary) +
+                      +removeCommas(formValues.toBePaid.evaluationSalary)
                     return formValues
                   })
                 }
@@ -70,18 +79,20 @@ const PayItemsForm = ({ formValues, setFormValues }) => {
             </td>
             <td style={{ float: 'right' }}>
               <input
-                type={'number'}
+                type={'text'}
                 placeholder={0}
-                min={0}
+                value={addCommas(
+                  removeNonNumeric(formValues.toBePaid.roleSalary),
+                )}
                 onChange={e =>
                   setFormValues(prevState => {
                     const formValues = { ...prevState }
                     formValues.toBePaid.roleSalary = e.target.value
                     formValues.toBePaid.total =
-                      +formValues.toBePaid.baseSalary +
-                      +formValues.toBePaid.qualificationSalary +
-                      +formValues.toBePaid.roleSalary +
-                      +formValues.toBePaid.evaluationSalary
+                      +removeCommas(formValues.toBePaid.baseSalary) +
+                      +removeCommas(formValues.toBePaid.qualificationSalary) +
+                      +removeCommas(formValues.toBePaid.roleSalary) +
+                      +removeCommas(formValues.toBePaid.evaluationSalary)
                     return formValues
                   })
                 }
@@ -94,18 +105,20 @@ const PayItemsForm = ({ formValues, setFormValues }) => {
             </td>
             <td style={{ float: 'right' }}>
               <input
-                type={'number'}
+                type={'text'}
                 placeholder={0}
-                min={0}
+                value={addCommas(
+                  removeNonNumeric(formValues.toBePaid.evaluationSalary),
+                )}
                 onChange={e =>
                   setFormValues(prevState => {
                     const formValues = { ...prevState }
                     formValues.toBePaid.evaluationSalary = e.target.value
                     formValues.toBePaid.total =
-                      +formValues.toBePaid.baseSalary +
-                      +formValues.toBePaid.qualificationSalary +
-                      +formValues.toBePaid.roleSalary +
-                      +formValues.toBePaid.evaluationSalary
+                      +removeCommas(formValues.toBePaid.baseSalary) +
+                      +removeCommas(formValues.toBePaid.qualificationSalary) +
+                      +removeCommas(formValues.toBePaid.roleSalary) +
+                      +removeCommas(formValues.toBePaid.evaluationSalary)
                     return formValues
                   })
                 }
@@ -129,7 +142,7 @@ const PayItemsForm = ({ formValues, setFormValues }) => {
               <label>支給合計</label>
             </td>
             <td>
-              <label>{formValues.toBePaid.total}</label>
+              <label>{formValues.toBePaid.total.toLocaleString()}</label>
             </td>
           </tr>
         </tbody>
