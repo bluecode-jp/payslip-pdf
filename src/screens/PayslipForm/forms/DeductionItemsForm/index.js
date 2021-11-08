@@ -29,13 +29,13 @@ const DeductionItemsForm = ({ formValues, setFormValues }) => {
               <input
                 type={'text'}
                 placeholder={0}
-                value={addCommas(
-                  removeNonNumeric(formValues.toBeDeducted.healthInsurance),
-                )}
+                value={formValues.toBeDeducted.healthInsurance}
                 onChange={e =>
                   setFormValues(prevState => {
                     const formValues = { ...prevState }
-                    formValues.toBeDeducted.healthInsurance = e.target.value
+                    formValues.toBeDeducted.healthInsurance = addCommas(
+                      removeNonNumeric(e.target.value),
+                    )
                     formValues.toBeDeducted.total =
                       +removeCommas(formValues.toBeDeducted.healthInsurance) +
                       +removeCommas(formValues.toBeDeducted.longTermCare) +
@@ -56,13 +56,13 @@ const DeductionItemsForm = ({ formValues, setFormValues }) => {
                 type={'text'}
                 placeholder={0}
                 min={0}
-                value={addCommas(
-                  removeNonNumeric(formValues.toBeDeducted.longTermCare),
-                )}
+                value={formValues.toBeDeducted.longTermCare}
                 onChange={e =>
                   setFormValues(prevState => {
                     const formValues = { ...prevState }
-                    formValues.toBeDeducted.longTermCare = e.target.value
+                    formValues.toBeDeducted.longTermCare = addCommas(
+                      removeNonNumeric(e.target.value),
+                    )
                     formValues.toBeDeducted.total =
                       +removeCommas(formValues.toBeDeducted.healthInsurance) +
                       +removeCommas(formValues.toBeDeducted.longTermCare) +
@@ -82,13 +82,13 @@ const DeductionItemsForm = ({ formValues, setFormValues }) => {
               <input
                 type={'text'}
                 placeholder={0}
-                value={addCommas(
-                  removeNonNumeric(formValues.toBeDeducted.pension),
-                )}
+                value={formValues.toBeDeducted.pension}
                 onChange={e =>
                   setFormValues(prevState => {
                     const formValues = { ...prevState }
-                    formValues.toBeDeducted.pension = e.target.value
+                    formValues.toBeDeducted.pension = addCommas(
+                      removeNonNumeric(e.target.value),
+                    )
                     formValues.toBeDeducted.total =
                       +removeCommas(formValues.toBeDeducted.healthInsurance) +
                       +removeCommas(formValues.toBeDeducted.longTermCare) +
@@ -108,13 +108,13 @@ const DeductionItemsForm = ({ formValues, setFormValues }) => {
               <input
                 type={'text'}
                 placeholder={0}
-                value={addCommas(
-                  removeNonNumeric(formValues.toBeDeducted.employmentInsurance),
-                )}
+                value={formValues.toBeDeducted.employmentInsurance}
                 onChange={e =>
                   setFormValues(prevState => {
                     const formValues = { ...prevState }
-                    formValues.toBeDeducted.employmentInsurance = e.target.value
+                    formValues.toBeDeducted.employmentInsurance = addCommas(
+                      removeNonNumeric(e.target.value),
+                    )
                     formValues.toBeDeducted.total =
                       +removeCommas(formValues.toBeDeducted.healthInsurance) +
                       +removeCommas(formValues.toBeDeducted.longTermCare) +
