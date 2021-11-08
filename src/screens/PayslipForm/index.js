@@ -387,7 +387,7 @@ const PayslipForm = () => {
           },
         ],
       ],
-      body: [['支給合計', `${formValues.toBePaid.total}`]],
+      body: [['支給合計', `${formValues.toBePaid.total.toLocaleString()}`]],
     })
     // ------------------- Table 6 (second row, to the right) -------------------
     doc.autoTable({
@@ -418,7 +418,9 @@ const PayslipForm = () => {
           },
         ],
       ],
-      body: [['控除合計 ', `${formValues.toBeDeducted.total}`]],
+      body: [
+        ['控除合計 ', `${formValues.toBeDeducted.total.toLocaleString()}`],
+      ],
     })
     // ------------------- Table 7 (bottom of table 6) -------------------
     doc.autoTable({
@@ -452,7 +454,9 @@ const PayslipForm = () => {
       body: [
         [
           '差引支給額',
-          `${formValues.toBePaid.total - formValues.toBeDeducted.total}`,
+          `${(
+            formValues.toBePaid.total - formValues.toBeDeducted.total
+          ).toLocaleString()}`,
         ],
       ],
     })
