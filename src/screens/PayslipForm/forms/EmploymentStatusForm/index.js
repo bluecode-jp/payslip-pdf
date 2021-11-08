@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import './EmploymentStatusForm.css'
 import { addCommas, removeNonNumeric } from '../../../../utils/utils'
 
@@ -95,8 +96,8 @@ const EmploymentStatusForm = ({ formValues, setFormValues }) => {
 }
 
 EmploymentStatusForm.propTypes = {
-  formValues: Object,
-  setFormValues: Function,
+  formValues: PropTypes.object,
+  setFormValues: PropTypes.func,
 }
 
 export default EmploymentStatusForm

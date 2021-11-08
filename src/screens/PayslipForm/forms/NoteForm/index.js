@@ -1,4 +1,5 @@
 import './NoteForm.css'
+import PropTypes from 'prop-types'
 
 const NoteForm = ({ setFormValues }) => {
   return (
@@ -39,8 +40,8 @@ const NoteForm = ({ setFormValues }) => {
 }
 
 NoteForm.propTypes = {
-  formValues: Object,
-  setFormValues: Function,
+  formValues: PropTypes.object,
+  setFormValues: PropTypes.func,
 }
 
 export default NoteForm

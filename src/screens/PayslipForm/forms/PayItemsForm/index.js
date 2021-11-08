@@ -1,4 +1,5 @@
 import './PayItemsForm.css'
+import PropTypes from 'prop-types'
 import {
   addCommas,
   removeNonNumeric,
@@ -152,8 +153,8 @@ const PayItemsForm = ({ formValues, setFormValues }) => {
 }
 
 PayItemsForm.propTypes = {
-  formValues: Object,
-  setFormValues: Function,
+  formValues: PropTypes.object,
+  setFormValues: PropTypes.func,
 }
 
 export default PayItemsForm

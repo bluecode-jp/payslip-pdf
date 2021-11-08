@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import './PersonalSituationForm.css'
 
 const PersonalSituationForm = ({ setFormValues }) => {
@@ -68,8 +69,8 @@ const PersonalSituationForm = ({ setFormValues }) => {
 }
 
 PersonalSituationForm.propTypes = {
-  formValues: Object,
-  setFormValues: Function,
+  formValues: PropTypes.object,
+  setFormValues: PropTypes.func,
 }
 
 export default PersonalSituationForm

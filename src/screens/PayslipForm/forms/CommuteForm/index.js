@@ -1,4 +1,5 @@
 import './CommuteForm.css'
+import PropTypes from 'prop-types'
 import { addCommas, removeNonNumeric } from '../../../../utils/utils'
 
 const CommuteForm = ({ formValues, setFormValues }) => {
@@ -74,8 +75,8 @@ const CommuteForm = ({ formValues, setFormValues }) => {
 }
 
 CommuteForm.propTypes = {
-  formValues: Object,
-  setFormValues: Function,
+  formValues: PropTypes.object,
+  setFormValues: PropTypes.func,
 }
 
 export default CommuteForm

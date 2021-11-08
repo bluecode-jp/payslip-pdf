@@ -1,4 +1,5 @@
 import './FormsGrid.css'
+import PropTypes from 'prop-types'
 import NoteForm from '../../screens/PayslipForm/forms/NoteForm'
 import CommuteForm from '../../screens/PayslipForm/forms/CommuteForm'
 import PayItemsForm from '../../screens/PayslipForm/forms/PayItemsForm'
@@ -34,8 +35,8 @@ const FormsGrid = ({ formValues, setFormValues }) => {
 }
 
 FormsGrid.propTypes = {
-  formValues: Object,
-  setFormValues: Function,
+  formValues: PropTypes.object,
+  setFormValues: PropTypes.func,
 }
 
 export default FormsGrid

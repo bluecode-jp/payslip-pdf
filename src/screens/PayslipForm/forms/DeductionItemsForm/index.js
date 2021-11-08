@@ -1,4 +1,5 @@
 import './DeductionItemsForm.css'
+import PropTypes from 'prop-types'
 import {
   addCommas,
   removeNonNumeric,
@@ -169,8 +170,8 @@ const DeductionItemsForm = ({ formValues, setFormValues }) => {
 }
 
 DeductionItemsForm.propTypes = {
-  formValues: Object,
-  setFormValues: Function,
+  formValues: PropTypes.object,
+  setFormValues: PropTypes.func,
 }
 
 export default DeductionItemsForm

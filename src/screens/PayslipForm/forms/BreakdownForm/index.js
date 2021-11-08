@@ -1,4 +1,5 @@
 import './BreakdownForm.css'
+import PropTypes from 'prop-types'
 import { addCommas, removeNonNumeric } from '../../../../utils/utils'
 
 const BreakdownForm = ({ formValues, setFormValues }) => {
@@ -74,8 +75,8 @@ const BreakdownForm = ({ formValues, setFormValues }) => {
 }
 
 BreakdownForm.propTypes = {
-  formValues: Object,
-  setFormValues: Function,
+  formValues: PropTypes.object,
+  setFormValues: PropTypes.func,
 }
 
 export default BreakdownForm
