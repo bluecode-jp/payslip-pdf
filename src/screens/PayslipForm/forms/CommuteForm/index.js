@@ -1,6 +1,7 @@
 import './CommuteForm.css'
+import { addCommas, removeNonNumeric } from '../../../../utils/utils'
 
-const CommuteForm = ({ setFormValues }) => {
+const CommuteForm = ({ formValues, setFormValues }) => {
   return (
     <div className={'commute-wrapper'}>
       <table style={{}}>
@@ -22,13 +23,15 @@ const CommuteForm = ({ setFormValues }) => {
             </td>
             <td style={{ float: 'right' }}>
               <input
-                type={'number'}
+                type={'text'}
                 placeholder={0}
-                min={0}
+                value={formValues.commute.monthlyFee}
                 onChange={e =>
                   setFormValues(prevState => {
                     const formValues = { ...prevState }
-                    formValues.commute.monthlyFee = e.target.value
+                    formValues.commute.monthlyFee = addCommas(
+                      removeNonNumeric(e.target.value),
+                    )
                     return formValues
                   })
                 }
@@ -41,13 +44,15 @@ const CommuteForm = ({ setFormValues }) => {
             </td>
             <td style={{ float: 'right' }}>
               <input
-                type={'number'}
+                type={'text'}
                 placeholder={0}
-                min={0}
+                value={formValues.commute.monthlyTaxableFee}
                 onChange={e =>
                   setFormValues(prevState => {
                     const formValues = { ...prevState }
-                    formValues.commute.monthlyTaxableFee = e.target.value
+                    formValues.commute.monthlyTaxableFee = addCommas(
+                      removeNonNumeric(e.target.value),
+                    )
                     return formValues
                   })
                 }

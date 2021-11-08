@@ -1,6 +1,7 @@
 import './BreakdownForm.css'
+import { addCommas, removeNonNumeric } from '../../../../utils/utils'
 
-const BreakdownForm = ({ setFormValues }) => {
+const BreakdownForm = ({ formValues, setFormValues }) => {
   return (
     <div className={'breakdown-wrapper'}>
       <table style={{}}>
@@ -22,13 +23,15 @@ const BreakdownForm = ({ setFormValues }) => {
             </td>
             <td style={{ float: 'right' }}>
               <input
-                type={'number'}
+                type={'text'}
                 placeholder={0}
-                min={0}
+                value={formValues.breakdown.dormitoryFee}
                 onChange={e =>
                   setFormValues(prevState => {
                     const formValues = { ...prevState }
-                    formValues.breakdown.dormitoryFee = e.target.value
+                    formValues.breakdown.dormitoryFee = addCommas(
+                      removeNonNumeric(e.target.value),
+                    )
                     return formValues
                   })
                 }
@@ -41,13 +44,15 @@ const BreakdownForm = ({ setFormValues }) => {
             </td>
             <td style={{ float: 'right' }}>
               <input
-                type={'number'}
+                type={'text'}
                 placeholder={0}
-                min={0}
+                value={formValues.breakdown.companyHousingExpenses}
                 onChange={e =>
                   setFormValues(prevState => {
                     const formValues = { ...prevState }
-                    formValues.breakdown.companyHousingExpenses = e.target.value
+                    formValues.breakdown.companyHousingExpenses = addCommas(
+                      removeNonNumeric(e.target.value),
+                    )
                     return formValues
                   })
                 }
