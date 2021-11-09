@@ -7,10 +7,8 @@ import 'jspdf-autotable'
 import { jsPDF } from 'jspdf'
 import FormsGrid from '../../components/FormsGrid'
 import { useState } from 'react'
-import { useHistory } from 'react-router-dom'
 
 const PayslipForm = () => {
-  const history = useHistory()
   const [formValues, setFormValues] = useState({
     header: {
       date: { year: null, month: null },
@@ -635,9 +633,21 @@ const PayslipForm = () => {
     // --------------------------------------
 
     // window.open(doc.output('bloburl'), '_blank')
-    history.push('/payslip-pdf', {
-      pdfFile: doc.output('bloburl'),
-    })
+    // history.push('/payslip-pdf', {
+    //   pdfFile: doc.output('bloburl'),
+    // })
+    // history.push('/payslip-pdf?pdfurl=' + doc.output('bloburl'))
+    // window.open('/payslip-pdf?pdfurl=' + doc.output('bloburl'))
+    const url = '/payslip-pdf?pdfurl=' + doc.output('bloburl')
+    window.open(
+      url,
+      'window',
+      'toolbar=0,location=0,scrollbars=1,statusbar=1,menubar=0,resizable=1,width=' +
+        window.outerWidth +
+        ',height=' +
+        window.outerHeight +
+        ',left=0,top=0',
+    )
     // doc.output('dataurlnewwindow')
     // doc.save(Date.now() + '.pdf')
   }

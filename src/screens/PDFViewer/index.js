@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { printPlugin } from '@react-pdf-viewer/print'
 import { Viewer, Worker } from '@react-pdf-viewer/core'
 import { useHistory, useLocation } from 'react-router-dom'
@@ -9,11 +9,15 @@ import '@react-pdf-viewer/default-layout/lib/styles/index.css'
 import '@react-pdf-viewer/print/lib/styles/index.css'
 
 const PDFViewer = () => {
-  const location = useLocation()
   const history = useHistory()
+  function useQuery() {
+    const { search } = useLocation()
+    return React.useMemo(() => new URLSearchParams(search), [search])
+  }
+  const pdfURL = useQuery().get('pdfurl')
 
   useEffect(() => {
-    !location.state && history.replace('/')
+    !pdfURL && history.replace('/')
   }, [])
 
   const printPluginInstance = printPlugin()
@@ -23,7 +27,7 @@ const PDFViewer = () => {
 
   return (
     <>
-      {location.state && (
+      {pdfURL && (
         <div
           style={{
             width: '100vw',
@@ -51,7 +55,7 @@ const PDFViewer = () => {
             }}>
             <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.6.347/build/pdf.worker.min.js">
               <Viewer
-                fileUrl={location.state.pdfFile}
+                fileUrl={pdfURL}
                 plugins={[printPluginInstance, getFilePluginInstance]}
               />
             </Worker>
