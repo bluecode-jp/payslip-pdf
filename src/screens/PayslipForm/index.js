@@ -638,7 +638,9 @@ const PayslipForm = () => {
     // })
     // history.push('/payslip-pdf?pdfurl=' + doc.output('bloburl'))
     // window.open('/payslip-pdf?pdfurl=' + doc.output('bloburl'))
-    const url = '/payslip-pdf?pdfurl=' + doc.output('bloburl')
+    const url = `/payslip-pdf?pdfurl=${doc.output('bloburl')}&year=${
+      formValues.header.date.year || '00'
+    }&month=${formValues.header.date.month || '00'}`
     window.open(
       url,
       'window',

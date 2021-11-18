@@ -3,6 +3,7 @@ import { printPlugin } from '@react-pdf-viewer/print'
 import { Viewer, Worker } from '@react-pdf-viewer/core'
 import { useHistory, useLocation } from 'react-router-dom'
 import { getFilePlugin } from '@react-pdf-viewer/get-file'
+import { dateInYYYYMMDD } from '../../utils/utils'
 
 import '@react-pdf-viewer/core/lib/styles/index.css'
 import '@react-pdf-viewer/default-layout/lib/styles/index.css'
@@ -15,13 +16,20 @@ const PDFViewer = () => {
     return React.useMemo(() => new URLSearchParams(search), [search])
   }
   const pdfURL = useQuery().get('pdfurl')
+  const payslipYear = useQuery().get('year')
+  const payslipMonth = useQuery().get('month')
 
   useEffect(() => {
     !pdfURL && history.replace('/')
   }, [])
 
   const printPluginInstance = printPlugin()
-  const getFilePluginInstance = getFilePlugin()
+  const getFilePluginInstance = getFilePlugin({
+    fileNameGenerator: () => {
+      // const fileName = file.name.substring(file.name.lastIndexOf('/') + 1)
+      return `${payslipYear}年${payslipMonth}月度給与明細_${dateInYYYYMMDD()}`
+    },
+  })
   const { PrintButton } = printPluginInstance
   const { DownloadButton } = getFilePluginInstance
 
