@@ -100,6 +100,21 @@ const PayslipForm = () => {
         // 0: { fillColor: '#e5f3fe' },
         1: { halign: 'right', cellWidth: 20 },
       },
+      willDrawCell: data => {
+        ////console.log(data)
+        if (data.section == 'body' && data.row.index != 0) {
+          doc.setDrawColor(0, 0, 0)
+          doc.setLineWidth(0.2)
+          doc.setLineDashPattern([0.2, 0.8], 0)
+          doc.line(
+            data.cell.x,
+            data.cell.y,
+            data.cell.x + data.column.width,
+            data.cell.y,
+          )
+          doc.setLineDashPattern([1, 0], 0)
+        }
+      },
       head: [
         [
           {
@@ -164,6 +179,21 @@ const PayslipForm = () => {
       columnStyles: {
         // 0: { fillColor: '#e5f3fe' },
         1: { halign: 'right', cellWidth: 20 },
+      },
+      willDrawCell: data => {
+        //console.log(data)
+        if (data.section == 'body' && data.row.index != 0) {
+          doc.setDrawColor(0, 0, 0)
+          doc.setLineWidth(0.2)
+          doc.setLineDashPattern([0.2, 0.8], 0)
+          doc.line(
+            data.cell.x,
+            data.cell.y,
+            data.cell.x + data.column.width,
+            data.cell.y,
+          )
+          doc.setLineDashPattern([1, 0], 0)
+        }
       },
       head: [
         [
@@ -243,6 +273,21 @@ const PayslipForm = () => {
         // 0: { fillColor: '#e5f3fe' },
         1: { halign: 'right', cellWidth: 20 },
       },
+      willDrawCell: data => {
+        //console.log(data)
+        if (data.section == 'body' && data.row.index != 0) {
+          doc.setDrawColor(0, 0, 0)
+          doc.setLineWidth(0.2)
+          doc.setLineDashPattern([0.2, 0.8], 0)
+          doc.line(
+            data.cell.x,
+            data.cell.y,
+            data.cell.x + data.column.width,
+            data.cell.y,
+          )
+          doc.setLineDashPattern([1, 0], 0)
+        }
+      },
       head: [
         [
           {
@@ -295,7 +340,7 @@ const PayslipForm = () => {
     })
     // ------------------- Table 4 (second row) -------------------
     doc.autoTable({
-      //   theme: 'grid',
+      // theme: 'grid',
       startY: 105,
       tableWidth: 62,
       margin: { left: 10, right: 10 },
@@ -319,6 +364,21 @@ const PayslipForm = () => {
       columnStyles: {
         // 0: { fillColor: '#e5f3fe' },
         1: { halign: 'right', cellWidth: 20 },
+      },
+      willDrawCell: data => {
+        //console.log(data)
+        if (data.section == 'body' && data.row.index != 0) {
+          doc.setDrawColor(0, 0, 0)
+          doc.setLineWidth(0.2)
+          doc.setLineDashPattern([0.2, 0.8], 0)
+          doc.line(
+            data.cell.x,
+            data.cell.y,
+            data.cell.x + data.column.width,
+            data.cell.y,
+          )
+          doc.setLineDashPattern([1, 0], 0)
+        }
       },
       head: [
         [
@@ -379,6 +439,21 @@ const PayslipForm = () => {
         0: { fillColor: '#e5f3fe' },
         1: { halign: 'right', cellWidth: 20 },
       },
+      willDrawCell: data => {
+        //console.log(data)
+        if (data.section == 'body' && data.row.index != 0) {
+          doc.setDrawColor(0, 0, 0)
+          doc.setLineWidth(0.2)
+          doc.setLineDashPattern([0.2, 0.8], 0)
+          doc.line(
+            data.cell.x,
+            data.cell.y,
+            data.cell.x + data.column.width,
+            data.cell.y,
+          )
+          doc.setLineDashPattern([1, 0], 0)
+        }
+      },
       head: [
         [
           {
@@ -409,6 +484,21 @@ const PayslipForm = () => {
         // 0: { fillColor: '#f5f5f5' },
         0: { fillColor: '#e5f3fe' },
         1: { halign: 'right', cellWidth: 20 },
+      },
+      willDrawCell: data => {
+        //console.log(data)
+        if (data.section == 'body' && data.row.index != 0) {
+          doc.setDrawColor(0, 0, 0)
+          doc.setLineWidth(0.2)
+          doc.setLineDashPattern([0.2, 0.8], 0)
+          doc.line(
+            data.cell.x,
+            data.cell.y,
+            data.cell.x + data.column.width,
+            data.cell.y,
+          )
+          doc.setLineDashPattern([1, 0], 0)
+        }
       },
       head: [
         [
@@ -442,6 +532,21 @@ const PayslipForm = () => {
         // 0: { fillColor: '#f5f5f5' },
         0: { fillColor: '#e5f3fe' },
         1: { halign: 'right', cellWidth: 20 },
+      },
+      willDrawCell: data => {
+        //console.log(data)
+        if (data.section == 'body' && data.row.index != 0) {
+          doc.setDrawColor(0, 0, 0)
+          doc.setLineWidth(0.2)
+          doc.setLineDashPattern([0.2, 0.8], 0)
+          doc.line(
+            data.cell.x,
+            data.cell.y,
+            data.cell.x + data.column.width,
+            data.cell.y,
+          )
+          doc.setLineDashPattern([1, 0], 0)
+        }
       },
       head: [
         [
@@ -487,6 +592,21 @@ const PayslipForm = () => {
       columnStyles: {
         // 0: { fillColor: '#e5f3fe' },
         1: { halign: 'right', cellWidth: 20 },
+      },
+      willDrawCell: data => {
+        //console.log(data)
+        if (data.section == 'body' && data.row.index != 0) {
+          doc.setDrawColor(0, 0, 0)
+          doc.setLineWidth(0.2)
+          doc.setLineDashPattern([0.2, 0.8], 0)
+          doc.line(
+            data.cell.x,
+            data.cell.y,
+            data.cell.x + data.column.width,
+            data.cell.y,
+          )
+          doc.setLineDashPattern([1, 0], 0)
+        }
       },
       head: [
         [
@@ -549,6 +669,21 @@ const PayslipForm = () => {
       columnStyles: {
         // 0: { fillColor: '#e5f3fe' },
         1: { halign: 'right', cellWidth: 20 },
+      },
+      willDrawCell: data => {
+        //console.log(data)
+        if (data.section == 'body' && data.row.index != 0) {
+          doc.setDrawColor(0, 0, 0)
+          doc.setLineWidth(0.2)
+          doc.setLineDashPattern([0.2, 0.8], 0)
+          doc.line(
+            data.cell.x,
+            data.cell.y,
+            data.cell.x + data.column.width,
+            data.cell.y,
+          )
+          doc.setLineDashPattern([1, 0], 0)
+        }
       },
       head: [
         [
