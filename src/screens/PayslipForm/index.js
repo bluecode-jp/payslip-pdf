@@ -724,7 +724,7 @@ const PayslipForm = () => {
     doc.autoTable({
       theme: 'plain',
       startY: 235,
-      margin: { left: 10, right: 10 },
+      margin: { bottom: 0, left: 10, right: 10 },
       tableLineColor: 'black',
       tableLineWidth: 0.01,
       headStyles: {
@@ -757,9 +757,7 @@ const PayslipForm = () => {
         [
           {
             content: `${formValues.oshirase}`,
-            // Dynamic height of nested tables are not supported right now
-            // so we need to define height of the parent cell
-            styles: { valign: 'top', minCellHeight: 45 },
+            styles: { valign: 'top', minCellHeight: 54.5 },
           },
         ],
       ],
