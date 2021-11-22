@@ -14,19 +14,19 @@ const PAYSLIP_TEXT_TOP = 10 // [XX年XX月度   給料明細] 上から何ミリ
 const PAYSLIP_TEXT_LEFT = 10 // [XX年XX月度   給料明細] 左から何ミリ
 
 const COMPANY_TEXT_TOP = 18 // [XX株式会社] 上から何ミリ
-const COMPANY_TEXT_LEFT = PAYSLIP_TEXT_LEFT // [XX年XX月度   給料明細] 左から何ミリ
+const COMPANY_TEXT_LEFT = PAYSLIP_TEXT_LEFT // [XX株式会社] 左から何ミリ
 
 const ORGANIZATION_TEXT_TOP = 24 // [所属] 上から何ミリ
-const ORGANIZATION_TEXT_LEFT = PAYSLIP_TEXT_LEFT // [XX年XX月度   給料明細] 左から何ミリ
+const ORGANIZATION_TEXT_LEFT = PAYSLIP_TEXT_LEFT // [所属] 左から何ミリ
 
 const EMPLOYEE_NUM_TEXT_TOP = 30 // [従業員番号] 上から何ミリ
-const EMPLOYEE_NUM_TEXT_LEFT = PAYSLIP_TEXT_LEFT // [XX年XX月度   給料明細] 左から何ミリ
+const EMPLOYEE_NUM_TEXT_LEFT = PAYSLIP_TEXT_LEFT // [従業員番号] 左から何ミリ
 
 const NAME_TEXT_TOP = 30 // [氏名   XX   様] 上から何ミリ
-const NAME_TEXT_LEFT = 65 // [XX年XX月度   給料明細] 左から何ミリ
+const NAME_TEXT_LEFT = 65 // [氏名   XX   様] 左から何ミリ
 
 const TRANSFER_ACC_TEXT_TOP = 36 // [振込口座] 上から何ミリ
-const TRANSFER_ACC_TEXT_LEFT = PAYSLIP_TEXT_LEFT // [XX年XX月度   給料明細] 左から何ミリ
+const TRANSFER_ACC_TEXT_LEFT = PAYSLIP_TEXT_LEFT // [振込口座] 左から何ミリ
 
 // ____________________________________________________
 
