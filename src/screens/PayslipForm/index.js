@@ -11,6 +11,9 @@ import { useState } from 'react'
 
 // ____________________ Text 設定 ____________________
 
+// Textのフォント指定
+const FONT_NAME = 'MSMINCHO'
+
 const PAYSLIP_TEXT_TOP = 10 // [XX年XX月度   給料明細] 上から何ミリ
 const PAYSLIP_TEXT_LEFT = 10 // [XX年XX月度   給料明細] 左から何ミリ
 
@@ -42,9 +45,13 @@ const RECTANGLE_HEIGHT = 33
 
 // ____________________ Table 設定 ____________________
 
+// 表の文字カラー指定
 const TABLE_HEADER_TEXT_COLOR = '#ffffff'
 const TABLE_10_HEADER_TEXT_COLOR = '#000000'
 const TABLE_CONTENT_TEXT_COLOR = '#000000'
+
+// 表のフォント指定
+const TABLE_FONT_NAME = 'MSMINCHO'
 
 /**
  *
@@ -180,7 +187,7 @@ const PayslipForm = () => {
 
   const onExport = async () => {
     const doc = new jsPDF()
-    doc.setFont('MSMINCHO', 'normal')
+    doc.setFont(FONT_NAME, 'normal')
 
     // ------------------- Date and Company -------------------
 
@@ -295,7 +302,7 @@ const PayslipForm = () => {
         halign: 'center',
         valign: 'middle',
         // font: 'Koruri-Regular',
-        font: 'MSMINCHO',
+        font: TABLE_FONT_NAME,
         fontStyle: 'normal',
         textColor: TABLE_HEADER_TEXT_COLOR,
         fillColor: 'black',
@@ -304,7 +311,7 @@ const PayslipForm = () => {
       styles: {
         valign: 'middle',
         // font: 'Koruri-Regular',
-        font: 'MSMINCHO',
+        font: TABLE_FONT_NAME,
         fontStyle: 'normal',
         textColor: TABLE_CONTENT_TEXT_COLOR,
         cellPadding: 0.3,
@@ -366,7 +373,7 @@ const PayslipForm = () => {
         halign: 'center',
         valign: 'middle',
         // font: 'Koruri-Regular',
-        font: 'MSMINCHO',
+        font: TABLE_FONT_NAME,
         fontStyle: 'normal',
         textColor: TABLE_HEADER_TEXT_COLOR,
         fillColor: 'black',
@@ -375,7 +382,7 @@ const PayslipForm = () => {
       styles: {
         valign: 'middle',
         // font: 'Koruri-Regular',
-        font: 'MSMINCHO',
+        font: TABLE_FONT_NAME,
         fontStyle: 'normal',
         textColor: TABLE_CONTENT_TEXT_COLOR,
         cellPadding: 0.3,
@@ -451,7 +458,7 @@ const PayslipForm = () => {
         halign: 'center',
         valign: 'middle',
         // font: 'Koruri-Regular',
-        font: 'MSMINCHO',
+        font: TABLE_FONT_NAME,
         fontStyle: 'normal',
         textColor: TABLE_HEADER_TEXT_COLOR,
         fillColor: 'black',
@@ -460,7 +467,7 @@ const PayslipForm = () => {
       styles: {
         valign: 'middle',
         // font: 'Koruri-Regular',
-        font: 'MSMINCHO',
+        font: TABLE_FONT_NAME,
         fontStyle: 'normal',
         textColor: TABLE_CONTENT_TEXT_COLOR,
         cellPadding: 0.3,
@@ -535,7 +542,7 @@ const PayslipForm = () => {
         halign: 'center',
         valign: 'middle',
         // font: 'Koruri-Regular',
-        font: 'MSMINCHO',
+        font: TABLE_FONT_NAME,
         fontStyle: 'normal',
         textColor: TABLE_HEADER_TEXT_COLOR,
         fillColor: 'black',
@@ -544,7 +551,7 @@ const PayslipForm = () => {
       styles: {
         valign: 'middle',
         // font: 'Koruri-Regular',
-        font: 'MSMINCHO',
+        font: TABLE_FONT_NAME,
         fontStyle: 'normal',
         textColor: TABLE_CONTENT_TEXT_COLOR,
         cellPadding: 0.3,
@@ -608,7 +615,7 @@ const PayslipForm = () => {
         valign: 'middle',
         // font: 'Koruri-Semibold',
         // fontStyle: 'bold',
-        font: 'MSMINCHO',
+        font: TABLE_FONT_NAME,
         fontStyle: 'normal',
         textColor: TABLE_CONTENT_TEXT_COLOR,
         cellPadding: 0.5,
@@ -642,7 +649,7 @@ const PayslipForm = () => {
         valign: 'middle',
         // font: 'Koruri-Semibold',
         // fontStyle: 'bold',
-        font: 'MSMINCHO',
+        font: TABLE_FONT_NAME,
         fontStyle: 'normal',
         textColor: TABLE_CONTENT_TEXT_COLOR,
         cellPadding: 0.5,
@@ -678,7 +685,7 @@ const PayslipForm = () => {
         valign: 'middle',
         // font: 'Koruri-Semibold',
         // fontStyle: 'bold',
-        font: 'MSMINCHO',
+        font: TABLE_FONT_NAME,
         fontStyle: 'normal',
         textColor: TABLE_CONTENT_TEXT_COLOR,
         cellPadding: 0.5,
@@ -720,7 +727,7 @@ const PayslipForm = () => {
         halign: 'center',
         valign: 'middle',
         // font: 'Koruri-Regular',
-        font: 'MSMINCHO',
+        font: TABLE_FONT_NAME,
         fontStyle: 'normal',
         textColor: TABLE_HEADER_TEXT_COLOR,
         fillColor: 'black',
@@ -729,7 +736,7 @@ const PayslipForm = () => {
       styles: {
         valign: 'middle',
         // font: 'Koruri-Regular',
-        font: 'MSMINCHO',
+        font: TABLE_FONT_NAME,
         fontStyle: 'normal',
         textColor: TABLE_CONTENT_TEXT_COLOR,
         cellPadding: 0.3,
@@ -789,7 +796,7 @@ const PayslipForm = () => {
         halign: 'center',
         valign: 'middle',
         // font: 'Koruri-Regular',
-        font: 'MSMINCHO',
+        font: TABLE_FONT_NAME,
         fontStyle: 'normal',
         textColor: TABLE_HEADER_TEXT_COLOR,
         fillColor: 'black',
@@ -798,7 +805,7 @@ const PayslipForm = () => {
       styles: {
         valign: 'middle',
         // font: 'Koruri-Regular',
-        font: 'MSMINCHO',
+        font: TABLE_FONT_NAME,
         fontStyle: 'normal',
         textColor: TABLE_CONTENT_TEXT_COLOR,
         cellPadding: 0.3,
@@ -861,7 +868,7 @@ const PayslipForm = () => {
         halign: 'center',
         valign: 'middle',
         // font: 'Koruri-Regular',
-        font: 'MSMINCHO',
+        font: TABLE_FONT_NAME,
         fontStyle: 'normal',
         textColor: TABLE_10_HEADER_TEXT_COLOR,
         fillColor: '#d2eafd',
@@ -869,7 +876,7 @@ const PayslipForm = () => {
       styles: {
         valign: 'middle',
         // font: 'Koruri-Regular',
-        font: 'MSMINCHO',
+        font: TABLE_FONT_NAME,
         fontStyle: 'normal',
         textColor: TABLE_CONTENT_TEXT_COLOR,
         cellPadding: 0.3,
