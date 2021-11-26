@@ -1,6 +1,7 @@
 import '../../assets/fonts/Koruri-Regular-normal'
 import '../../assets/fonts/Koruri-Bold-bold'
 import '../../assets/fonts/Koruri-Semibold-bold'
+import '../../assets/fonts/MSMINCHO-normal'
 import './PayslipForm.css'
 import 'jspdf-autotable'
 
@@ -175,7 +176,7 @@ const PayslipForm = () => {
 
   const onExport = async () => {
     const doc = new jsPDF()
-    doc.setFont('Koruri-Regular', 'normal')
+    doc.setFont('MSMINCHO', 'normal')
 
     // ------------------- Date and Company -------------------
 
@@ -289,14 +290,16 @@ const PayslipForm = () => {
       headStyles: {
         halign: 'center',
         valign: 'middle',
-        font: 'Koruri-Regular',
+        // font: 'Koruri-Regular',
+        font: 'MSMINCHO',
         fontStyle: 'normal',
         fillColor: 'black',
       },
       alternateRowStyles: { fillColor: '#e5f3fe' },
       styles: {
         valign: 'middle',
-        font: 'Koruri-Regular',
+        // font: 'Koruri-Regular',
+        font: 'MSMINCHO',
         fontStyle: 'normal',
         cellPadding: 0.3,
         fontSize: 5,
@@ -311,8 +314,7 @@ const PayslipForm = () => {
       head: [
         [
           {
-            content:
-              '雇用状況                                                            08/21 - 09/20',
+            content: '雇用状況               08/21 - 09/20',
             colSpan: 2,
           },
         ],
@@ -357,14 +359,16 @@ const PayslipForm = () => {
       headStyles: {
         halign: 'center',
         valign: 'middle',
-        font: 'Koruri-Regular',
+        // font: 'Koruri-Regular',
+        font: 'MSMINCHO',
         fontStyle: 'normal',
         fillColor: 'black',
       },
       alternateRowStyles: { fillColor: '#e5f3fe' },
       styles: {
         valign: 'middle',
-        font: 'Koruri-Regular',
+        // font: 'Koruri-Regular',
+        font: 'MSMINCHO',
         fontStyle: 'normal',
         cellPadding: 0.3,
         fontSize: 5,
@@ -438,14 +442,16 @@ const PayslipForm = () => {
       headStyles: {
         halign: 'center',
         valign: 'middle',
-        font: 'Koruri-Regular',
+        // font: 'Koruri-Regular',
+        font: 'MSMINCHO',
         fontStyle: 'normal',
         fillColor: 'black',
       },
       alternateRowStyles: { fillColor: '#e5f3fe' },
       styles: {
         valign: 'middle',
-        font: 'Koruri-Regular',
+        // font: 'Koruri-Regular',
+        font: 'MSMINCHO',
         fontStyle: 'normal',
         cellPadding: 0.3,
         fontSize: 5,
@@ -518,14 +524,16 @@ const PayslipForm = () => {
       headStyles: {
         halign: 'center',
         valign: 'middle',
-        font: 'Koruri-Regular',
+        // font: 'Koruri-Regular',
+        font: 'MSMINCHO',
         fontStyle: 'normal',
         fillColor: 'black',
       },
       alternateRowStyles: { fillColor: '#e5f3fe' },
       styles: {
         valign: 'middle',
-        font: 'Koruri-Regular',
+        // font: 'Koruri-Regular',
+        font: 'MSMINCHO',
         fontStyle: 'normal',
         cellPadding: 0.3,
         fontSize: 5,
@@ -586,8 +594,10 @@ const PayslipForm = () => {
       margin: { left: FIVE_SIX_LEFT },
       styles: {
         valign: 'middle',
-        font: 'Koruri-Semibold',
-        fontStyle: 'bold',
+        // font: 'Koruri-Semibold',
+        // fontStyle: 'bold',
+        font: 'MSMINCHO',
+        fontStyle: 'normal',
         cellPadding: 0.5,
         fontSize: 6,
       },
@@ -617,8 +627,10 @@ const PayslipForm = () => {
       margin: { left: FIVE_SIX_LEFT + FIVE_SIX_WIDTH + 2 },
       styles: {
         valign: 'middle',
-        font: 'Koruri-Semibold',
-        fontStyle: 'bold',
+        // font: 'Koruri-Semibold',
+        // fontStyle: 'bold',
+        font: 'MSMINCHO',
+        fontStyle: 'normal',
         cellPadding: 0.5,
         fontSize: 6,
       },
@@ -650,8 +662,10 @@ const PayslipForm = () => {
       margin: { left: SEVEN_LEFT },
       styles: {
         valign: 'middle',
-        font: 'Koruri-Semibold',
-        fontStyle: 'bold',
+        // font: 'Koruri-Semibold',
+        // fontStyle: 'bold',
+        font: 'MSMINCHO',
+        fontStyle: 'normal',
         cellPadding: 0.5,
         fontSize: 6,
       },
@@ -690,14 +704,16 @@ const PayslipForm = () => {
       headStyles: {
         halign: 'center',
         valign: 'middle',
-        font: 'Koruri-Regular',
+        // font: 'Koruri-Regular',
+        font: 'MSMINCHO',
         fontStyle: 'normal',
         fillColor: 'black',
       },
       alternateRowStyles: { fillColor: '#e5f3fe' },
       styles: {
         valign: 'middle',
-        font: 'Koruri-Regular',
+        // font: 'Koruri-Regular',
+        font: 'MSMINCHO',
         fontStyle: 'normal',
         cellPadding: 0.3,
         fontSize: 5,
@@ -755,14 +771,16 @@ const PayslipForm = () => {
       headStyles: {
         halign: 'center',
         valign: 'middle',
-        font: 'Koruri-Regular',
+        // font: 'Koruri-Regular',
+        font: 'MSMINCHO',
         fontStyle: 'normal',
         fillColor: 'black',
       },
       alternateRowStyles: { fillColor: '#e5f3fe' },
       styles: {
         valign: 'middle',
-        font: 'Koruri-Regular',
+        // font: 'Koruri-Regular',
+        font: 'MSMINCHO',
         fontStyle: 'normal',
         cellPadding: 0.3,
         fontSize: 5,
@@ -823,13 +841,15 @@ const PayslipForm = () => {
       headStyles: {
         halign: 'center',
         valign: 'middle',
-        font: 'Koruri-Regular',
+        // font: 'Koruri-Regular',
+        font: 'MSMINCHO',
         fontStyle: 'normal',
         fillColor: '#d2eafd',
       },
       styles: {
         valign: 'middle',
-        font: 'Koruri-Regular',
+        // font: 'Koruri-Regular',
+        font: 'MSMINCHO',
         fontStyle: 'normal',
         cellPadding: 0.3,
         fontSize: 5,
