@@ -95,6 +95,41 @@ const TEN_RIGHT_LEFT_MARGIN = ONE_TWO_THREE_LEFT // [Table10] 左右余白何ミ
 
 // ____________________________________________________
 
+// ____________________ 破線設定 ____________________
+
+const addDashedLine = (doc, data) => {
+  /**
+
+   data = {
+     cell,
+     row,
+     column,
+     section, // 'head'|'body'|'foot'
+   }
+
+   もっと詳しく情報: https://github.com/simonbengtsson/jsPDF-AutoTable
+
+   */
+  if (data.section == 'body' && data.row.index != 0) {
+    doc.setDrawColor(0, 0, 0) // 色を変更
+    doc.setLineWidth(0.2) // 線の太さ
+    doc.setLineDashPattern([0.2, 0.8], 0) //破線破線のパターン. doc.setLineDashPattern([長さ何ミリ, ドットとドットの幅何ミリ], スタートの位置から何ミリ)
+    // もっと詳しく情報: https://artskydj.github.io/jsPDF/docs/jsPDF.html#setLineDashPattern
+
+    doc.line(
+      data.cell.x,
+      data.cell.y,
+      data.cell.x + data.column.width,
+      data.cell.y,
+    ) // doc.line(スタートの位置左から何ミリ, スタートの位置上から何ミリ, エンドの位置左から何ミリ, エンドの位置上から何ミリ)
+    // もっと詳しく情報: https://artskydj.github.io/jsPDF/docs/jsPDF.html#line
+
+    doc.setLineDashPattern([1, 0], 0) // 破線破線のパターンをリセット (普通のラインに戻す)
+  }
+}
+
+// ____________________________________________________
+
 const PayslipForm = () => {
   const [formValues, setFormValues] = useState({
     header: {
@@ -271,18 +306,7 @@ const PayslipForm = () => {
         1: { halign: 'right', cellWidth: 20 },
       },
       willDrawCell: data => {
-        if (data.section == 'body' && data.row.index != 0) {
-          doc.setDrawColor(0, 0, 0)
-          doc.setLineWidth(0.2)
-          doc.setLineDashPattern([0.2, 0.8], 0)
-          doc.line(
-            data.cell.x,
-            data.cell.y,
-            data.cell.x + data.column.width,
-            data.cell.y,
-          )
-          doc.setLineDashPattern([1, 0], 0)
-        }
+        addDashedLine(doc, data)
       },
       head: [
         [
@@ -350,18 +374,7 @@ const PayslipForm = () => {
         1: { halign: 'right', cellWidth: 20 },
       },
       willDrawCell: data => {
-        if (data.section == 'body' && data.row.index != 0) {
-          doc.setDrawColor(0, 0, 0)
-          doc.setLineWidth(0.2)
-          doc.setLineDashPattern([0.2, 0.8], 0)
-          doc.line(
-            data.cell.x,
-            data.cell.y,
-            data.cell.x + data.column.width,
-            data.cell.y,
-          )
-          doc.setLineDashPattern([1, 0], 0)
-        }
+        addDashedLine(doc, data)
       },
       head: [
         [
@@ -442,18 +455,7 @@ const PayslipForm = () => {
         1: { halign: 'right', cellWidth: 20 },
       },
       willDrawCell: data => {
-        if (data.section == 'body' && data.row.index != 0) {
-          doc.setDrawColor(0, 0, 0)
-          doc.setLineWidth(0.2)
-          doc.setLineDashPattern([0.2, 0.8], 0)
-          doc.line(
-            data.cell.x,
-            data.cell.y,
-            data.cell.x + data.column.width,
-            data.cell.y,
-          )
-          doc.setLineDashPattern([1, 0], 0)
-        }
+        addDashedLine(doc, data)
       },
       head: [
         [
@@ -533,18 +535,7 @@ const PayslipForm = () => {
         1: { halign: 'right', cellWidth: 20 },
       },
       willDrawCell: data => {
-        if (data.section == 'body' && data.row.index != 0) {
-          doc.setDrawColor(0, 0, 0)
-          doc.setLineWidth(0.2)
-          doc.setLineDashPattern([0.2, 0.8], 0)
-          doc.line(
-            data.cell.x,
-            data.cell.y,
-            data.cell.x + data.column.width,
-            data.cell.y,
-          )
-          doc.setLineDashPattern([1, 0], 0)
-        }
+        addDashedLine(doc, data)
       },
       head: [
         [
@@ -605,20 +596,6 @@ const PayslipForm = () => {
         0: { fillColor: '#e5f3fe' },
         1: { halign: 'right', cellWidth: 20 },
       },
-      willDrawCell: data => {
-        if (data.section == 'body' && data.row.index != 0) {
-          doc.setDrawColor(0, 0, 0)
-          doc.setLineWidth(0.2)
-          doc.setLineDashPattern([0.2, 0.8], 0)
-          doc.line(
-            data.cell.x,
-            data.cell.y,
-            data.cell.x + data.column.width,
-            data.cell.y,
-          )
-          doc.setLineDashPattern([1, 0], 0)
-        }
-      },
       head: [
         [
           {
@@ -649,20 +626,6 @@ const PayslipForm = () => {
         // 0: { fillColor: '#f5f5f5' },
         0: { fillColor: '#e5f3fe' },
         1: { halign: 'right', cellWidth: 20 },
-      },
-      willDrawCell: data => {
-        if (data.section == 'body' && data.row.index != 0) {
-          doc.setDrawColor(0, 0, 0)
-          doc.setLineWidth(0.2)
-          doc.setLineDashPattern([0.2, 0.8], 0)
-          doc.line(
-            data.cell.x,
-            data.cell.y,
-            data.cell.x + data.column.width,
-            data.cell.y,
-          )
-          doc.setLineDashPattern([1, 0], 0)
-        }
       },
       head: [
         [
@@ -696,20 +659,6 @@ const PayslipForm = () => {
         // 0: { fillColor: '#f5f5f5' },
         0: { fillColor: '#e5f3fe' },
         1: { halign: 'right', cellWidth: 20 },
-      },
-      willDrawCell: data => {
-        if (data.section == 'body' && data.row.index != 0) {
-          doc.setDrawColor(0, 0, 0)
-          doc.setLineWidth(0.2)
-          doc.setLineDashPattern([0.2, 0.8], 0)
-          doc.line(
-            data.cell.x,
-            data.cell.y,
-            data.cell.x + data.column.width,
-            data.cell.y,
-          )
-          doc.setLineDashPattern([1, 0], 0)
-        }
       },
       head: [
         [
@@ -758,18 +707,7 @@ const PayslipForm = () => {
         1: { halign: 'right', cellWidth: 20 },
       },
       willDrawCell: data => {
-        if (data.section == 'body' && data.row.index != 0) {
-          doc.setDrawColor(0, 0, 0)
-          doc.setLineWidth(0.2)
-          doc.setLineDashPattern([0.2, 0.8], 0)
-          doc.line(
-            data.cell.x,
-            data.cell.y,
-            data.cell.x + data.column.width,
-            data.cell.y,
-          )
-          doc.setLineDashPattern([1, 0], 0)
-        }
+        addDashedLine(doc, data)
       },
       head: [
         [
@@ -834,18 +772,7 @@ const PayslipForm = () => {
         1: { halign: 'right', cellWidth: 20 },
       },
       willDrawCell: data => {
-        if (data.section == 'body' && data.row.index != 0) {
-          doc.setDrawColor(0, 0, 0)
-          doc.setLineWidth(0.2)
-          doc.setLineDashPattern([0.2, 0.8], 0)
-          doc.line(
-            data.cell.x,
-            data.cell.y,
-            data.cell.x + data.column.width,
-            data.cell.y,
-          )
-          doc.setLineDashPattern([1, 0], 0)
-        }
+        addDashedLine(doc, data)
       },
       head: [
         [
