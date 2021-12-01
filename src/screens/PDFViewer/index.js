@@ -1,13 +1,15 @@
 import React, { useEffect } from 'react'
+import { dateInYYYYMMDD } from '../../utils/utils'
 import { printPlugin } from '@react-pdf-viewer/print'
 import { Viewer, Worker } from '@react-pdf-viewer/core'
 import { useHistory, useLocation } from 'react-router-dom'
 import { getFilePlugin } from '@react-pdf-viewer/get-file'
-import { dateInYYYYMMDD } from '../../utils/utils'
 
 import '@react-pdf-viewer/core/lib/styles/index.css'
-import '@react-pdf-viewer/default-layout/lib/styles/index.css'
 import '@react-pdf-viewer/print/lib/styles/index.css'
+import '@react-pdf-viewer/default-layout/lib/styles/index.css'
+
+import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.entry'
 
 const PDFViewer = () => {
   const history = useHistory()
@@ -61,7 +63,7 @@ const PDFViewer = () => {
               flex: 1,
               overflow: 'hidden',
             }}>
-            <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.6.347/build/pdf.worker.min.js">
+            <Worker workerUrl={pdfjsWorker}>
               <Viewer
                 fileUrl={pdfURL}
                 plugins={[printPluginInstance, getFilePluginInstance]}
