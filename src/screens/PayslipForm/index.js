@@ -8,6 +8,7 @@ import 'jspdf-autotable'
 import { jsPDF } from 'jspdf'
 import FormsGrid from '../../components/FormsGrid'
 import { useState } from 'react'
+import { dateInYYYYMMDD } from '../../utils/utils'
 
 // ____________________ Text 設定 ____________________
 
@@ -912,9 +913,13 @@ const PayslipForm = () => {
     // })
     // history.push('/payslip-pdf?pdfurl=' + doc.output('bloburl'))
     // window.open('/payslip-pdf?pdfurl=' + doc.output('bloburl'))
-    const url = `/payslip-pdf?pdfurl=${doc.output('bloburl')}&year=${
-      formValues.header.date.year || '00'
-    }&month=${formValues.header.date.month || '00'}`
+    const url = `/payslip-pdf?pdfurl=${doc.output('bloburl')}&filename=${
+      (formValues.header.date.year || '00') +
+      '年' +
+      (formValues.header.date.month || '00') +
+      '月度給与明細_' +
+      dateInYYYYMMDD()
+    }`
     window.open(
       url,
       'window',

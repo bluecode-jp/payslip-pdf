@@ -452,9 +452,7 @@ function WithholdForm() {
     generateTable3(doc, { width: 120, top: 10, left: 85 })
     generateTable4(doc, { width: 120, top: 20, left: 85 })
     // --------------------------------------
-    const url = `/payslip-pdf?pdfurl=${doc.output(
-      'bloburl',
-    )}&year=${'00'}&month=${'00'}`
+    const url = `/payslip-pdf?pdfurl=${doc.output('bloburl')}`
     window.open(
       url,
       'window',
