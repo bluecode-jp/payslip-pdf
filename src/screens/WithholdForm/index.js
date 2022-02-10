@@ -45,21 +45,19 @@ const generateTable1 = (doc, { width, top, left }) => {
       },
     },
     didDrawCell: data => {
-      // console.log(data)
       if (
-        data.section == 'body' &&
-        data.row.index == 0 &&
+        data.row.index == 1 &&
         (data.column.index == 2 || data.column.index == 1)
       ) {
         doc.setDrawColor(255, 255, 255) // 色を変更
         doc.setLineWidth(0.2) // 線の太さ
-        doc.setLineDashPattern([0.2, 0.8], 0) //破線破線のパターン. doc.setLineDashPattern([長さ何ミリ, ドットとドットの幅何ミリ], スタートの位置から何ミリ)
+        doc.setLineDashPattern([0.5, 0.2], 0) //破線破線のパターン. doc.setLineDashPattern([長さ何ミリ, ドットとドットの幅何ミリ], スタートの位置から何ミリ)
         // もっと詳しく情報: https://artskydj.github.io/jsPDF/docs/jsPDF.html#setLineDashPattern
         doc.line(
           data.cell.x,
-          data.cell.y + data.row.height,
+          data.cell.y,
           data.cell.x + data.column.width,
-          data.cell.y + data.row.height,
+          data.cell.y,
         )
         doc.setLineDashPattern([1, 0], 0) // 破線破線のパターンをリセット (普通のラインに戻す)
         doc.setDrawColor(0, 0, 0) // 色を変更
@@ -162,21 +160,21 @@ const generateTable2 = (doc, { width, top, left }) => {
       didDrawCell: data => {
         // console.log(data)
         if (
-          data.section == 'body' &&
-          data.row.index == 0 &&
+          data.row.index == 1 &&
           (data.column.index == 2 || data.column.index == 1)
         ) {
-          doc.setDrawColor(255, 255, 255)
-          doc.setLineWidth(0.2)
-          doc.setLineDashPattern([0.2, 0.8], 0)
+          doc.setDrawColor(255, 255, 255) // 色を変更
+          doc.setLineWidth(0.2) // 線の太さ
+          doc.setLineDashPattern([0.5, 0.2], 0) //破線破線のパターン. doc.setLineDashPattern([長さ何ミリ, ドットとドットの幅何ミリ], スタートの位置から何ミリ)
+          // もっと詳しく情報: https://artskydj.github.io/jsPDF/docs/jsPDF.html#setLineDashPattern
           doc.line(
             data.cell.x,
-            data.cell.y + data.row.height,
+            data.cell.y,
             data.cell.x + data.column.width,
-            data.cell.y + data.row.height,
+            data.cell.y,
           )
-          doc.setLineDashPattern([1, 0], 0)
-          doc.setDrawColor(0, 0, 0)
+          doc.setLineDashPattern([1, 0], 0) // 破線破線のパターンをリセット (普通のラインに戻す)
+          doc.setDrawColor(0, 0, 0) // 色を変更
         }
         if (data.section == 'body' && data.row.index == 2) {
           doc.setDrawColor(0, 0, 0)
@@ -356,21 +354,21 @@ const generateTable4 = (doc, { width, top, left }) => {
       didDrawCell: data => {
         // console.log(data)
         if (
-          data.section == 'body' &&
-          data.row.index == 0 &&
+          data.row.index == 1 &&
           (data.column.index == 2 || data.column.index == 1)
         ) {
-          doc.setDrawColor(255, 255, 255)
-          doc.setLineWidth(0.2)
-          doc.setLineDashPattern([0.2, 0.8], 0)
+          doc.setDrawColor(255, 255, 255) // 色を変更
+          doc.setLineWidth(0.2) // 線の太さ
+          doc.setLineDashPattern([0.5, 0.2], 0) //破線破線のパターン. doc.setLineDashPattern([長さ何ミリ, ドットとドットの幅何ミリ], スタートの位置から何ミリ)
+          // もっと詳しく情報: https://artskydj.github.io/jsPDF/docs/jsPDF.html#setLineDashPattern
           doc.line(
             data.cell.x,
-            data.cell.y + data.row.height,
+            data.cell.y,
             data.cell.x + data.column.width,
-            data.cell.y + data.row.height,
+            data.cell.y,
           )
-          doc.setLineDashPattern([1, 0], 0)
-          doc.setDrawColor(0, 0, 0)
+          doc.setLineDashPattern([1, 0], 0) // 破線破線のパターンをリセット (普通のラインに戻す)
+          doc.setDrawColor(0, 0, 0) // 色を変更
         }
         if (data.section == 'body' && data.row.index == 2) {
           doc.setDrawColor(0, 0, 0)
