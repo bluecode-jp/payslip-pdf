@@ -13,6 +13,11 @@
   border: 0.5px solid #3d3d3d;
 }
 
+.subform3-wrapper {
+  padding: 0 !important;
+  border: 0 !important;
+}
+
 .no-top-border {
   border-top: 0 !important;
 }
@@ -33,7 +38,7 @@
   border-bottom: 0.5px dotted #3d3d3d !important;
 }
 
-.subform3-wrapper table tr:last-child {
+.subform3 table tr:last-child {
   height: 2rem;
   background: linear-gradient(
     to top left,

@@ -63,7 +63,12 @@
   );
 }
 
-.subform4-wrapper table tr:last-child {
+.subform4-wrapper {
+  padding: 0 !important;
+  border: 0 !important;
+}
+
+.subform4 table tr:last-child {
   height: 2rem;
   background: linear-gradient(
     to top left,
