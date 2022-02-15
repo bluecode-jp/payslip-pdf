@@ -42,7 +42,7 @@ const SubForm = ({ isLast = false, index = 1, formValues, setFormValues }) => {
                 }>
                 <option value=""></option>
                 <option value="○">○</option>
-                <option value="✕">✕</option>
+                <option value="X">✕</option>
                 <option value="□">□</option>
               </select>
             </td>
