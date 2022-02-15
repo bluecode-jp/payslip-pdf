@@ -1,0 +1,23 @@
+.grid-wrapper {
+  display: grid;
+  width: 100%;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, minmax(min-content, max-content));
+  grid-auto-flow: dense;
+  grid-auto-rows: max-content;
+}
+
+@media (max-width: 768px) {
+  .grid-wrapper {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+  .section4 {
+    grid-column: span 1;
+  }
+
+  .section6 {
+    grid-column: span 1;
+  }
+}
