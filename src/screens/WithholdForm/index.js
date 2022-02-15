@@ -76,7 +76,7 @@ function WithholdForm() {
     )
   }
   return (
-    <div>
+    <div className={'withhold-form-wrapper'}>
       <FormsGrid {...{ formValues, setFormValues }} />
       <button onClick={onExport}>export</button>
     </div>

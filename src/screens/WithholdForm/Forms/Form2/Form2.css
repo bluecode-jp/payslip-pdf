@@ -1,0 +1,61 @@
+.form2-wrapper {
+  display: flex;
+  height: 100%;
+  font-size: 0.8rem;
+}
+
+.hasYen {
+  position: relative;
+}
+.hasYen::after {
+  position: absolute;
+  content: '円';
+  top: 2px;
+  right: 2px;
+}
+
+.cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0.5rem;
+  width: 10rem;
+  border: 0.5px solid #3d3d3d;
+}
+
+.form2-wrapper table {
+  width: 100%;
+  border-spacing: 0;
+}
+
+.form2-wrapper table tr {
+  height: 3rem;
+}
+
+.form2-wrapper table td {
+  text-align: center;
+  padding: 0.5rem;
+  border: 0.5px solid #3d3d3d;
+}
+
+.no-top-border {
+  border-top: 0 !important;
+}
+
+.no-left-border {
+  border-left: 0 !important;
+}
+
+.no-right-border {
+  border-right: 0 !important;
+}
+
+.no-bottom-border {
+  border-bottom: 0 !important;
+}
+
+.dotted-bottom-border {
+  border-bottom: 0.5px dotted #3d3d3d !important;
+}

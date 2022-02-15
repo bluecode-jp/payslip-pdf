@@ -13,11 +13,4 @@
     grid-template-columns: 1fr;
     grid-template-rows: auto;
   }
-  .section4 {
-    grid-column: span 1;
-  }
-
-  .section6 {
-    grid-column: span 1;
-  }
 }
