@@ -1,0 +1,46 @@
+.form3-wrapper table {
+  width: 100%;
+  border-spacing: 0;
+}
+
+.form3-wrapper table tr {
+  height: 3rem;
+}
+
+.form3-wrapper table td {
+  text-align: center;
+  padding: 0.5rem;
+  border: 0.5px solid #3d3d3d;
+}
+
+.no-top-border {
+  border-top: 0 !important;
+}
+
+.no-left-border {
+  border-left: 0 !important;
+}
+
+.no-right-border {
+  border-right: 0 !important;
+}
+
+.no-bottom-border {
+  border-bottom: 0 !important;
+}
+
+.dotted-bottom-border {
+  border-bottom: 0.5px dotted #3d3d3d !important;
+}
+
+.subform3-wrapper table tr:last-child {
+  height: 2rem;
+  background: linear-gradient(
+    to top left,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0) calc(50% - 0.8px),
+    rgba(0, 0, 0, 1) 50%,
+    rgba(0, 0, 0, 0) calc(50% + 0.8px),
+    rgba(0, 0, 0, 0) 100%
+  );
+}
