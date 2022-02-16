@@ -1,0 +1,165 @@
+.form4Wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  border: 0.5px solid black;
+  border-right: 0;
+  min-width: 15rem;
+  min-height: 5rem;
+}
+
+.column:last-child {
+  border-right: 0.5px solid black;
+}
+
+.column > label {
+  flex: 0.5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border-bottom: 0.5px solid black;
+}
+
+.contentWrapper {
+  flex: 1;
+  display: flex;
+  width: 100%;
+}
+
+.contentWrapper label {
+  flex: 0.5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contentWrapper > div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-right: 0.5px solid black;
+  width: 100%;
+}
+
+.selectContainer {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border-top: 0.5px solid black;
+}
+
+.selectContainer select {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100% !important;
+  text-align-last: center;
+}
+
+.numberContainer {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border-top: 0.5px solid black;
+}
+
+.numberContainer input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+}
+
+.numberContainer div {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  border-right: 0.5px black solid;
+}
+
+.numberContainer div:last-child {
+  border-right: 0;
+}
+
+.dashedBorder {
+  border-right: 0.5px black dashed !important;
+}
+
+.noBorderTop {
+  border-top: 0 !important;
+}
+
+.noBorderLeft {
+  border-left: 0 !important;
+}
+
+.noBorderBottom {
+  border-bottom: 0 !important;
+}
+
+.no-border-right {
+  border-right: 0 !important;
+}
+
+.thirdCol {
+  flex: 2.5;
+}
+
+.fourthCol,
+.sixthCol {
+  min-width: 4rem;
+  max-width: 4rem;
+}
+
+.fifthCol {
+}
+
+.uchi::after {
+  position: absolute;
+  content: '内';
+  top: 2px;
+  left: 3px;
+}
+
+.sen::after {
+  position: absolute;
+  content: '千';
+  top: 2px;
+  right: 3px;
+}
+
+.yen::after {
+  position: absolute;
+  content: '円';
+  top: 2px;
+  right: 3px;
+}
+
+.hito::after {
+  position: absolute;
+  content: '人';
+  top: 2px;
+  right: 3px;
+}
+
+.hito2::after {
+  position: absolute;
+  content: '従人';
+  top: 2px;
+  right: 3px;
+}
