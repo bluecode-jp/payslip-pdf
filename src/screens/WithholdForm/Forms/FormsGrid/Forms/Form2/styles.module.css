@@ -1,0 +1,95 @@
+.form2Wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.form2Wrapper label {
+  margin: 0 0.2rem;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  border: 0.5px solid black;
+  height: 100%;
+  width: 100%;
+}
+
+.firstRow {
+  border-bottom: 0;
+}
+
+.firstRow input {
+  height: 100%;
+  margin: 0.2rem;
+}
+
+.secondRow {
+  height: 6rem;
+  border-bottom: 0;
+  background: linear-gradient(
+    to top left,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0) calc(50% - 0.8px),
+    rgba(0, 0, 0, 1) 50%,
+    rgba(0, 0, 0, 0) calc(50% + 0.8px),
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.thirdRow {
+  border-bottom: 0;
+}
+
+.thirdRow input {
+  height: 100%;
+  margin: 0.2rem;
+}
+
+.fourthRow {
+  flex-direction: row;
+}
+
+.fourthRow .rowTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 0.5rem;
+  border-right: 0.5px solid black;
+  width: 1rem;
+}
+
+.fourthRow .rowContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.fourthRow .rowContent > input {
+  margin: 0.2rem;
+  height: 100%;
+}
+
+.fourthRow .rowContent .furigana {
+  display: flex;
+  padding: 0.5rem 0;
+  align-items: center;
+  border-bottom: 0.5px solid black;
+}
+
+.fourthRow .rowContent .furigana label {
+  width: 10rem;
+}
+
+.fourthRow .rowContent .furigana input {
+  margin: 0.2rem;
+  height: 100%;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+}

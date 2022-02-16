@@ -1,0 +1,35 @@
+.form1Wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0.5rem 0;
+}
+
+.column {
+  display: flex;
+  padding: 0.45rem;
+  justify-content: center;
+  align-items: center;
+  border: 0.5px solid black;
+  height: 100%;
+}
+
+.firstCol {
+  width: 2rem;
+  border-right: 0;
+}
+
+.secondCol {
+  width: 1rem;
+  border-right: 0;
+}
+
+.thirdCol {
+  width: 100%;
+}
+
+.thirdCol input {
+  width: 100%;
+  height: 100%;
+}

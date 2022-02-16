@@ -1,16 +1,32 @@
 .grid-wrapper {
   display: grid;
   width: 100%;
-  grid-gap: 1rem;
+  height: 100%;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(3, minmax(min-content, max-content));
   grid-auto-flow: dense;
   grid-auto-rows: max-content;
+  margin-bottom: 1rem;
+}
+
+.grid-wrapper .section {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+.section1 {
+  justify-content: center;
+  align-items: center;
+  grid-column: 1 / span 2;
 }
 
 @media (max-width: 768px) {
   .grid-wrapper {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
+  }
+
+  .grid-wrapper .section {
+    grid-column: 1;
   }
 }
