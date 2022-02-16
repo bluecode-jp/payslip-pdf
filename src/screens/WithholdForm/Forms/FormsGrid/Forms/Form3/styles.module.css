@@ -1,0 +1,90 @@
+.form3Wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  font-size: 0.8rem;
+}
+
+.form3Wrapper .column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  border: 0.5px solid black;
+  min-width: 13rem;
+}
+
+.form3Wrapper .column div {
+  width: 100%;
+  text-align: center;
+  height: 3.5rem;
+}
+
+.form3Wrapper .column label {
+  width: 100%;
+  text-align: center;
+  height: 1.5rem;
+  border-bottom: 0.5px solid black;
+}
+
+.form3Wrapper .firstCol {
+  display: flex;
+  flex-direction: column;
+  border-right: 0;
+}
+
+.form3Wrapper .firstCol input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+}
+
+.form3Wrapper .numberContainer {
+  display: flex;
+}
+
+.form3Wrapper .numberContainer div {
+  position: relative;
+  height: 100%;
+  border-right: 0.5px black solid;
+}
+
+.form3Wrapper .numberContainer input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+}
+
+.form3Wrapper .numberContainer div:last-child {
+  border-right: 0;
+}
+
+.form3Wrapper .secondCol {
+  display: flex;
+  flex-direction: column;
+  border-right: 0;
+}
+
+.uchi::after {
+  position: absolute;
+  content: '内';
+  top: 2px;
+  left: 3px;
+}
+
+.sen::after {
+  position: absolute;
+  content: '千';
+  top: 2px;
+  right: 3px;
+}
+
+.yen::after {
+  position: absolute;
+  content: '円';
+  top: 2px;
+  right: 3px;
+}

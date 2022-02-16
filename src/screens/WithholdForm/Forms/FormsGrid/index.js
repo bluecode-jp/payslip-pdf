@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Header from './Forms/Header'
 import Form1 from './Forms/Form1'
 import Form2 from './Forms/Form2'
+import Form3 from './Forms/Form3'
 
 const FormsGrid = ({ formValues, setFormValues }) => {
   console.log(formValues, setFormValues)
@@ -17,7 +18,9 @@ const FormsGrid = ({ formValues, setFormValues }) => {
       <div className="section section3">
         <Form2 />
       </div>
-      <div className="section section4"></div>
+      <div className="section section4">
+        <Form3 />
+      </div>
     </div>
   )
 }
