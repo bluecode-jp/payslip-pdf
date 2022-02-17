@@ -4,10 +4,11 @@
   height: 100%;
   gap: 0.5rem;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(6, minmax(min-content, max-content));
+  grid-template-rows: repeat(10, minmax(min-content, max-content));
   grid-auto-flow: dense;
   grid-auto-rows: max-content;
   margin-bottom: 1rem;
+  text-align: center;
 }
 
 .grid-wrapper .section {

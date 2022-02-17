@@ -1,0 +1,138 @@
+.subform1Wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  font-size: 0.8rem;
+}
+
+.row {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: 0.5px solid black;
+}
+
+.row div {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  text-align: center;
+  /* border-left: 0.5px solid black; */
+}
+
+.row label {
+  display: flex;
+  flex: 1.5;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  margin: 0 0.5rem;
+}
+
+.row input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+}
+
+.firstRow {
+  flex-direction: row;
+  min-height: 2.5rem;
+  border-bottom: 0;
+}
+
+.firstSubrow {
+  display: flex;
+  border-bottom: 0.5px dotted black;
+  border-left: 0;
+}
+
+.firstSubrow > div {
+  border: 0.5px solid black;
+  border-top: 0;
+  border-bottom: 0;
+}
+
+.secondSubrow {
+  display: flex;
+  border-left: 0;
+}
+
+.secondSubrow > div {
+  border: 0.5px solid black;
+  border-top: 0;
+  border-bottom: 0;
+}
+
+.firstSubrow > label,
+.secondSubrow > label {
+  max-width: 5rem;
+}
+
+.kubun {
+  display: flex;
+  max-width: 2rem;
+}
+
+.secondRow {
+  min-height: 3rem;
+  background: linear-gradient(
+    to top left,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0) calc(50% - 0.8px),
+    rgba(0, 0, 0, 1) 50%,
+    rgba(0, 0, 0, 0) calc(50% + 0.8px),
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.kubunSelectWrapper {
+  max-width: 3rem;
+}
+
+.selectContainer {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-left: 0.5px solid black;
+}
+
+.selectContainer select {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100% !important;
+  text-align-last: center;
+}
+
+.yen::after {
+  position: absolute;
+  content: '円';
+  top: 2px;
+  right: 3px;
+}
+
+.nen::after {
+  position: absolute;
+  content: '年';
+  top: 2px;
+  right: 3px;
+}
+
+.getsu::after {
+  position: absolute;
+  content: '月';
+  top: 2px;
+  right: 3px;
+}
+
+.hi::after {
+  position: absolute;
+  content: '日';
+  top: 2px;
+  right: 3px;
+}
