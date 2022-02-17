@@ -7,6 +7,7 @@ import Form3 from './Forms/Form3'
 import Form4 from './Forms/Form4'
 import Form5 from './Forms/Form5'
 import Form6 from './Forms/Form6'
+import Form7 from './Forms/Form7'
 
 const FormsGrid = ({ formValues, setFormValues }) => {
   console.log(formValues, setFormValues)
@@ -32,6 +33,9 @@ const FormsGrid = ({ formValues, setFormValues }) => {
       </div>
       <div className="section section7">
         <Form6 />
+      </div>
+      <div className="section section6">
+        <Form7 />
       </div>
     </div>
   )
