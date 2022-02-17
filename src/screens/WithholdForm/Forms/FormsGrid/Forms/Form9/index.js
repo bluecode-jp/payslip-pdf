@@ -9,7 +9,9 @@ function Form9() {
           (源泉・特別) 控除対象 配偶者
         </label>
       </div>
-      <SubForm1 />
+      <div className={styles.subformWrapper}>
+        <SubForm1 />
+      </div>
     </div>
   )
 }

@@ -17,3 +17,9 @@
 .titleContainer > label {
   padding: 0.2rem;
 }
+
+.subformWrapper {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
