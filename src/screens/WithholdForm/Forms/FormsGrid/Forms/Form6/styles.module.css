@@ -1,0 +1,13 @@
+.form6Wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0.2rem;
+  border: 0.5px solid black;
+  min-height: 8rem;
+}
+
+.form6Wrapper input {
+  margin-top: 0.5rem;
+  height: 100%;
+}
