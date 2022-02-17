@@ -27,6 +27,10 @@
   grid-column: 1 / span 2;
 }
 
+.section6 {
+  grid-column: 1 / span 2;
+}
+
 @media (max-width: 768px) {
   .grid-wrapper {
     grid-template-columns: 1fr;
