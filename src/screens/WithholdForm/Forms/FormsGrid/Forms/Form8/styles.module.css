@@ -1,0 +1,23 @@
+.form8Wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.form8Wrapper > div {
+  flex: 1;
+}
+
+.titleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  border: 0.5px solid black;
+  border-right: 0;
+  max-width: 5rem;
+}
+
+.titleContainer > label {
+  padding: 0.2rem;
+}
