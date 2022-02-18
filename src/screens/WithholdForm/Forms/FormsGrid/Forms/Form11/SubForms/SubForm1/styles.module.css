@@ -16,6 +16,13 @@
   border-right: 0;
 }
 
+.rowsWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
 .row {
   flex: 1;
   display: flex;
