@@ -18,8 +18,6 @@
   flex: 1;
   min-width: 4rem;
   border: 0.5px solid black;
-  border-top: 0;
-  border-bottom: 0;
 }
 
 .columnWrapper .titleContainer {
@@ -53,9 +51,7 @@
   );
 }
 
-.firstHalf .doubleCol .columnWrapper,
-.secondHalf .multiCol .columnWrapper {
-  border-top: 0.5px solid black;
+.firstHalf .doubleCol .columnWrapper {
   border-right: 0;
   border-bottom: 0;
 }

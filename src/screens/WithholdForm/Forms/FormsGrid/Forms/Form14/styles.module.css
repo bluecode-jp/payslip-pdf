@@ -1,0 +1,25 @@
+.form14Wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border: 0.5px solid black;
+}
+
+.titleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+
+  max-width: 5rem;
+}
+
+.titleContainer > label {
+  padding: 0.2rem;
+}
+
+.subformWrapper {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
