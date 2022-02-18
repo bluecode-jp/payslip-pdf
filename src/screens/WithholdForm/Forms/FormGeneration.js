@@ -95,6 +95,107 @@ export const generateForm2 = (doc, { top, left, width }, formValues) => {
   })
 }
 
+export const generateForm3 = (doc, { top, left, width }, formValues) => {
+  doc.setFont('MSMINCHO', 'normal')
+  doc.autoTable({
+    theme: 'grid',
+    startY: top,
+    tableWidth: width,
+    margin: { left: left },
+    tableLineColor: 'black',
+    tableLineWidth: 0.01,
+    styles: {
+      halign: 'center',
+      valign: 'middle',
+      font: 'MSMINCHO',
+      fontStyle: 'normal',
+      textColor: 'black',
+      cellPadding: 1,
+      fontSize: 5,
+      cellWidth: 40,
+    },
+    body: [
+      [
+        {
+          content: '種          別',
+        },
+        { content: '支   払   金   額' },
+        {
+          content: '給与所得控除後の金額 (調整控除後)',
+        },
+        { content: '所得控除の額の合計額' },
+        { content: '源 泉 徴 収 税 額' },
+      ],
+    ],
+  })
+  doc.autoTable({
+    theme: 'grid',
+    startY: top + 4,
+    tableWidth: width,
+    margin: { left: left },
+    tableLineColor: 'black',
+    tableLineWidth: 0.01,
+    styles: {
+      halign: 'center',
+      valign: 'middle',
+      font: 'MSMINCHO',
+      fontStyle: 'normal',
+      textColor: 'black',
+      cellPadding: 1,
+      fontSize: 5,
+      cellWidth: 13.3333,
+      minCellHeight: 7,
+    },
+    body: [
+      [
+        {
+          content: formValues.shubetsu,
+          styles: { cellWidth: 13.3333 * 3 },
+        },
+        { content: formValues.payment.uchi },
+        {
+          content: formValues.payment.sen,
+        },
+        { content: formValues.payment.yen },
+        { content: formValues.amountAfter.uchi },
+        { content: formValues.amountAfter.sen },
+        { content: formValues.amountAfter.yen },
+        { content: formValues.totalDeduction.uchi },
+        { content: formValues.totalDeduction.sen },
+        { content: formValues.totalDeduction.yen },
+        { content: formValues.taxAmount.uchi },
+        { content: formValues.taxAmount.sen },
+        { content: formValues.taxAmount.yen },
+      ],
+    ],
+    didDrawCell: data => {
+      if (data.column.index == 1) {
+        doc.setFontSize(3)
+        const OFFSET = 1.5
+        doc.text('内', data.cell.x + OFFSET, data.cell.y + OFFSET)
+      }
+      if (data.column.index == 2) {
+        doc.setFontSize(3)
+        const OFFSET = 1.5
+        doc.text(
+          '千',
+          data.cell.x + data.column.width - OFFSET,
+          data.cell.y + OFFSET,
+        )
+      }
+      if (data.column.index == 3) {
+        doc.setFontSize(3)
+        const OFFSET = 1.5
+        doc.text(
+          '円',
+          data.cell.x + data.column.width - OFFSET,
+          data.cell.y + OFFSET,
+        )
+      }
+    },
+  })
+}
+
 export const generateTable1 = (doc, { width, top, left }, tableValues) => {
   doc.setFont('MSMINCHO', 'normal')
 
