@@ -1,11 +1,13 @@
 import styles from './styles.module.css'
 import SubForm1 from './SubForms/SubForm1'
 
-function Form11() {
+function Form12() {
   return (
-    <div className={styles.form11Wrapper}>
+    <div className={styles.form12Wrapper}>
       <div className={styles.titleContainer}>
-        <label>控 除 対 象 扶 養 親</label>
+        <label>
+          1<br />6 歳 未 満 の 扶 養 親 族
+        </label>
       </div>
       <div className={styles.subformWrapper}>
         {
@@ -15,8 +17,9 @@ function Form11() {
           ))
         }
       </div>
+      <div className={styles.emptyContainer}></div>
     </div>
   )
 }
 
-export default Form11
+export default Form12
