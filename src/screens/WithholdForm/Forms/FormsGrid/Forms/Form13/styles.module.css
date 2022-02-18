@@ -1,0 +1,124 @@
+.form13Wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.firstHalf {
+  flex: 1.1;
+  display: flex;
+  flex-wrap: wrap;
+  border: 0.5px solid black;
+  border-right: 0;
+}
+
+.columnWrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 4rem;
+  border: 0.5px solid black;
+  border-top: 0;
+  border-bottom: 0;
+}
+
+.columnWrapper .titleContainer {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 0.5px solid black;
+}
+
+.columnWrapper .selectContainer {
+  flex: 1;
+}
+
+.doubleCol {
+  flex: 2;
+  min-width: 8rem;
+  border: 0;
+}
+
+.firstHalf .emptyCol {
+  flex: 1;
+  min-height: 3rem;
+  background: linear-gradient(
+    to top left,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0) calc(50% - 0.8px),
+    rgba(0, 0, 0, 1) 50%,
+    rgba(0, 0, 0, 0) calc(50% + 0.8px),
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.firstHalf .doubleCol .columnWrapper,
+.secondHalf .multiCol .columnWrapper {
+  border-top: 0.5px solid black;
+  border-right: 0;
+  border-bottom: 0;
+}
+
+.multiCol {
+  flex: 1;
+  border: 0;
+}
+
+.multiCol > div {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+}
+
+.multiCol:first-child {
+  flex: 0.8;
+  border-right: 0.5px solid black;
+}
+
+.multiCol .biggerCol {
+  flex: 2;
+  min-width: 8rem;
+}
+
+.selectContainer {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.5rem;
+  height: 100%;
+}
+.selectContainer select {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+}
+
+.inputContainer {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.5rem;
+  height: 100%;
+}
+.inputContainer input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+}
+
+.secondHalf {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  border: 0.5px solid black;
+  border-left: 0;
+}
+
+@media (max-width: 768px) {
+  .form13Wrapper {
+    flex-direction: column;
+  }
+}

@@ -4,7 +4,7 @@
   height: 100%;
   gap: 0.5rem;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(10, minmax(min-content, max-content));
+  grid-template-rows: repeat(11, minmax(min-content, max-content));
   grid-auto-flow: dense;
   grid-auto-rows: max-content;
   margin-bottom: 1rem;
@@ -26,7 +26,8 @@
 .section6,
 .section7,
 .section8,
-.section9 {
+.section9,
+.section14 {
   grid-column: 1 / span 2;
 }
 
