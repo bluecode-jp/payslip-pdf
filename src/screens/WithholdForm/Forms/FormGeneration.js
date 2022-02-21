@@ -169,23 +169,33 @@ export const generateForm3 = (doc, { top, left, width }, formValues) => {
       ],
     ],
     didDrawCell: data => {
-      if (data.column.index == 1) {
-        doc.setFontSize(3)
-        const OFFSET = 1.5
+      if (data.column.index == 1 || data.column.index == 10) {
+        doc.setFontSize(4)
+        const OFFSET = 2
         doc.text('内', data.cell.x + OFFSET, data.cell.y + OFFSET)
       }
-      if (data.column.index == 2) {
-        doc.setFontSize(3)
-        const OFFSET = 1.5
+      if (
+        data.column.index == 2 ||
+        data.column.index == 5 ||
+        data.column.index == 8 ||
+        data.column.index == 11
+      ) {
+        doc.setFontSize(4)
+        const OFFSET = 2
         doc.text(
           '千',
           data.cell.x + data.column.width - OFFSET,
           data.cell.y + OFFSET,
         )
       }
-      if (data.column.index == 3) {
-        doc.setFontSize(3)
-        const OFFSET = 1.5
+      if (
+        data.column.index == 3 ||
+        data.column.index == 6 ||
+        data.column.index == 9 ||
+        data.column.index == 12
+      ) {
+        doc.setFontSize(4)
+        const OFFSET = 2
         doc.text(
           '円',
           data.cell.x + data.column.width - OFFSET,
@@ -431,8 +441,8 @@ export const generateForm5 = (doc, { top, left, width }, formValues) => {
     ],
     didDrawCell: data => {
       if (data.column.index == 0) {
-        doc.setFontSize(3)
-        const OFFSET = 1.5
+        doc.setFontSize(4)
+        const OFFSET = 2
         doc.text('内', data.cell.x + OFFSET, data.cell.y + OFFSET)
         doc.text(
           '千',
@@ -445,8 +455,8 @@ export const generateForm5 = (doc, { top, left, width }, formValues) => {
         data.column.index == 4 ||
         data.column.index == 6
       ) {
-        doc.setFontSize(3)
-        const OFFSET = 1.5
+        doc.setFontSize(4)
+        const OFFSET = 2
         doc.text(
           '千',
           data.cell.x + data.column.width - OFFSET,
@@ -459,8 +469,8 @@ export const generateForm5 = (doc, { top, left, width }, formValues) => {
         data.column.index == 5 ||
         data.column.index == 7
       ) {
-        doc.setFontSize(3)
-        const OFFSET = 1.5
+        doc.setFontSize(4)
+        const OFFSET = 2
         doc.text(
           '円',
           data.cell.x + data.column.width - OFFSET,
@@ -497,6 +507,59 @@ export const generateForm6 = (
     didDrawCell: data => {
       if (data.column.index == 0) {
         doc.text('(摘要)', data.cell.x + 1, data.cell.y + 2.5)
+      }
+    },
+  })
+}
+
+export const generateForm7 = (doc, { top, left, width }, formValues) => {
+  doc.setFont('MSMINCHO', 'normal')
+  doc.autoTable({
+    theme: 'grid',
+    startY: top,
+    tableWidth: width,
+    margin: { left: left },
+    tableLineColor: 'black',
+    tableLineWidth: 0.01,
+    styles: {
+      valign: 'middle',
+      halign: 'center',
+      font: 'MSMINCHO',
+      fontStyle: 'normal',
+      textColor: 'black',
+      cellPadding: 1,
+      fontSize: 5,
+    },
+    body: [
+      [
+        { content: '生命保険料の 金額の内訳', styles: { cellWidth: 15 } },
+        { content: '新生命保険料の金額', styles: { cellWidth: 15 } },
+        formValues.newLifeInsurance,
+        { content: '旧生命保険料の金額', styles: { cellWidth: 15 } },
+        formValues.oldLifeInsurance,
+        { content: '介護医療保険料の金額', styles: { cellWidth: 15 } },
+        formValues.longTermCare,
+        { content: '新個人年金保険料の金額', styles: { cellWidth: 15 } },
+        formValues.individualAnnuity,
+        { content: '旧個人年金保険料の金', styles: { cellWidth: 15 } },
+        formValues.oldIndividualAnnuity,
+      ],
+    ],
+    didDrawCell: data => {
+      if (
+        data.column.index == 2 ||
+        data.column.index == 4 ||
+        data.column.index == 6 ||
+        data.column.index == 8 ||
+        data.column.index == 10
+      ) {
+        doc.setFontSize(4)
+        const OFFSET = 2
+        doc.text(
+          '円',
+          data.cell.x + data.column.width - OFFSET,
+          data.cell.y + OFFSET,
+        )
       }
     },
   })

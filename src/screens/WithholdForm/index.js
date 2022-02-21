@@ -15,6 +15,7 @@ import {
   generateForm4,
   generateForm5,
   generateForm6,
+  generateForm7,
   generateHeader,
 } from './Forms/FormGeneration'
 
@@ -67,6 +68,13 @@ function WithholdForm() {
       summary:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
     },
+    form7: {
+      newLifeInsurance: 111,
+      oldLifeInsurance: 222,
+      longTermCare: 333,
+      individualAnnuity: 444,
+      oldIndividualAnnuity: 555,
+    },
     // form1: {
     //   furigana: '',
     //   name: '',
@@ -105,6 +113,7 @@ function WithholdForm() {
     generateForm4(doc, { width: 200, top: 44.92, left: 5 }, formValues.form4)
     generateForm5(doc, { width: 200, top: 68, left: 5 }, formValues.form5)
     generateForm6(doc, { width: 200, top: 79, left: 5 }, formValues.form6)
+    generateForm7(doc, { width: 200, top: 89, left: 5 }, formValues.form7)
 
     // generateTable1(doc, { width: 80, top: 10, left: 5 }, formValues.form1)
     // generateTable2(doc, { width: 120, top: 10, left: 85 }, formValues.form2)
