@@ -1,8 +1,9 @@
 import styles from './styles.module.css'
+import PropTypes from 'prop-types'
 import SubForm1 from './SubForms/SubForm1'
 import SubForm2 from './SubForms/SubForm2'
 
-function Form8() {
+function Form8({ formValues, setFormValues }) {
   return (
     <div className={styles.form8Wrapper}>
       <div className={styles.titleContainer}>
@@ -11,11 +12,16 @@ function Form8() {
         </label>
       </div>
       <div>
-        <SubForm1 />
-        <SubForm2 />
+        <SubForm1 {...{ formValues, setFormValues }} />
+        <SubForm2 {...{ formValues, setFormValues }} />
       </div>
     </div>
   )
+}
+
+Form8.propTypes = {
+  formValues: PropTypes.object,
+  setFormValues: PropTypes.func,
 }
 
 export default Form8
