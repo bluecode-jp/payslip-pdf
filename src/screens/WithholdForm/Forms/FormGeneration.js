@@ -565,6 +565,116 @@ export const generateForm7 = (doc, { top, left, width }, formValues) => {
   })
 }
 
+export const generateForm8 = (doc, { top, left, width }, formValues) => {
+  doc.setFont('MSMINCHO', 'normal')
+  doc.autoTable({
+    theme: 'grid',
+    startY: top,
+    tableWidth: width,
+    margin: { left: left },
+    tableLineColor: 'black',
+    tableLineWidth: 0.01,
+    styles: {
+      valign: 'middle',
+      halign: 'center',
+      font: 'MSMINCHO',
+      fontStyle: 'normal',
+      textColor: 'black',
+      cellPadding: 1,
+      fontSize: 5,
+    },
+    // form8: {
+    //     specialDeductions: 111,
+    //     startOfResidence1: { day: '20', month: '05', year: '1993' },
+    //     kubun1: 222,
+    //     yearEndBalance1: 333,
+    //     specialDeductibleAmount: 111,
+    //     startOfResidence2: { day: '22', month: '05', year: '1993' },
+    //     kubun2: 222,
+    //     yearEndBalance2: 333,
+    //   }
+    body: [
+      [
+        {
+          content: '住宅借入金等特別控除の額の内訳',
+          rowSpan: 2,
+          styles: { cellWidth: 15 },
+        },
+        { content: '住宅借入金等特別控除適用数', styles: { cellWidth: 15 } },
+        formValues.newLifeInsurance,
+        { content: '居住開始年月日 (1回目)', styles: { cellWidth: 15 } },
+        { content: formValues.oldLifeInsurance, styles: { cellWidth: 12 } },
+        { content: formValues.oldLifeInsurance, styles: { cellWidth: 12 } },
+        { content: formValues.oldLifeInsurance, styles: { cellWidth: 12 } },
+        {
+          content: '住宅借入金等特別控除区分(1回目)',
+          styles: { cellWidth: 15 },
+        },
+        formValues.longTermCare,
+        { content: '住宅借入金等年末残高(1回目)', styles: { cellWidth: 15 } },
+        formValues.individualAnnuity,
+      ],
+      [
+        { content: '住宅借入金等特別控除可能額', styles: { cellWidth: 15 } },
+        formValues.newLifeInsurance,
+        { content: '居住開始年月日 (2回目)', styles: { cellWidth: 15 } },
+        { content: formValues.oldLifeInsurance, styles: { cellWidth: 12 } },
+        { content: formValues.oldLifeInsurance, styles: { cellWidth: 12 } },
+        { content: formValues.oldLifeInsurance, styles: { cellWidth: 12 } },
+        {
+          content: '住宅借入金等特別控除区分(2回目)',
+          styles: { cellWidth: 15 },
+        },
+        formValues.longTermCare,
+        { content: '住宅借入金等年末残高(2回目)', styles: { cellWidth: 15 } },
+        formValues.individualAnnuity,
+      ],
+    ],
+    didDrawCell: data => {
+      if (data.column.index == 4) {
+        doc.setFontSize(4)
+        const OFFSET = 2
+        doc.text(
+          '年',
+          data.cell.x + data.column.width - OFFSET,
+          data.cell.y + OFFSET,
+        )
+      }
+      if (data.column.index == 5) {
+        doc.setFontSize(4)
+        const OFFSET = 2
+        doc.text(
+          '月',
+          data.cell.x + data.column.width - OFFSET,
+          data.cell.y + OFFSET,
+        )
+      }
+      if (data.column.index == 6) {
+        doc.setFontSize(4)
+        const OFFSET = 2
+        doc.text(
+          '日',
+          data.cell.x + data.column.width - OFFSET,
+          data.cell.y + OFFSET,
+        )
+      }
+      if (
+        (data.row.index == 0 && data.column.index == 10) ||
+        (data.row.index == 1 &&
+          (data.column.index == 2 || data.column.index == 10))
+      ) {
+        doc.setFontSize(4)
+        const OFFSET = 2
+        doc.text(
+          '円',
+          data.cell.x + data.column.width - OFFSET,
+          data.cell.y + OFFSET,
+        )
+      }
+    },
+  })
+}
+
 // export const generateTable1 = (doc, { width, top, left }, tableValues) => {
 //   doc.setFont('MSMINCHO', 'normal')
 

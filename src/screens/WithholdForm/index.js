@@ -16,6 +16,7 @@ import {
   generateForm5,
   generateForm6,
   generateForm7,
+  generateForm8,
   generateHeader,
 } from './Forms/FormGeneration'
 
@@ -75,6 +76,16 @@ function WithholdForm() {
       individualAnnuity: 444,
       oldIndividualAnnuity: 555,
     },
+    form8: {
+      specialDeductions: 111,
+      startOfResidence1: { day: '20', month: '05', year: '1993' },
+      kubun1: 222,
+      yearEndBalance1: 333,
+      specialDeductibleAmount: 111,
+      startOfResidence2: { day: '22', month: '05', year: '1993' },
+      kubun2: 222,
+      yearEndBalance2: 333,
+    },
     // form1: {
     //   furigana: '',
     //   name: '',
@@ -114,6 +125,7 @@ function WithholdForm() {
     generateForm5(doc, { width: 200, top: 68, left: 5 }, formValues.form5)
     generateForm6(doc, { width: 200, top: 79, left: 5 }, formValues.form6)
     generateForm7(doc, { width: 200, top: 89, left: 5 }, formValues.form7)
+    generateForm8(doc, { width: 200, top: 95, left: 5 }, formValues.form7)
 
     // generateTable1(doc, { width: 80, top: 10, left: 5 }, formValues.form1)
     // generateTable2(doc, { width: 120, top: 10, left: 85 }, formValues.form2)
