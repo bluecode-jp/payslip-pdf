@@ -471,6 +471,37 @@ export const generateForm5 = (doc, { top, left, width }, formValues) => {
   })
 }
 
+export const generateForm6 = (
+  doc,
+  { top, left, width, height = 10 },
+  formValues,
+) => {
+  doc.setFont('MSMINCHO', 'normal')
+  doc.autoTable({
+    theme: 'grid',
+    startY: top,
+    tableWidth: width,
+    margin: { left: left },
+    tableLineColor: 'black',
+    tableLineWidth: 0.01,
+    styles: {
+      valign: 'middle',
+      font: 'MSMINCHO',
+      fontStyle: 'normal',
+      textColor: 'black',
+      minCellHeight: height,
+      cellPadding: 1,
+      fontSize: 5,
+    },
+    body: [[formValues.summary]],
+    didDrawCell: data => {
+      if (data.column.index == 0) {
+        doc.text('(摘要)', data.cell.x + 1, data.cell.y + 2.5)
+      }
+    },
+  })
+}
+
 // export const generateTable1 = (doc, { width, top, left }, tableValues) => {
 //   doc.setFont('MSMINCHO', 'normal')
 
