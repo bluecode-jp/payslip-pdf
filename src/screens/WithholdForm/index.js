@@ -169,18 +169,16 @@ function WithholdForm() {
     generateForm14(doc, { width: 200, top: 195.3, left: 5 }, formValues.form14)
 
     // --------------------------------------
-    window.open(doc.output('bloburl'), '_blank')
-
-    // const url = `/payslip-pdf?pdfurl=${doc.output('bloburl')}`
-    // window.open(
-    //   url,
-    //   'window',
-    //   'toolbar=0,location=0,scrollbars=1,statusbar=1,menubar=0,resizable=1,width=' +
-    //     window.outerWidth +
-    //     ',height=' +
-    //     window.outerHeight +
-    //     ',left=0,top=0',
-    // )
+    const url = `/payslip-pdf?pdfurl=${doc.output('bloburl')}`
+    window.open(
+      url,
+      'window',
+      'toolbar=0,location=0,scrollbars=1,statusbar=1,menubar=0,resizable=1,width=' +
+        window.outerWidth +
+        ',height=' +
+        window.outerHeight +
+        ',left=0,top=0',
+    )
   }
   return (
     <div className={'withhold-form-wrapper'}>
