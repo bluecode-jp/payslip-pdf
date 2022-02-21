@@ -11,6 +11,8 @@ import '../../assets/fonts/MSMINCHO-normal'
 import {
   generateForm1,
   generateForm10,
+  generateForm11,
+  generateForm12,
   generateForm2,
   generateForm3,
   generateForm4,
@@ -100,18 +102,18 @@ function WithholdForm() {
       basicDeduction: 0,
       adjustment: 0,
     },
-    // form3: {
-    //   1: { furigana: '', name: '', kubun: '' },
-    //   2: { furigana: '', name: '', kubun: '' },
-    //   3: { furigana: '', name: '', kubun: '' },
-    //   4: { furigana: '', name: '', kubun: '' },
-    // },
-    // form4: {
-    //   1: { furigana: '', name: '', kubun: '' },
-    //   2: { furigana: '', name: '', kubun: '' },
-    //   3: { furigana: '', name: '', kubun: '' },
-    //   4: { furigana: '', name: '', kubun: '' },
-    // },
+    form11: {
+      1: { furigana: '', name: '', kubun: '' },
+      2: { furigana: '', name: '', kubun: '' },
+      3: { furigana: '', name: '', kubun: '' },
+      4: { furigana: '', name: '', kubun: '' },
+    },
+    form12: {
+      1: { furigana: '', name: '', kubun: '' },
+      2: { furigana: '', name: '', kubun: '' },
+      3: { furigana: '', name: '', kubun: '' },
+      4: { furigana: '', name: '', kubun: '' },
+    },
   })
   const onExport = async () => {
     const doc = new jsPDF()
@@ -130,9 +132,9 @@ function WithholdForm() {
     generateForm8(doc, { width: 200, top: 95, left: 5 }, formValues.form7)
     generateForm9(doc, { width: 80, top: 111.2, left: 5 }, formValues.form9)
     generateForm10(doc, { width: 120, top: 111.2, left: 85 }, formValues.form10)
+    generateForm11(doc, { width: 80, top: 121.2, left: 5 }, formValues.form11)
+    generateForm12(doc, { width: 120, top: 121.2, left: 85 }, formValues.form12)
 
-    // generateTable3(doc, { width: 80, top: 20, left: 5 }, formValues.form3)
-    // generateTable4(doc, { width: 120, top: 20, left: 85 }, formValues.form4)
     // --------------------------------------
     window.open(doc.output('bloburl'), '_blank')
 
