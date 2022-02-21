@@ -144,7 +144,7 @@ export const generateForm3 = (doc, { top, left, width }, formValues) => {
       cellPadding: 1,
       fontSize: 5,
       cellWidth: 13.3333,
-      minCellHeight: 7,
+      minCellHeight: 10,
     },
     body: [
       [
@@ -424,7 +424,7 @@ export const generateForm5 = (doc, { top, left, width }, formValues) => {
       cellPadding: 1,
       fontSize: 5,
       cellWidth: 25,
-      minCellHeight: 7,
+      minCellHeight: 10,
     },
     body: [
       [
@@ -1192,6 +1192,7 @@ export const generateForm14 = (doc, { width, top, left }, formValues) => {
       textColor: 'black',
       cellPadding: 0.3,
       fontSize: 5,
+      minCellHeight: 5,
     },
     body: [
       [
@@ -1200,7 +1201,7 @@ export const generateForm14 = (doc, { width, top, left }, formValues) => {
           rowSpan: 3,
           styles: { cellWidth: 5, halign: 'center' },
         },
-        { content: '', colSpan: 3, styles: { minCellHeight: 5 } },
+        { content: '', colSpan: 3, styles: { minCellHeight: 8 } },
       ],
       [
         {

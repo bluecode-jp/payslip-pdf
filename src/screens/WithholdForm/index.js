@@ -148,25 +148,25 @@ function WithholdForm() {
   })
   const onExport = async () => {
     const doc = new jsPDF()
-    generateHeader(doc, { top: 10, left: 61, fontSize: 15 }, 2)
+    generateHeader(doc, { top: 15, left: 61, fontSize: 15 }, 2)
     generateForm1(
       doc,
-      { width: 100, height: 18.92, top: 15, left: 5 },
+      { width: 100, height: 18.92, top: 25, left: 5 },
       formValues.form1,
     )
-    generateForm2(doc, { width: 100, top: 15, left: 105 }, formValues.form2)
-    generateForm3(doc, { width: 200, top: 33.92, left: 5 }, formValues.form3)
-    generateForm4(doc, { width: 200, top: 44.92, left: 5 }, formValues.form4)
-    generateForm5(doc, { width: 200, top: 68, left: 5 }, formValues.form5)
-    generateForm6(doc, { width: 200, top: 79, left: 5 }, formValues.form6)
-    generateForm7(doc, { width: 200, top: 89, left: 5 }, formValues.form7)
-    generateForm8(doc, { width: 200, top: 95, left: 5 }, formValues.form7)
-    generateForm9(doc, { width: 80, top: 111.2, left: 5 }, formValues.form9)
-    generateForm10(doc, { width: 120, top: 111.2, left: 85 }, formValues.form10)
-    generateForm11(doc, { width: 80, top: 121.2, left: 5 }, formValues.form11)
-    generateForm12(doc, { width: 120, top: 121.2, left: 85 }, formValues.form12)
-    generateForm13(doc, { width: 200, top: 161.2, left: 5 }, formValues.form13)
-    generateForm14(doc, { width: 200, top: 179.3, left: 5 }, formValues.form14)
+    generateForm2(doc, { width: 100, top: 25, left: 105 }, formValues.form2)
+    generateForm3(doc, { width: 200, top: 43.92, left: 5 }, formValues.form3)
+    generateForm4(doc, { width: 200, top: 57.92, left: 5 }, formValues.form4)
+    generateForm5(doc, { width: 200, top: 81, left: 5 }, formValues.form5)
+    generateForm6(doc, { width: 200, top: 95, left: 5 }, formValues.form6)
+    generateForm7(doc, { width: 200, top: 105, left: 5 }, formValues.form7)
+    generateForm8(doc, { width: 200, top: 111, left: 5 }, formValues.form7)
+    generateForm9(doc, { width: 80, top: 127.2, left: 5 }, formValues.form9)
+    generateForm10(doc, { width: 120, top: 127.2, left: 85 }, formValues.form10)
+    generateForm11(doc, { width: 80, top: 137.2, left: 5 }, formValues.form11)
+    generateForm12(doc, { width: 120, top: 147.2, left: 85 }, formValues.form12)
+    generateForm13(doc, { width: 200, top: 177.2, left: 5 }, formValues.form13)
+    generateForm14(doc, { width: 200, top: 195.3, left: 5 }, formValues.form14)
 
     // --------------------------------------
     window.open(doc.output('bloburl'), '_blank')
