@@ -1217,7 +1217,6 @@ export const generateForm14 = (doc, { width, top, left }, formValues) => {
       ],
     ],
     didDrawCell: data => {
-      console.log(data)
       if (data.row.index == 0 && data.column.index == 1) {
         doc.setDrawColor(0, 0, 0)
         doc.setLineWidth(0.1)
