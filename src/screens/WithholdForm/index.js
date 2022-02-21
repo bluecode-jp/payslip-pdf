@@ -1,7 +1,7 @@
 import './WithholdForm.css'
 import { jsPDF } from 'jspdf'
 import { useState } from 'react'
-import FormsGrid from './Forms/FormsGrid'
+import FormsGrid from './FormsGrid'
 
 import 'jspdf-autotable'
 import '../../assets/fonts/Koruri-Regular-normal'
