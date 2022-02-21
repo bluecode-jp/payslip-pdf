@@ -92,4 +92,9 @@
 .firstSubrow > label,
 .secondSubrow > label {
   max-width: 6rem;
+  align-self: center;
+}
+
+label.phone {
+  align-self: flex-end;
 }

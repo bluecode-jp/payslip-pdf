@@ -17,6 +17,10 @@ function SubForm1() {
             <div>
               <input type={'text'} />
             </div>
+            <label className={styles.phone}>(電話)</label>
+            <div>
+              <input type={'text'} />
+            </div>
           </div>
         </div>
       </div>
