@@ -169,7 +169,7 @@ function WithholdForm() {
     generateForm9(doc, { width: 80, top: 127.2, left: 5 }, formValues.form9)
     generateForm10(doc, { width: 120, top: 127.2, left: 85 }, formValues.form10)
     generateForm11(doc, { width: 80, top: 137.2, left: 5 }, formValues.form11)
-    generateForm12(doc, { width: 120, top: 147.2, left: 85 }, formValues.form12)
+    generateForm12(doc, { width: 120, top: 137.2, left: 85 }, formValues.form12)
     generateForm13(doc, { width: 200, top: 177.2, left: 5 }, formValues.form13)
     generateForm14(doc, { width: 200, top: 195.3, left: 5 }, formValues.form14)
 
