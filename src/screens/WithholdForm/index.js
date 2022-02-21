@@ -12,6 +12,7 @@ import {
   generateForm1,
   generateForm2,
   generateForm3,
+  generateForm4,
   generateHeader,
 } from './Forms/FormGeneration'
 
@@ -32,6 +33,27 @@ function WithholdForm() {
       amountAfter: { uchi: 2, sen: 2, yen: 2222 },
       totalDeduction: { uchi: 3, sen: 3, yen: 3333 },
       taxAmount: { uchi: 4, sen: 4, yen: 4444 },
+    },
+    form4: {
+      deductableSpouse: {
+        ari: '1',
+        elegible: '2',
+        roujin: '3',
+        deduction: { sen: 4, yen: 5 },
+      },
+      dependents: {
+        kids: { number: '6', elegible: '7' },
+        roujin: { uchi: '8', number: '9', elegible: '10' },
+        other: { number: '11', elegible: '12' },
+      },
+      under16: { number: '13' },
+      disability: {
+        tokubetsu: { uchi: '14', number: '15' },
+        other: { number: '16' },
+      },
+      nonResidents: {
+        number: '17',
+      },
     },
     // form1: {
     //   furigana: '',
@@ -68,7 +90,7 @@ function WithholdForm() {
     )
     generateForm2(doc, { width: 100, top: 15, left: 105 }, formValues.form2)
     generateForm3(doc, { width: 200, top: 33.92, left: 5 }, formValues.form3)
-    // generateForm3(doc, { width: 200, top: 44.92, left: 5 }, formValues.form3)
+    generateForm4(doc, { width: 200, top: 44.92, left: 5 }, formValues.form4)
 
     // generateTable1(doc, { width: 80, top: 10, left: 5 }, formValues.form1)
     // generateTable2(doc, { width: 120, top: 10, left: 85 }, formValues.form2)
