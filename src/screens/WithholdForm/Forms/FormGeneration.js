@@ -207,7 +207,6 @@ export const generateForm3 = (doc, { top, left, width }, formValues) => {
 }
 
 export const generateForm4 = (doc, { top, left, width }, formValues) => {
-  console.log(formValues)
   doc.setFont('MSMINCHO', 'normal')
   doc.autoTable({
     theme: 'grid',
@@ -583,16 +582,6 @@ export const generateForm8 = (doc, { top, left, width }, formValues) => {
       cellPadding: 1,
       fontSize: 5,
     },
-    // form8: {
-    //     specialDeductions: 111,
-    //     startOfResidence1: { day: '20', month: '05', year: '1993' },
-    //     kubun1: 222,
-    //     yearEndBalance1: 333,
-    //     specialDeductibleAmount: 111,
-    //     startOfResidence2: { day: '22', month: '05', year: '1993' },
-    //     kubun2: 222,
-    //     yearEndBalance2: 333,
-    //   }
     body: [
       [
         {
@@ -716,22 +705,21 @@ export const generateForm9 = (doc, { width, top, left }, tableValues) => {
         data.row.index == 1 &&
         (data.column.index == 2 || data.column.index == 1)
       ) {
-        doc.setDrawColor(255, 255, 255) // 色を変更
-        doc.setLineWidth(0.2) // 線の太さ
-        doc.setLineDashPattern([0.5, 0.2], 0) //破線破線のパターン. doc.setLineDashPattern([長さ何ミリ, ドットとドットの幅何ミリ], スタートの位置から何ミリ)
-        // もっと詳しく情報: https://artskydj.github.io/jsPDF/docs/jsPDF.html#setLineDashPattern
+        doc.setDrawColor(255, 255, 255)
+        doc.setLineWidth(0.2)
+        doc.setLineDashPattern([0.5, 0.2], 0)
         doc.line(
           data.cell.x,
           data.cell.y,
           data.cell.x + data.column.width,
           data.cell.y,
         )
-        doc.setLineDashPattern([1, 0], 0) // 破線破線のパターンをリセット (普通のラインに戻す)
-        doc.setDrawColor(0, 0, 0) // 色を変更
+        doc.setLineDashPattern([1, 0], 0)
+        doc.setDrawColor(0, 0, 0)
       }
       if (data.section == 'body' && data.row.index == 2) {
-        doc.setDrawColor(0, 0, 0) // 色を変更
-        doc.setLineWidth(0.1) // 線の太さ
+        doc.setDrawColor(0, 0, 0)
+        doc.setLineWidth(0.1)
         doc.line(
           data.cell.x,
           data.cell.y + data.cell.height,
@@ -740,9 +728,6 @@ export const generateForm9 = (doc, { width, top, left }, tableValues) => {
         )
       }
     },
-    // willDrawCell: data => {
-    //   // addDashedLine(doc, data)
-    // },
     body: [
       [
         { content: '(源泉・特別)\n控除対象\n配偶者', rowSpan: 3 },
@@ -905,23 +890,21 @@ export const generateForm11 = (doc, { width, top, left }, tableValues) => {
         },
       },
       didDrawCell: data => {
-        // console.log(data)
         if (
           data.row.index == 1 &&
           (data.column.index == 2 || data.column.index == 1)
         ) {
-          doc.setDrawColor(255, 255, 255) // 色を変更
-          doc.setLineWidth(0.2) // 線の太さ
-          doc.setLineDashPattern([0.5, 0.2], 0) //破線破線のパターン. doc.setLineDashPattern([長さ何ミリ, ドットとドットの幅何ミリ], スタートの位置から何ミリ)
-          // もっと詳しく情報: https://artskydj.github.io/jsPDF/docs/jsPDF.html#setLineDashPattern
+          doc.setDrawColor(255, 255, 255)
+          doc.setLineWidth(0.2)
+          doc.setLineDashPattern([0.5, 0.2], 0)
           doc.line(
             data.cell.x,
             data.cell.y,
             data.cell.x + data.column.width,
             data.cell.y,
           )
-          doc.setLineDashPattern([1, 0], 0) // 破線破線のパターンをリセット (普通のラインに戻す)
-          doc.setDrawColor(0, 0, 0) // 色を変更
+          doc.setLineDashPattern([1, 0], 0)
+          doc.setDrawColor(0, 0, 0)
         }
         if (data.section == 'body' && data.row.index == 2) {
           doc.setDrawColor(0, 0, 0)
@@ -934,9 +917,6 @@ export const generateForm11 = (doc, { width, top, left }, tableValues) => {
           )
         }
       },
-      // willDrawCell: data => {
-      //   // addDashedLine(doc, data)
-      // },
       body: [
         [
           { content: tableIndex + 1, rowSpan: 3 },
@@ -1024,23 +1004,21 @@ export const generateForm12 = (doc, { width, top, left }, tableValues) => {
         },
       },
       didDrawCell: data => {
-        // console.log(data)
         if (
           data.row.index == 1 &&
           (data.column.index == 2 || data.column.index == 1)
         ) {
-          doc.setDrawColor(255, 255, 255) // 色を変更
-          doc.setLineWidth(0.2) // 線の太さ
-          doc.setLineDashPattern([0.5, 0.2], 0) //破線破線のパターン. doc.setLineDashPattern([長さ何ミリ, ドットとドットの幅何ミリ], スタートの位置から何ミリ)
-          // もっと詳しく情報: https://artskydj.github.io/jsPDF/docs/jsPDF.html#setLineDashPattern
+          doc.setDrawColor(255, 255, 255)
+          doc.setLineWidth(0.2)
+          doc.setLineDashPattern([0.5, 0.2], 0)
           doc.line(
             data.cell.x,
             data.cell.y,
             data.cell.x + data.column.width,
             data.cell.y,
           )
-          doc.setLineDashPattern([1, 0], 0) // 破線破線のパターンをリセット (普通のラインに戻す)
-          doc.setDrawColor(0, 0, 0) // 色を変更
+          doc.setLineDashPattern([1, 0], 0)
+          doc.setDrawColor(0, 0, 0)
         }
         if (data.section == 'body' && data.row.index == 2) {
           doc.setDrawColor(0, 0, 0)
@@ -1112,4 +1090,75 @@ export const generateForm12 = (doc, { width, top, left }, tableValues) => {
   for (const tableIndex in [...Array(SECOND_TABLES_QNT)]) {
     generate_subtable(+tableIndex)
   }
+}
+
+export const generateForm13 = (doc, { top, left, width }, formValues) => {
+  doc.setFont('MSMINCHO', 'normal')
+  doc.autoTable({
+    theme: 'grid',
+    startY: top,
+    tableWidth: width,
+    margin: { left: left },
+    tableLineColor: 'black',
+    tableLineWidth: 0.01,
+    styles: {
+      valign: 'middle',
+      halign: 'center',
+      font: 'MSMINCHO',
+      fontStyle: 'normal',
+      textColor: 'black',
+      cellPadding: 1,
+      fontSize: 5,
+    },
+    body: [
+      [
+        { content: '未 成 年 者', rowSpan: 2 },
+        { content: '外 国 人', rowSpan: 2 },
+        { content: '死 亡 退 職', rowSpan: 2 },
+        { content: '災 害 者', rowSpan: 2 },
+        { content: '乙    欄', rowSpan: 2 },
+        { content: '本人が障害者', colSpan: 2 },
+        { content: '寡    婦', rowSpan: 2 },
+        { content: 'ひ と り 親', rowSpan: 2 },
+        { content: '勤 労 学 生', rowSpan: 2 },
+        { content: '', rowSpan: 3, styles: { cellWidth: 15 } },
+        { content: '中途就・退職', colSpan: 5 },
+        { content: '受給者生年月日', colSpan: 4 },
+      ],
+      [
+        '特別',
+        'そ の 他',
+        '就職',
+        '退職',
+        '年',
+        '月',
+        '日',
+        { content: '元号', styles: { cellWidth: 18 } },
+        '年',
+        '月',
+        '日',
+      ],
+      [
+        { content: formValues.minor, styles: { minCellHeight: 10 } },
+        formValues.foreigner,
+        formValues.deathRetirement,
+        formValues.disasterVictim,
+        formValues.otsuran,
+        formValues.disability.special,
+        formValues.disability.other,
+        formValues.widow,
+        formValues.singleParent,
+        formValues.workingStudent,
+        formValues.midOrRetirement.searching,
+        formValues.midOrRetirement.retired,
+        formValues.midOrRetirement.year,
+        formValues.midOrRetirement.month,
+        formValues.midOrRetirement.day,
+        formValues.beneficiary.number,
+        formValues.beneficiary.year,
+        formValues.beneficiary.month,
+        formValues.beneficiary.day,
+      ],
+    ],
+  })
 }

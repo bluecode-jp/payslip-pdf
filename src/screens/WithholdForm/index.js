@@ -13,6 +13,7 @@ import {
   generateForm10,
   generateForm11,
   generateForm12,
+  generateForm13,
   generateForm2,
   generateForm3,
   generateForm4,
@@ -114,6 +115,30 @@ function WithholdForm() {
       3: { furigana: '', name: '', kubun: '' },
       4: { furigana: '', name: '', kubun: '' },
     },
+    form13: {
+      minor: 1,
+      foreigner: 2,
+      deathRetirement: 3,
+      disasterVictim: 4,
+      otsuran: 5,
+      disability: { special: 6, other: 7 },
+      widow: 8,
+      singleParent: 9,
+      workingStudent: 10,
+      midOrRetirement: {
+        searching: 11,
+        retired: 12,
+        year: 13,
+        month: 14,
+        day: 15,
+      },
+      beneficiary: {
+        number: 16,
+        year: 17,
+        month: 18,
+        day: 19,
+      },
+    },
   })
   const onExport = async () => {
     const doc = new jsPDF()
@@ -134,6 +159,7 @@ function WithholdForm() {
     generateForm10(doc, { width: 120, top: 111.2, left: 85 }, formValues.form10)
     generateForm11(doc, { width: 80, top: 121.2, left: 5 }, formValues.form11)
     generateForm12(doc, { width: 120, top: 121.2, left: 85 }, formValues.form12)
+    generateForm13(doc, { width: 200, top: 161.2, left: 5 }, formValues.form13)
 
     // --------------------------------------
     window.open(doc.output('bloburl'), '_blank')
