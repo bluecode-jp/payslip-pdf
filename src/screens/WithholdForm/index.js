@@ -2,19 +2,9 @@ import './WithholdForm.css'
 import { jsPDF } from 'jspdf'
 import { useState } from 'react'
 import FormsGrid from './FormsGrid'
-
-import 'jspdf-autotable'
-import '../../assets/fonts/Koruri-Regular-normal'
-import '../../assets/fonts/Koruri-Bold-bold'
-import '../../assets/fonts/Koruri-Semibold-bold'
-import '../../assets/fonts/MSMINCHO-normal'
 import {
+  generateHeader,
   generateForm1,
-  generateForm10,
-  generateForm11,
-  generateForm12,
-  generateForm13,
-  generateForm14,
   generateForm2,
   generateForm3,
   generateForm4,
@@ -23,11 +13,22 @@ import {
   generateForm7,
   generateForm8,
   generateForm9,
-  generateHeader,
+  generateForm10,
+  generateForm11,
+  generateForm12,
+  generateForm13,
+  generateForm14,
 } from './Forms/FormGeneration'
+
+import 'jspdf-autotable'
+import '../../assets/fonts/Koruri-Regular-normal'
+import '../../assets/fonts/Koruri-Bold-bold'
+import '../../assets/fonts/Koruri-Semibold-bold'
+import '../../assets/fonts/MSMINCHO-normal'
 
 function WithholdForm() {
   const [formValues, setFormValues] = useState({
+    header: { year: 0 },
     form1: {
       jyusho: '東京都中野区中野２ー３２ー２３アドレスヒルス１０３',
     },
@@ -148,7 +149,11 @@ function WithholdForm() {
   })
   const onExport = async () => {
     const doc = new jsPDF()
-    generateHeader(doc, { top: 15, left: 61, fontSize: 15 }, 2)
+    generateHeader(
+      doc,
+      { top: 15, left: 61, fontSize: 15 },
+      formValues.header.year,
+    )
     generateForm1(
       doc,
       { width: 100, height: 18.92, top: 25, left: 5 },

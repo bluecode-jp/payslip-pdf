@@ -17,53 +17,52 @@ import Form13 from './Forms/Form13'
 import Form14 from './Forms/Form14'
 
 const FormsGrid = ({ formValues, setFormValues }) => {
-  console.log(formValues, setFormValues)
   return (
     <div className={'grid-wrapper'}>
       <div className="section section1">
-        <Header />
+        <Header {...{ formValues, setFormValues }} />
       </div>
       <div className="section section2">
-        <Form1 />
+        <Form1 {...{ formValues, setFormValues }} />
       </div>
       <div className="section section3">
-        <Form2 />
+        <Form2 {...{ formValues, setFormValues }} />
       </div>
       <div className="section section4">
-        <Form3 />
+        <Form3 {...{ formValues, setFormValues }} />
       </div>
       <div className="section section5">
-        <Form4 />
+        <Form4 {...{ formValues, setFormValues }} />
       </div>
       <div className="section section6">
-        <Form5 />
+        <Form5 {...{ formValues, setFormValues }} />
       </div>
       <div className="section section7">
-        <Form6 />
+        <Form6 {...{ formValues, setFormValues }} />
       </div>
       <div className="section section8">
-        <Form7 />
+        <Form7 {...{ formValues, setFormValues }} />
       </div>
       <div className="section section9">
-        <Form8 />
+        <Form8 {...{ formValues, setFormValues }} />
       </div>
       <div className="section section10">
-        <Form9 />
+        <Form9 {...{ formValues, setFormValues }} />
       </div>
       <div className="section section11">
-        <Form10 />
+        <Form10 {...{ formValues, setFormValues }} />
       </div>
       <div className="section section12">
-        <Form11 />
+        <Form11 {...{ formValues, setFormValues }} />
       </div>
       <div className="section section13">
-        <Form12 />
+        <Form12 {...{ formValues, setFormValues }} />
       </div>
       <div className="section section14">
-        <Form13 />
+        <Form13 {...{ formValues, setFormValues }} />
       </div>
       <div className="section section15">
-        <Form14 />
+        <Form14 {...{ formValues, setFormValues }} />
       </div>
     </div>
   )
