@@ -664,7 +664,7 @@ export const generateForm8 = (doc, { top, left, width }, formValues) => {
   })
 }
 
-export const generateForm9 = (doc, { width, top, left }, tableValues) => {
+export const generateForm9 = (doc, { width, top, left }, formValues) => {
   doc.setFont('MSMINCHO', 'normal')
 
   doc.autoTable({
@@ -732,17 +732,17 @@ export const generateForm9 = (doc, { width, top, left }, tableValues) => {
       [
         { content: '(源泉・特別)\n控除対象\n配偶者', rowSpan: 3 },
         '(フリガナ)',
-        tableValues.furigana,
+        formValues.furigana,
         { content: '区\n分', rowSpan: 2 },
-        { content: tableValues.kubun, rowSpan: 2 },
+        { content: formValues.kubun, rowSpan: 2 },
       ],
-      ['氏名', tableValues.name],
+      ['氏名', formValues.name],
       [{ content: '', colSpan: 4 }],
     ],
   })
 }
 
-export const generateForm10 = (doc, { width, top, left }, tableValues) => {
+export const generateForm10 = (doc, { width, top, left }, formValues) => {
   doc.setFont('MSMINCHO', 'normal')
 
   doc.autoTable({
@@ -806,23 +806,23 @@ export const generateForm10 = (doc, { width, top, left }, tableValues) => {
     body: [
       [
         { content: '配偶者の\n合計所得', rowSpan: 2 },
-        { content: tableValues.totalIncome, rowSpan: 2 },
+        { content: formValues.totalIncome, rowSpan: 2 },
         { content: '国民年金保険\n料等の金額' },
-        { content: tableValues.pension },
+        { content: formValues.pension },
         { content: '旧長期損害\n保険料の金額' },
-        { content: tableValues.insurance },
+        { content: formValues.insurance },
       ],
       [
         '基礎控除の額',
-        tableValues.basicDeduction,
+        formValues.basicDeduction,
         '所得金額\n調整控除額',
-        tableValues.adjustment,
+        formValues.adjustment,
       ],
     ],
   })
 }
 
-export const generateForm11 = (doc, { width, top, left }, tableValues) => {
+export const generateForm11 = (doc, { width, top, left }, formValues) => {
   doc.setFont('MSMINCHO', 'normal')
 
   const FIRST_TABLE_WIDTH = 3
@@ -921,11 +921,11 @@ export const generateForm11 = (doc, { width, top, left }, tableValues) => {
         [
           { content: tableIndex + 1, rowSpan: 3 },
           '(フリガナ)',
-          tableValues[tableIndex + 1].furigana,
+          formValues[tableIndex + 1].furigana,
           { content: '区\n分', rowSpan: 2 },
-          { content: tableValues[tableIndex + 1].kubun, rowSpan: 2 },
+          { content: formValues[tableIndex + 1].kubun, rowSpan: 2 },
         ],
-        ['氏名', tableValues[tableIndex + 1].name],
+        ['氏名', formValues[tableIndex + 1].name],
         [{ content: '', colSpan: 4 }],
       ],
     })
@@ -935,7 +935,7 @@ export const generateForm11 = (doc, { width, top, left }, tableValues) => {
   }
 }
 
-export const generateForm12 = (doc, { width, top, left }, tableValues) => {
+export const generateForm12 = (doc, { width, top, left }, formValues) => {
   doc.setFont('MSMINCHO', 'normal')
 
   const FIRST_TABLE_WIDTH = 3
@@ -1035,11 +1035,11 @@ export const generateForm12 = (doc, { width, top, left }, tableValues) => {
         [
           { content: tableIndex + 1, rowSpan: 3 },
           '(フリガナ)',
-          tableValues[tableIndex + 1].furigana,
+          formValues[tableIndex + 1].furigana,
           { content: '区\n分', rowSpan: 2 },
-          { content: tableValues[tableIndex + 1].kubun, rowSpan: 2 },
+          { content: formValues[tableIndex + 1].kubun, rowSpan: 2 },
         ],
-        ['氏名', tableValues[tableIndex + 1].name],
+        ['氏名', formValues[tableIndex + 1].name],
         [{ content: '', colSpan: 4 }],
       ],
     })
@@ -1160,5 +1160,77 @@ export const generateForm13 = (doc, { top, left, width }, formValues) => {
         formValues.beneficiary.day,
       ],
     ],
+  })
+}
+
+export const generateForm14 = (doc, { width, top, left }, formValues) => {
+  doc.setFont('MSMINCHO', 'normal')
+
+  doc.autoTable({
+    theme: 'grid',
+    startY: top,
+    tableWidth: width,
+    margin: { left: left },
+    tableLineColor: 'black',
+    tableLineWidth: 0.01,
+    styles: {
+      valign: 'middle',
+      font: 'MSMINCHO',
+      fontStyle: 'normal',
+      textColor: 'black',
+      cellPadding: 0.3,
+      fontSize: 5,
+    },
+    body: [
+      [
+        {
+          content: '支\n払\n者',
+          rowSpan: 3,
+          styles: { cellWidth: 5, halign: 'center' },
+        },
+        { content: '', colSpan: 3, styles: { minCellHeight: 5 } },
+      ],
+      [
+        {
+          content: '住所(居所)又は所在地',
+          styles: { cellWidth: 20, halign: 'center' },
+        },
+        { content: formValues.jyusho, colSpan: 2 },
+      ],
+      [
+        { content: '氏名又は名称', styles: { halign: 'center' } },
+        formValues.name,
+        formValues.phone,
+      ],
+    ],
+    didDrawCell: data => {
+      console.log(data)
+      if (data.row.index == 0 && data.column.index == 1) {
+        doc.setDrawColor(0, 0, 0)
+        doc.setLineWidth(0.1)
+        doc.line(
+          data.cell.x,
+          data.cell.y + data.cell.height,
+          data.cell.x + data.cell.width,
+          data.cell.y,
+        )
+      }
+      if (data.row.index == 2 && data.column.index == 3) {
+        doc.setDrawColor('white')
+        doc.setLineWidth(0.5)
+        doc.line(
+          data.cell.x,
+          data.cell.y + 0.05,
+          data.cell.x,
+          data.cell.y + data.cell.height - 0.05,
+        )
+        doc.setFontSize(4)
+        doc.text(
+          '(電話)',
+          data.cell.x - 5,
+          data.cell.y + data.cell.height - 0.5,
+        )
+      }
+    },
   })
 }

@@ -14,6 +14,7 @@ import {
   generateForm11,
   generateForm12,
   generateForm13,
+  generateForm14,
   generateForm2,
   generateForm3,
   generateForm4,
@@ -139,6 +140,11 @@ function WithholdForm() {
         day: 19,
       },
     },
+    form14: {
+      jyusho: '東京都中野区中野２ー３２ー２３アドレスヒルス１０３',
+      name: 'Sergi Nogal',
+      phone: '090-9709-1353',
+    },
   })
   const onExport = async () => {
     const doc = new jsPDF()
@@ -160,6 +166,7 @@ function WithholdForm() {
     generateForm11(doc, { width: 80, top: 121.2, left: 5 }, formValues.form11)
     generateForm12(doc, { width: 120, top: 121.2, left: 85 }, formValues.form12)
     generateForm13(doc, { width: 200, top: 161.2, left: 5 }, formValues.form13)
+    generateForm14(doc, { width: 200, top: 179.3, left: 5 }, formValues.form14)
 
     // --------------------------------------
     window.open(doc.output('bloburl'), '_blank')
