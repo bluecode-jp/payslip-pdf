@@ -367,6 +367,110 @@ export const generateForm4 = (doc, { top, left, width }, formValues) => {
   })
 }
 
+export const generateForm5 = (doc, { top, left, width }, formValues) => {
+  doc.setFont('MSMINCHO', 'normal')
+  doc.autoTable({
+    theme: 'grid',
+    startY: top,
+    tableWidth: width,
+    margin: { left: left },
+    tableLineColor: 'black',
+    tableLineWidth: 0.01,
+    styles: {
+      halign: 'center',
+      valign: 'middle',
+      font: 'MSMINCHO',
+      fontStyle: 'normal',
+      textColor: 'black',
+      cellPadding: 1,
+      fontSize: 5,
+      cellWidth: 50,
+    },
+    body: [
+      [
+        {
+          content: '社会保険料等の金額',
+        },
+        { content: '生命保険料の控除額' },
+        {
+          content: '地震保険料の控除額',
+        },
+        { content: '住宅借入金等特別控除の額' },
+      ],
+    ],
+  })
+  doc.autoTable({
+    theme: 'grid',
+    startY: top + 4,
+    tableWidth: width,
+    margin: { left: left },
+    tableLineColor: 'black',
+    tableLineWidth: 0.01,
+    styles: {
+      halign: 'center',
+      valign: 'middle',
+      font: 'MSMINCHO',
+      fontStyle: 'normal',
+      textColor: 'black',
+      cellPadding: 1,
+      fontSize: 5,
+      cellWidth: 25,
+      minCellHeight: 7,
+    },
+    body: [
+      [
+        { content: formValues.socialInsurance.sen },
+        { content: formValues.socialInsurance.yen },
+        { content: formValues.lifeInsurance.sen },
+        { content: formValues.lifeInsurance.yen },
+        { content: formValues.earthquakeInsurance.sen },
+        { content: formValues.earthquakeInsurance.yen },
+        { content: formValues.specialDeduction.sen },
+        { content: formValues.specialDeduction.yen },
+      ],
+    ],
+    didDrawCell: data => {
+      if (data.column.index == 0) {
+        doc.setFontSize(3)
+        const OFFSET = 1.5
+        doc.text('内', data.cell.x + OFFSET, data.cell.y + OFFSET)
+        doc.text(
+          '千',
+          data.cell.x + data.column.width - OFFSET,
+          data.cell.y + OFFSET,
+        )
+      }
+      if (
+        data.column.index == 2 ||
+        data.column.index == 4 ||
+        data.column.index == 6
+      ) {
+        doc.setFontSize(3)
+        const OFFSET = 1.5
+        doc.text(
+          '千',
+          data.cell.x + data.column.width - OFFSET,
+          data.cell.y + OFFSET,
+        )
+      }
+      if (
+        data.column.index == 1 ||
+        data.column.index == 3 ||
+        data.column.index == 5 ||
+        data.column.index == 7
+      ) {
+        doc.setFontSize(3)
+        const OFFSET = 1.5
+        doc.text(
+          '円',
+          data.cell.x + data.column.width - OFFSET,
+          data.cell.y + OFFSET,
+        )
+      }
+    },
+  })
+}
+
 // export const generateTable1 = (doc, { width, top, left }, tableValues) => {
 //   doc.setFont('MSMINCHO', 'normal')
 

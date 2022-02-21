@@ -13,6 +13,7 @@ import {
   generateForm2,
   generateForm3,
   generateForm4,
+  generateForm5,
   generateHeader,
 } from './Forms/FormGeneration'
 
@@ -55,6 +56,12 @@ function WithholdForm() {
         number: '17',
       },
     },
+    form5: {
+      socialInsurance: { sen: 1, yen: 111 },
+      lifeInsurance: { sen: 2, yen: 222 },
+      earthquakeInsurance: { sen: 3, yen: 333 },
+      specialDeduction: { sen: 4, yen: 444 },
+    },
     // form1: {
     //   furigana: '',
     //   name: '',
@@ -91,6 +98,7 @@ function WithholdForm() {
     generateForm2(doc, { width: 100, top: 15, left: 105 }, formValues.form2)
     generateForm3(doc, { width: 200, top: 33.92, left: 5 }, formValues.form3)
     generateForm4(doc, { width: 200, top: 44.92, left: 5 }, formValues.form4)
+    generateForm5(doc, { width: 200, top: 68, left: 5 }, formValues.form5)
 
     // generateTable1(doc, { width: 80, top: 10, left: 5 }, formValues.form1)
     // generateTable2(doc, { width: 120, top: 10, left: 85 }, formValues.form2)
