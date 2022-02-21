@@ -1160,6 +1160,18 @@ export const generateForm13 = (doc, { top, left, width }, formValues) => {
         formValues.beneficiary.day,
       ],
     ],
+    didDrawCell: data => {
+      if (data.column.index == 10) {
+        doc.setDrawColor(0, 0, 0)
+        doc.setLineWidth(0.1)
+        doc.line(
+          data.cell.x,
+          data.cell.y + data.cell.height,
+          data.cell.x + data.cell.width,
+          data.cell.y,
+        )
+      }
+    },
   })
 }
 
