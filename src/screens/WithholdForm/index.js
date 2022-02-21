@@ -10,6 +10,7 @@ import '../../assets/fonts/Koruri-Semibold-bold'
 import '../../assets/fonts/MSMINCHO-normal'
 import {
   generateForm1,
+  generateForm10,
   generateForm2,
   generateForm3,
   generateForm4,
@@ -17,6 +18,7 @@ import {
   generateForm6,
   generateForm7,
   generateForm8,
+  generateForm9,
   generateHeader,
 } from './Forms/FormGeneration'
 
@@ -86,18 +88,18 @@ function WithholdForm() {
       kubun2: 222,
       yearEndBalance2: 333,
     },
-    // form1: {
-    //   furigana: '',
-    //   name: '',
-    //   kubun: '',
-    // },
-    // form2: {
-    //   totalIncome: 0,
-    //   pension: 0,
-    //   insurance: 0,
-    //   basicDeduction: 0,
-    //   adjustment: 0,
-    // },
+    form9: {
+      furigana: '',
+      name: '',
+      kubun: '',
+    },
+    form10: {
+      totalIncome: 0,
+      pension: 0,
+      insurance: 0,
+      basicDeduction: 0,
+      adjustment: 0,
+    },
     // form3: {
     //   1: { furigana: '', name: '', kubun: '' },
     //   2: { furigana: '', name: '', kubun: '' },
@@ -126,9 +128,9 @@ function WithholdForm() {
     generateForm6(doc, { width: 200, top: 79, left: 5 }, formValues.form6)
     generateForm7(doc, { width: 200, top: 89, left: 5 }, formValues.form7)
     generateForm8(doc, { width: 200, top: 95, left: 5 }, formValues.form7)
+    generateForm9(doc, { width: 80, top: 111.2, left: 5 }, formValues.form9)
+    generateForm10(doc, { width: 120, top: 111.2, left: 85 }, formValues.form10)
 
-    // generateTable1(doc, { width: 80, top: 10, left: 5 }, formValues.form1)
-    // generateTable2(doc, { width: 120, top: 10, left: 85 }, formValues.form2)
     // generateTable3(doc, { width: 80, top: 20, left: 5 }, formValues.form3)
     // generateTable4(doc, { width: 120, top: 20, left: 85 }, formValues.form4)
     // --------------------------------------
