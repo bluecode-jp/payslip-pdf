@@ -81,15 +81,19 @@ export const generateForm2 = (doc, { top, left, width }, formValues) => {
       [{ content: formValues.name }],
     ],
     didDrawCell: data => {
+      // ------------------------------------------
+      // --------------- Form 2の斜線 --------------
+      // ------------------------------------------
       if (data.row.index == 1) {
-        doc.setDrawColor(0, 0, 0)
-        doc.setLineWidth(0.15)
+        doc.setDrawColor(0, 0, 0) // 色を変更
+        doc.setLineWidth(0.15) // 線の太さ
         doc.line(
           data.cell.x,
           data.cell.y + data.cell.height,
           data.cell.x + width,
           data.cell.y,
-        )
+        ) // doc.line(スタートの位置左から何ミリ, スタートの位置上から何ミリ, エンドの位置左から何ミリ, エンドの位置上から何ミリ)
+        // もっと詳しく情報: https://artskydj.github.io/jsPDF/docs/jsPDF.html#line
       }
     },
   })
@@ -294,19 +298,24 @@ export const generateForm4 = (doc, { top, left, width }, formValues) => {
       }
     },
     didDrawCell: data => {
+      // ------------------------------------------
+      // --------------- Form 4の点線 --------------
+      // ------------------------------------------
       if (
         data.row.index == 2 &&
         (data.column.index == 8 || data.column.index == 14)
       ) {
-        doc.setDrawColor(255, 255, 255)
-        doc.setLineWidth(0.2)
-        doc.setLineDashPattern([0.5, 0.2], 0)
+        doc.setDrawColor(255, 255, 255) // 色を変更
+        doc.setLineWidth(0.2) // 線の太さ
+        doc.setLineDashPattern([0.5, 0.2], 0) //破線破線のパターン. doc.setLineDashPattern([長さ何ミリ, ドットとドットの幅何ミリ], スタートの位置から何ミリ)
+        // もっと詳しく情報: https://artskydj.github.io/jsPDF/docs/jsPDF.html#setLineDashPattern
         doc.line(
           data.cell.x,
           data.cell.y,
           data.cell.x,
           data.cell.y + data.cell.height,
-        )
+        ) // doc.line(スタートの位置左から何ミリ, スタートの位置上から何ミリ, エンドの位置左から何ミリ, エンドの位置上から何ミリ)
+        // もっと詳しく情報: https://artskydj.github.io/jsPDF/docs/jsPDF.html#line
         doc.setLineDashPattern([1, 0], 0)
         doc.setDrawColor(0, 0, 0)
       }
@@ -719,31 +728,40 @@ export const generateForm9 = (doc, { width, top, left }, formValues) => {
       },
     },
     didDrawCell: data => {
+      // ------------------------------------------
+      // --------------- Form 9の点線 --------------
+      // ------------------------------------------
       if (
         data.row.index == 1 &&
         (data.column.index == 2 || data.column.index == 1)
       ) {
-        doc.setDrawColor(255, 255, 255)
-        doc.setLineWidth(0.2)
-        doc.setLineDashPattern([0.5, 0.2], 0)
+        doc.setDrawColor(255, 255, 255) // 色を変更
+        doc.setLineWidth(0.2) // 線の太さ
+        doc.setLineDashPattern([0.5, 0.2], 0) //破線破線のパターン. doc.setLineDashPattern([長さ何ミリ, ドットとドットの幅何ミリ], スタートの位置から何ミリ)
+        // もっと詳しく情報: https://artskydj.github.io/jsPDF/docs/jsPDF.html#setLineDashPattern
         doc.line(
           data.cell.x,
           data.cell.y,
           data.cell.x + data.column.width,
           data.cell.y,
-        )
+        ) // doc.line(スタートの位置左から何ミリ, スタートの位置上から何ミリ, エンドの位置左から何ミリ, エンドの位置上から何ミリ)
+        // もっと詳しく情報: https://artskydj.github.io/jsPDF/docs/jsPDF.html#line
         doc.setLineDashPattern([1, 0], 0)
         doc.setDrawColor(0, 0, 0)
       }
-      if (data.section == 'body' && data.row.index == 2) {
+      // ------------------------------------------
+      // --------------- Form 9の斜線 --------------
+      // ------------------------------------------
+      if (data.row.index == 2) {
         doc.setDrawColor(0, 0, 0)
         doc.setLineWidth(0.1)
         doc.line(
           data.cell.x,
           data.cell.y + data.cell.height,
-          data.cell.x + (width - 10),
+          data.cell.x + data.cell.width,
           data.cell.y,
-        )
+        ) // doc.line(スタートの位置左から何ミリ, スタートの位置上から何ミリ, エンドの位置左から何ミリ, エンドの位置上から何ミリ)
+        // もっと詳しく情報: https://artskydj.github.io/jsPDF/docs/jsPDF.html#line
       }
     },
     body: [
@@ -908,31 +926,40 @@ export const generateForm11 = (doc, { width, top, left }, formValues) => {
         },
       },
       didDrawCell: data => {
+        // ------------------------------------------
+        // --------------- Form 11の点線 --------------
+        // ------------------------------------------
         if (
           data.row.index == 1 &&
           (data.column.index == 2 || data.column.index == 1)
         ) {
-          doc.setDrawColor(255, 255, 255)
-          doc.setLineWidth(0.2)
-          doc.setLineDashPattern([0.5, 0.2], 0)
+          doc.setDrawColor(255, 255, 255) // 色を変更
+          doc.setLineWidth(0.2) // 線の太さ
+          doc.setLineDashPattern([0.5, 0.2], 0) //破線破線のパターン. doc.setLineDashPattern([長さ何ミリ, ドットとドットの幅何ミリ], スタートの位置から何ミリ)
+          // もっと詳しく情報: https://artskydj.github.io/jsPDF/docs/jsPDF.html#setLineDashPattern
           doc.line(
             data.cell.x,
             data.cell.y,
-            data.cell.x + data.column.width,
+            data.cell.x + data.cell.width,
             data.cell.y,
-          )
+          ) // doc.line(スタートの位置左から何ミリ, スタートの位置上から何ミリ, エンドの位置左から何ミリ, エンドの位置上から何ミリ)
+          // もっと詳しく情報: https://artskydj.github.io/jsPDF/docs/jsPDF.html#line
           doc.setLineDashPattern([1, 0], 0)
           doc.setDrawColor(0, 0, 0)
         }
-        if (data.section == 'body' && data.row.index == 2) {
+        // ------------------------------------------
+        // --------------- Form 11の斜線 --------------
+        // ------------------------------------------
+        if (data.row.index == 2) {
           doc.setDrawColor(0, 0, 0)
           doc.setLineWidth(0.1)
           doc.line(
             data.cell.x,
             data.cell.y + data.cell.height,
-            data.cell.x + (width - 2.5 - FIRST_TABLE_WIDTH),
+            data.cell.x + data.cell.width,
             data.cell.y,
-          )
+          ) // doc.line(スタートの位置左から何ミリ, スタートの位置上から何ミリ, エンドの位置左から何ミリ, エンドの位置上から何ミリ)
+          // もっと詳しく情報: https://artskydj.github.io/jsPDF/docs/jsPDF.html#line
         }
       },
       body: [
@@ -1022,31 +1049,40 @@ export const generateForm12 = (doc, { width, top, left }, formValues) => {
         },
       },
       didDrawCell: data => {
+        // ------------------------------------------
+        // --------------- Form 12の点線 --------------
+        // ------------------------------------------
         if (
           data.row.index == 1 &&
           (data.column.index == 2 || data.column.index == 1)
         ) {
-          doc.setDrawColor(255, 255, 255)
-          doc.setLineWidth(0.2)
-          doc.setLineDashPattern([0.5, 0.2], 0)
+          doc.setDrawColor(255, 255, 255) // 色を変更
+          doc.setLineWidth(0.2) // 線の太さ
+          doc.setLineDashPattern([0.5, 0.2], 0) //破線破線のパターン. doc.setLineDashPattern([長さ何ミリ, ドットとドットの幅何ミリ], スタートの位置から何ミリ)
+          // もっと詳しく情報: https://artskydj.github.io/jsPDF/docs/jsPDF.html#setLineDashPattern
           doc.line(
             data.cell.x,
             data.cell.y,
             data.cell.x + data.column.width,
             data.cell.y,
-          )
+          ) // doc.line(スタートの位置左から何ミリ, スタートの位置上から何ミリ, エンドの位置左から何ミリ, エンドの位置上から何ミリ)
+          // もっと詳しく情報: https://artskydj.github.io/jsPDF/docs/jsPDF.html#line
           doc.setLineDashPattern([1, 0], 0)
           doc.setDrawColor(0, 0, 0)
         }
-        if (data.section == 'body' && data.row.index == 2) {
+        // ------------------------------------------
+        // --------------- Form 12の斜線 --------------
+        // ------------------------------------------
+        if (data.row.index == 2) {
           doc.setDrawColor(0, 0, 0)
           doc.setLineWidth(0.1)
           doc.line(
             data.cell.x,
             data.cell.y + data.cell.height,
-            data.cell.x + (width - 2.5 - FIRST_TABLE_WIDTH - THIRD_TABLE_WIDTH),
+            data.cell.x + data.cell.width,
             data.cell.y,
-          )
+          ) // doc.line(スタートの位置左から何ミリ, スタートの位置上から何ミリ, エンドの位置左から何ミリ, エンドの位置上から何ミリ)
+          // もっと詳しく情報: https://artskydj.github.io/jsPDF/docs/jsPDF.html#line
         }
       },
       body: [
@@ -1091,15 +1127,19 @@ export const generateForm12 = (doc, { width, top, left }, formValues) => {
       },
     },
     didDrawCell: data => {
+      // ------------------------------------------
+      // --------------- Form 12の斜線 --------------
+      // ------------------------------------------
       if (data.row.index == 0) {
-        doc.setDrawColor(0, 0, 0)
-        doc.setLineWidth(0.1)
+        doc.setDrawColor(0, 0, 0) // 色を変更
+        doc.setLineWidth(0.1) // 線の太さ
         doc.line(
           data.cell.x,
           data.cell.y + data.cell.height,
-          data.cell.x + THIRD_TABLE_WIDTH,
+          data.cell.x + data.cell.width,
           data.cell.y,
-        )
+        ) // doc.line(スタートの位置左から何ミリ, スタートの位置上から何ミリ, エンドの位置左から何ミリ, エンドの位置上から何ミリ)
+        // もっと詳しく情報: https://artskydj.github.io/jsPDF/docs/jsPDF.html#line
       }
     },
     body: [['']],
@@ -1179,15 +1219,19 @@ export const generateForm13 = (doc, { top, left, width }, formValues) => {
       ],
     ],
     didDrawCell: data => {
+      // ------------------------------------------
+      // --------------- Form 13の斜線 --------------
+      // ------------------------------------------
       if (data.column.index == 10) {
-        doc.setDrawColor(0, 0, 0)
-        doc.setLineWidth(0.1)
+        doc.setDrawColor(0, 0, 0) // 色を変更
+        doc.setLineWidth(0.1) // 線の太さ
         doc.line(
           data.cell.x,
           data.cell.y + data.cell.height,
           data.cell.x + data.cell.width,
           data.cell.y,
-        )
+        ) // doc.line(スタートの位置左から何ミリ, スタートの位置上から何ミリ, エンドの位置左から何ミリ, エンドの位置上から何ミリ)
+        // もっと詳しく情報: https://artskydj.github.io/jsPDF/docs/jsPDF.html#line
       }
     },
   })
@@ -1235,15 +1279,19 @@ export const generateForm14 = (doc, { width, top, left }, formValues) => {
       ],
     ],
     didDrawCell: data => {
+      // ------------------------------------------
+      // --------------- Form 14の斜線 --------------
+      // ------------------------------------------
       if (data.row.index == 0 && data.column.index == 1) {
-        doc.setDrawColor(0, 0, 0)
-        doc.setLineWidth(0.1)
+        doc.setDrawColor(0, 0, 0) // 色を変更
+        doc.setLineWidth(0.1) // 線の太さ
         doc.line(
           data.cell.x,
           data.cell.y + data.cell.height,
           data.cell.x + data.cell.width,
           data.cell.y,
-        )
+        ) // doc.line(スタートの位置左から何ミリ, スタートの位置上から何ミリ, エンドの位置左から何ミリ, エンドの位置上から何ミリ)
+        // もっと詳しく情報: https://artskydj.github.io/jsPDF/docs/jsPDF.html#line
       }
       if (data.row.index == 2 && data.column.index == 3) {
         doc.setDrawColor('white')
