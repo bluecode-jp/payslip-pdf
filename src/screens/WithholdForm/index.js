@@ -47,9 +47,9 @@ function WithholdForm() {
     },
     form4: {
       deductableSpouse: {
-        ari: '1',
-        elegible: '2',
-        roujin: '3',
+        ari: '',
+        elegible: '',
+        roujin: '',
         deduction: { sen: 4, yen: 5 },
       },
       dependents: {
