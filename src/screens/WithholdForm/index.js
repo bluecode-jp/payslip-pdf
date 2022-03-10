@@ -1,4 +1,5 @@
 import './WithholdForm.css'
+import axios from 'axios'
 import { jsPDF } from 'jspdf'
 import { useState } from 'react'
 import FormsGrid from './FormsGrid'
@@ -173,16 +174,54 @@ function WithholdForm() {
     generateForm14(doc, { width: 200, top: 195.3, left: 5 }, formValues.form14)
 
     // --------------------------------------
-    const url = `/payslip-pdf?pdfurl=${doc.output('bloburl')}`
-    window.open(
-      url,
-      'window',
-      'toolbar=0,location=0,scrollbars=1,statusbar=1,menubar=0,resizable=1,width=' +
-        window.outerWidth +
-        ',height=' +
-        window.outerHeight +
-        ',left=0,top=0',
-    )
+
+    // --------------------------------------
+    // AxiosでPOST APIを呼び出す
+    // --------------------------------------
+
+    const URL = 'http://localhost:3003/pdf/upload-file' // <-- APIのURL
+    const blob = doc.output('blob')
+    const data = new FormData()
+    data.append('file', blob, `${Date.now().toString()}.pdf`)
+    const config = {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    }
+    // --------------------------------------
+    // AxiosでPromiseを使って、APIを呼び出す
+    // --------------------------------------
+
+    // axios
+    //   .post(URL, data, config)
+    //   .then(res => console.log(res))
+    //   .catch(err => console.log(err))
+
+    // --------------------------------------
+    // AxiosでAsync/Awaitを使って、APIを呼び出す
+    // --------------------------------------
+
+    try {
+      const res = await axios.post(URL, data, config)
+      console.log(res)
+    } catch (err) {
+      console.log(err)
+    }
+
+    // --------------------------------------
+    // URLで開く
+    // --------------------------------------
+
+    // const url = `/payslip-pdf?pdfurl=${doc.output('bloburl')}`
+    // window.open(
+    //   url,
+    //   'window',
+    //   'toolbar=0,location=0,scrollbars=1,statusbar=1,menubar=0,resizable=1,width=' +
+    //     window.outerWidth +
+    //     ',height=' +
+    //     window.outerHeight +
+    //     ',left=0,top=0',
+    // )
   }
   return (
     <div className={'withhold-form-wrapper'}>
