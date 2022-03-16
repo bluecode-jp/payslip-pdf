@@ -1,7 +1,7 @@
 import './WithholdForm.css'
-import axios from 'axios'
 import { jsPDF } from 'jspdf'
 import { useState } from 'react'
+import { downloadBlob } from '../../utils/utils'
 import FormsGrid from './FormsGrid'
 import {
   generateHeader,
@@ -179,15 +179,15 @@ function WithholdForm() {
     // AxiosでPOST APIを呼び出す
     // --------------------------------------
 
-    const URL = 'http://localhost:3003/pdf/upload-file' // <-- APIのURL
-    const blob = doc.output('blob')
-    const data = new FormData()
-    data.append('file', blob, `${Date.now().toString()}.pdf`)
-    const config = {
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-    }
+    // const URL = 'http://localhost:3003/pdf/upload-file' // <-- APIのURL
+    // const blob = doc.output('blob')
+    // const data = new FormData()
+    // data.append('file', blob, `${Date.now().toString()}.pdf`)
+    // const config = {
+    //   headers: {
+    //     'Content-Type': 'multipart/form-data',
+    //   },
+    // }
     // --------------------------------------
     // AxiosでPromiseを使って、APIを呼び出す
     // --------------------------------------
@@ -201,12 +201,12 @@ function WithholdForm() {
     // AxiosでAsync/Awaitを使って、APIを呼び出す
     // --------------------------------------
 
-    try {
-      const res = await axios.post(URL, data, config)
-      console.log(res)
-    } catch (err) {
-      console.log(err)
-    }
+    // try {
+    //   const res = await axios.post(URL, data, config)
+    //   console.log(res)
+    // } catch (err) {
+    //   console.log(err)
+    // }
 
     // --------------------------------------
     // URLで開く
@@ -222,6 +222,8 @@ function WithholdForm() {
     //     window.outerHeight +
     //     ',left=0,top=0',
     // )
+
+    downloadBlob(doc.output('blob'))
   }
   return (
     <div className={'withhold-form-wrapper'}>
