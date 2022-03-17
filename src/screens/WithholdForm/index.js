@@ -222,8 +222,8 @@ function WithholdForm() {
     //     window.outerHeight +
     //     ',left=0,top=0',
     // )
-
-    downloadBlob(doc.output('blob'))
+    const originalBlob = doc.output('blob') // jsPDFからバイナリデータのオブジェクト（Blob）を取得
+    downloadBlob(originalBlob) // downloadBlob関数にバイナリデータのオブジェクト（Blob）を送ります
   }
   return (
     <div className={'withhold-form-wrapper'}>

@@ -18,19 +18,18 @@ const dateInYYYYMMDD = () => {
 const downloadBlob = (blob, filename = Date.now()) => {
   const newBlob = new Blob([blob], {
     type: 'application/octet-stream',
-  })
-
-  const link = document.createElement('a')
-  link.style.display = 'none'
-  link.href = URL.createObjectURL(newBlob)
+  }) // MIME Type octet-streamに変更
+  const link = document.createElement('a') // HTMLの<a>を作って
+  link.style.display = 'none' // サイトに見せないため、display = none
+  link.href = URL.createObjectURL(newBlob) // クライアント(ブラウザ) のメモリに保存された blobに アクセス可能なURLを生成
   link.download = filename + '.pdf'
 
-  document.body.appendChild(link)
-  link.click()
+  document.body.appendChild(link) // DOMに追加します
+  link.click() // URLのリンクをクリック
 
   setTimeout(() => {
-    URL.revokeObjectURL(link.href)
-    link.parentNode.removeChild(link)
+    URL.revokeObjectURL(link.href) // URL.revokeObjectURL を使ってメモリ開放
+    link.parentNode.removeChild(link) //DOMで削除します
   }, 0)
 }
 
